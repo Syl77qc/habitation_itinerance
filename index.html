@@ -10,19 +10,19 @@
   --bg:#f7f5f0; --fg:#1b2430; --muted:#5d6773; --line:#ddd7ca; --panel:#ffffff; --chip:#eee9de;
   --accent:#2a6fa0;
   --go:#2e7d4f; --go-soft:#e3f1e8; --mid:#b85f12; --mid-soft:#f8eadb; --no:#a8392f; --no-soft:#f8e4e1;
-  --ghost:#8a939d;
+  --ghost:#8a939d; --vul:#6a4c9c; --vul-soft:#efe9f7;
   --body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#12171d; --fg:#ebe7de; --muted:#a3acb6; --line:#2c353f; --panel:#1a2028; --chip:#262e38;
   --accent:#5fa9d6;
   --go:#5cc085; --go-soft:#1b3326; --mid:#e59a55; --mid-soft:#3a2a1b; --no:#ec7b6e; --no-soft:#3a1f1d;
-  --ghost:#7b858f; color-scheme:dark}}
+  --ghost:#7b858f; --vul:#b79be6; --vul-soft:#2a2238; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#12171d; --fg:#ebe7de; --muted:#a3acb6; --line:#2c353f; --panel:#1a2028; --chip:#262e38;
   --accent:#5fa9d6;
   --go:#5cc085; --go-soft:#1b3326; --mid:#e59a55; --mid-soft:#3a2a1b; --no:#ec7b6e; --no-soft:#3a1f1d;
-  --ghost:#7b858f; color-scheme:dark}
+  --ghost:#7b858f; --vul:#b79be6; --vul-soft:#2a2238; color-scheme:dark}
 
 html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5;
@@ -62,6 +62,17 @@ svg text{font-family:var(--body)}
 .callout .gt,.gtxt{fill:var(--go);font-weight:700}
 .green{fill:none;stroke:var(--go);stroke-width:12;stroke-linejoin:round}
 .gline{stroke:var(--go);stroke-width:3}
+.vul rect{fill:var(--vul-soft);stroke:var(--vul);stroke-width:2}
+.vul text{fill:var(--fg);font-size:14.5px}
+.vul .vt{fill:var(--vul);font-weight:700;font-size:17px}
+.vline{stroke:var(--vul);stroke-width:4}
+.vtxt{fill:var(--vul);font-size:14px;font-weight:700}
+.retenir{margin:18px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:760px){.retenir{grid-template-columns:1fr}}
+.retenir p{margin:0;padding:14px 16px;border-radius:10px;font-size:17px;line-height:1.45;background:var(--panel);border:1px solid var(--line)}
+.retenir p.a{border-left:6px solid var(--fg)}
+.retenir p.b{border-left:6px solid var(--vul)}
+.retenir .k{display:block;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:4px}
 .chip rect{fill:var(--panel);stroke:var(--go);stroke-width:2}
 .chip text{fill:var(--fg);font-size:14px}
 [data-id]{cursor:pointer}
@@ -165,6 +176,16 @@ footer p{margin:0 0 8px}
     <text class="ghosttxt" x="336" y="112">souvent dit, pas démontré</text>
   </g>
 
+  <!-- Ce qui rend plus vulnérable : entre dans l'étape 4 -->
+  <g data-id="vuln" tabindex="0" role="button" aria-label="Santé mentale, dépendances et pauvreté : détails">
+    <g class="vul"><rect x="560" y="14" width="430" height="82" rx="10"/>
+    <text class="vt" x="576" y="40">Ce qui rend plus vulnérable</text>
+    <text x="576" y="62">pauvreté (surtout dans l'enfance), santé mentale,</text>
+    <text x="576" y="82">dépendances, sortie de placement</text></g>
+    <path class="vline" d="M752 98 V120"/><path d="M744 118 L752 128 L760 118 Z" style="fill:var(--vul)"/>
+    <text class="vtxt" x="766" y="118">décide qui perd son logement en premier</text>
+  </g>
+
   <!-- Les cinq étapes -->
   <g class="box" data-id="offre" tabindex="0" role="button" aria-label="Pas assez de logements construits : détails">
     <rect x="20" y="130" width="180" height="200" rx="10"/>
@@ -237,7 +258,7 @@ footer p{margin:0 0 8px}
     <path d="M978 396 V530 Q978 545 963 545 H339 Q324 545 324 530 V350" style="fill:none;stroke:transparent;stroke-width:30"/>
     <path class="green" d="M978 396 V530 Q978 545 963 545 H339 Q324 545 324 530 V352" marker-end="url(#ag)"/>
     <text class="gtxt" x="660" y="512" text-anchor="middle" style="font-size:19px">③ Reloger tout de suite</text>
-    <text x="660" y="532" text-anchor="middle" style="font-size:14px;fill:var(--fg)">un logement d'abord, puis l'accompagnement</text>
+    <text x="660" y="532" text-anchor="middle" style="font-size:14px;fill:var(--fg)">un logement d'abord, sans exiger la sobriété, puis l'accompagnement</text>
   </g>
   <g class="chip" data-id="soc" tabindex="0" role="button" aria-label="Logement social : détails">
     <rect x="342" y="400" width="262" height="52" rx="10"/>
@@ -248,6 +269,10 @@ footer p{margin:0 0 8px}
     <text x="660" y="578" text-anchor="middle" style="font-size:15px;fill:var(--go);font-weight:600">… mais seulement s'il reste des logements libres</text>
   </g>
 </svg>
+</div>
+<div class="retenir">
+  <p class="a"><span class="k">Combien</span><b>Le manque de logements décide combien</b> de personnes se retrouvent à la rue.</p>
+  <p class="b"><span class="k">Qui</span><b>La pauvreté, la santé mentale et les dépendances décident qui</b> y tombe en premier.</p>
 </div>
 <p class="hint">Se lit de gauche à droite : chaque étape entraîne la suivante. Cliquez sur une étape ou une action pour voir les chiffres et les études. <span class="swipe">Sur cellulaire, glissez le schéma vers la gauche.</span></p>
 
@@ -310,7 +335,7 @@ rue:{kind:"Étape 5",title:"Itinérance",
  clair:"C'est le bout de la chaîne. L'itinérance touche toutes les régions du Québec, pas seulement Montréal, et les plus fortes hausses sont en région. On n'en sort que si on reloge les gens, et pour ça, il faut des logements libres.",
  qc:["12 077 personnes en itinérance visible la nuit du 15 avril 2025 : +20 % depuis 2022","Plus fortes hausses : Abitibi-Témiscamingue +119 %, Laurentides +73 %, Côte-Nord +65 %, Laval +59 %","Les régions où l'itinérance est la plus forte par habitant : Montréal, Abitibi-Témiscamingue, Outaouais, Côte-Nord","Dehors ou en campement : 1 887 personnes (16 %), la forme qui augmente le plus vite"],
  etudes:[["Les régions où l'itinérance est la plus forte sont aussi parmi celles qui construisent le moins par habitant. C'est un lien observé, pas une preuve de cause.","MSSS 2025; SCHL"],["Un dénombrement d'une seule nuit oublie l'itinérance cachée : femmes, jeunes et Autochtones qui dorment chez d'autres. Le Nord n'est pas dénombré.","MSSS 2025"]],
- src:"MSSS, dénombrement 2025; Infrastructure Canada; SCHL",links:["f6","f8","camps","services"]},
+ src:"MSSS, dénombrement 2025; Infrastructure Canada; SCHL",links:["f6","f8","vuln","camps"]},
 soc:{kind:"Réserve",title:"Logement social",
  clair:"HLM, coopératives et OBNL d'habitation : des logements dont le loyer ne suit pas le marché. C'est la réserve qui permet de reloger les gens qu'on sort de la rue. Elle est pleine.",
  qc:["Environ 74 000 HLM; environ 30 000 ménages en attente","3 993 logements abordables livrés en 2025; environ 9 000 visés en 2026","Financement fédéral prévu : 198 M$ (2025) → 143 M$ → 71 M$ (2027)","Déficit d'exploitation des HLM : 527,9 M$, soit environ 8 035 $ par logement"],
@@ -320,8 +345,8 @@ soc:{kind:"Réserve",title:"Logement social",
 f8:{kind:"Action ③",cat:"go",title:"Reloger d'abord (Logement d'abord)",stars:3,short:"Loger sans condition : 2 fois plus de gens restent logés.",
  clair:"On donne d'abord un logement, sans exiger d'être sobre ou en traitement, avec une aide pour payer le loyer et un accompagnement. C'est l'intervention contre l'itinérance la mieux prouvée.",
  qc:["Ça ne fonctionne que s'il y a des logements libres : 30 000 ménages attendent un HLM et il ne reste que 1,3 % de logements libres parmi les moins chers"],
- etudes:[["Deux fois plus de personnes sont encore logées après 18 à 24 mois. 37 % moins de visites aux urgences, 24 % moins d'hospitalisations.","Baxter et coll., 2019 (synthèse de 4 essais)"],["Projet Chez Soi (5 villes canadiennes dont Montréal, plus de 2 000 personnes) : 62 % logées de façon stable, contre 31 % avec les services habituels.","Goering et coll., 2014"],["Pour les 10 % de personnes qui utilisent le plus les services, chaque 10 $ investi en fait économiser 21,72 $.","Goering et coll., 2014"],["Familles américaines : une aide au loyer de longue durée réduit de moitié l'itinérance. Les aides courtes et le logement de transition n'ont presque pas d'effet.","Gubits et coll., 2016"],["Limite : peu d'effet sur la santé mentale et la consommation. Pour la plupart des gens, c'est un choix de société plus qu'une source d'économies.","Baxter et coll., 2019"]],
- src:"Baxter et coll. 2019; Goering et coll. 2014; Gubits et coll. 2016; Peng et coll. 2020",links:["f9","soc","rue","aide"]},
+ etudes:[["Deux fois plus de personnes sont encore logées après 18 à 24 mois. 37 % moins de visites aux urgences, 24 % moins d'hospitalisations.","Baxter et coll., 2019 (synthèse de 4 essais)"],["Projet Chez Soi (5 villes canadiennes dont Montréal, plus de 2 000 personnes, toutes avec un trouble mental grave) : 62 % logées de façon stable, contre 31 % avec les services habituels.","Goering et coll., 2014"],["Personnes ayant un trouble mental grave et, pour 90 % d'entre elles, un problème de consommation : environ 80 % sont restées logées quand on les a logées sans condition.","Tsemberis, Gulcur et Nakae, 2004"],["Pour les 10 % de personnes qui utilisent le plus les services, chaque 10 $ investi en fait économiser 21,72 $.","Goering et coll., 2014"],["Familles américaines : une aide au loyer de longue durée réduit de moitié l'itinérance. Les aides courtes et le logement de transition n'ont presque pas d'effet.","Gubits et coll., 2016"],["Limite : peu d'effet sur la santé mentale et la consommation. Pour la plupart des gens, c'est un choix de société plus qu'une source d'économies.","Baxter et coll., 2019"]],
+ src:"Baxter et coll. 2019; Goering et coll. 2014; Tsemberis et coll. 2004; Gubits et coll. 2016; Peng et coll. 2020",links:["f9","vuln","soc","rue","aide"]},
 f9:{kind:"Condition",title:"Pour reloger, il faut des logements libres",stars:2,
  clair:"Reloger fonctionne très bien dans les essais. Mais à l'échelle du Québec, on ne peut reloger que s'il existe des logements libres, privés (avec une aide au loyer) ou sociaux.",
  qc:["30 000 ménages en attente d'un HLM; 1,3 % de logements libres parmi les moins chers. Sans logements libres, l'action ③ tourne à vide."],
@@ -337,7 +362,7 @@ prevent:{kind:"Action ②",cat:"go",title:"Prévenir les évictions",stars:2,sho
  clair:"Agir avant que la personne perde son logement : une aide d'urgence pour un loyer en retard, un accompagnement à la sortie de l'hôpital, de prison ou d'un placement jeunesse.",
  qc:["Moments à cibler : retards de loyer, sorties d'hôpital, de prison et de la DPJ"],
  etudes:[["Chicago : une aide ponctuelle pour payer le loyer réduit de 76 % les arrivées en refuge dans les 6 mois. Coût : environ 10 300 $ par cas évité.","Evans, Sullivan et Wallskog, 2016, Science"],["Accompagnement intensif après une hospitalisation en psychiatrie : 5 % se retrouvent à la rue, contre 19 % sans accompagnement.","Herman et coll., 2011"],["Vancouver : 7 500 $ versés d'un coup à 50 personnes devenues sans abri. Moins de jours sans logement et environ 777 $ d'économies nettes par personne. Petit échantillon.","Dwyer et coll., 2023"],["Quitter un placement jeunesse à 18 ans est un moment à haut risque.","Gaetz et coll."]],
- src:"Evans et coll. 2016; Herman et coll. 2011; Dwyer et coll. 2023; Gaetz et coll.",links:["f6","f5","rue"]},
+ src:"Evans et coll. 2016; Herman et coll. 2011; Dwyer et coll. 2023; Gaetz et coll.",links:["f6","f5","vuln","rue"]},
 zonage:{kind:"Solution",cat:"go",title:"Permettre de construire plus (zonage, délais)",stars:2,short:"Assouplir partout dans la ville fait baisser les loyers.",
  clair:"Les règles municipales qui limitent ce qu'on peut construire freinent la construction et font monter les prix. Assouplir ces règles dans toute une ville fait baisser les loyers. Le faire dans un seul quartier, pas toujours.",
  qc:["C'est le levier le moins coûteux pour l'État, mais il relève des municipalités. Québec peut agir par des cibles, des conditions de financement ou de nouveaux pouvoirs.","À Montréal, les frais municipaux peuvent atteindre 12 % du coût d'une tour locative","Projets bloqués faute d'infrastructures d'eau : Lévis, La Prairie, Sherbrooke"],
@@ -380,13 +405,14 @@ camps:{kind:"Solution",cat:"no",title:"Démanteler les campements",stars:1,short
  qc:["1 887 personnes dehors ou en campement (16 %), la forme d'itinérance qui augmente le plus vite"],
  etudes:[["Selon une projection dans 23 villes américaines, les déplacements forcés pourraient causer de 15 à 25 % des décès sur 10 ans chez les personnes sans abri qui s'injectent des drogues. C'est une projection, pas une observation.","Barocas et coll., 2023, JAMA"]],
  src:"Barocas et coll. 2023; MSSS 2025",links:["rue","f8"]},
-services:{kind:"Solution",cat:"no",title:"Miser seulement sur les causes personnelles",stars:2,short:"Change qui tombe, pas combien tombent.",
- clair:"Pauvreté, santé mentale, dépendances, rupture : ces facteurs expliquent qui perd son logement. Mais c'est le manque de logements qui explique combien de personnes se retrouvent à la rue. Aider les personnes reste essentiel, mais sans logements, d'autres prennent leur place.",
- qc:["Au Canada (2020-2022), 35 % des personnes en itinérance sont autochtones, alors qu'elles forment 5 % de la population; 46 % ont vécu leur première itinérance avant 25 ans"],
- etudes:[["Royaume-Uni : la pauvreté, surtout vécue dans l'enfance, est le premier facteur de risque. L'idée que « tout le monde est à deux paies de la rue » n'est pas appuyée.","Bramley et Fitzpatrick, 2018"],["Peu d'essais chez les jeunes, les Autochtones, les femmes victimes de violence et les aînés.","Infrastructure Canada, dénombrements 2020-2022"]],
- src:"Bramley & Fitzpatrick 2018; Infrastructure Canada, dénombrements 2020-2022",links:["rue","f5","prevent"]}
+vuln:{kind:"Facteur",title:"Santé mentale, dépendances et pauvreté",stars:2,qcTitle:"Au Canada et au Québec",
+ clair:"La pauvreté, la santé mentale, les dépendances et la sortie d'un placement rendent plus vulnérable. Ces facteurs décident qui perd son logement en premier. Mais c'est le manque de logements qui décide combien de personnes se retrouvent à la rue.",
+ qc:["Au Canada (2020-2022), 35 % des personnes en itinérance sont autochtones, alors qu'elles forment 5 % de la population; 46 % ont vécu leur première itinérance avant 25 ans","Moments à risque à cibler : sorties d'hôpital, de prison et de placement (DPJ)"],
+ etudes:[["La pauvreté, surtout vécue dans l'enfance, est de loin le facteur qui prédit le mieux l'itinérance. Les drogues augmentent le risque, mais expliquent moins que la pauvreté. L'idée que « tout le monde est à deux paies de la rue » n'est pas appuyée.","Bramley et Fitzpatrick, 2018 (Royaume-Uni)"],["Les troubles sont fréquents chez les personnes en itinérance : en moyenne, environ 38 % ont une dépendance à l'alcool, 24 % aux drogues et 13 % un trouble psychotique. Les écarts entre les enquêtes sont très grands : ce ne sont pas des chiffres québécois.","Fazel et coll., 2008 (29 enquêtes, 7 pays)"],["D'une ville à l'autre, la santé mentale, les drogues et la pauvreté n'expliquent pas les écarts d'itinérance. Les loyers et les logements libres, oui.","Colburn et Aldern, 2022"],["C'est aussi une boucle : après une éviction, les visites à l'hôpital en santé mentale font plus que doubler.","Collinson et coll., 2024"]],
+ sortie:[["Essai auprès de 206 personnes ayant un trouble mental grave, dont environ 90 % avaient aussi un problème de consommation : logées sans condition, environ 80 % sont restées logées, beaucoup plus que dans le modèle qui exige d'abord la sobriété.","Tsemberis, Gulcur et Nakae, 2004 (essai randomisé)"],["Projet Chez Soi (tous les participants avaient un trouble mental grave) : 62 % logés de façon stable, contre 31 % avec les services habituels.","Goering et coll., 2014"],["Le logement seul ne change pas la consommation de drogues ni les symptômes psychiatriques : il faut un accompagnement qui dure.","Tsemberis et coll., 2004; Baxter et coll., 2019"],["Un accompagnement intensif après une hospitalisation en psychiatrie fait passer le risque de se retrouver à la rue de 19 % à 5 %.","Herman et coll., 2011"]],
+ src:"Bramley & Fitzpatrick 2018; Fazel et coll. 2008; Colburn & Aldern 2022; Collinson et coll. 2024; Tsemberis et coll. 2004; Goering et coll. 2014; Baxter et coll. 2019; Herman et coll. 2011; Infrastructure Canada, dénombrements 2020-2022",links:["f6","f8","prevent","rue"]}
 };
-const COLS={go:["build","prevent","f8","zonage","place"],mid:["aide","control","subv","equity"],no:["taux","camps","services"]};
+const COLS={go:["build","prevent","f8","zonage","place"],mid:["aide","control","subv","equity"],no:["taux","camps"]};
 
 const G={
 "HLM":{s:"Habitation à loyer modique : logement public où le loyer est fixé à 25 % du revenu du ménage."},
@@ -434,8 +460,9 @@ function open(id){const d=F[id];if(!d)return;
   h+='</div><h2 id="dlg-title">'+esc0(d.title)+'</h2>';
   if(d.stars!==undefined)h+='<p class="ev">'+stars(d.stars)+' '+EVT[d.stars]+'</p>';else h+='<div style="height:8px"></div>';
   h+='<p class="clair">'+gl(d.clair)+'</p>';
-  if(d.qc&&d.qc.length)h+='<h3>Au Québec</h3>'+d.qc.map(s=>'<span class="qc">'+gl(s)+'</span>').join('');
-  if(d.etudes&&d.etudes.length)h+='<h3>Ce que montrent les études</h3><ul>'+d.etudes.map(e=>'<li>'+gl(e[0])+(e[1]&&e[1]!=='—'?'<span class="ref">'+esc0(e[1])+'</span>':'')+'</li>').join('')+'</ul>';
+  if(d.qc&&d.qc.length)h+='<h3>'+(d.qcTitle||'Au Québec')+'</h3>'+d.qc.map(s=>'<span class="qc">'+gl(s)+'</span>').join('');
+  if(d.etudes&&d.etudes.length)h+='<h3>'+(d.sortie?'Ce que montrent les études : entrer à la rue':'Ce que montrent les études')+'</h3><ul>'+d.etudes.map(e=>'<li>'+gl(e[0])+(e[1]&&e[1]!=='—'?'<span class="ref">'+esc0(e[1])+'</span>':'')+'</li>').join('')+'</ul>';
+  if(d.sortie)h+='<h3>Et pour sortir de la rue?</h3><ul>'+d.sortie.map(e=>'<li>'+gl(e[0])+'<span class="ref">'+esc0(e[1])+'</span></li>').join('')+'</ul>';
   h+='<h3>Sources</h3><p class="src">'+gl(d.src)+'</p>';
   if(d.links)h+='<div class="nav"><span style="font-size:14px;color:var(--muted);align-self:center">Voir aussi :</span>'+d.links.map(l=>'<button type="button" data-go="'+l+'">'+esc0(F[l].title)+'</button>').join('')+'</div>';
   fiche.innerHTML=h;fiche.scrollTop=0;

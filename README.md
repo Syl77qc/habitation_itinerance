@@ -10,6 +10,8 @@ pas assez de logements construits → peu de logements libres → les loyers mon
 2. **Prévenir les évictions** avant la perte du logement;
 3. **Reloger tout de suite** (Logement d'abord), mais seulement s'il reste des logements libres.
 
+Un bloc « Ce qui rend plus vulnérable » (pauvreté, santé mentale, dépendances, sortie de placement) entre dans l'étape des évictions : ces facteurs décident **qui** perd son logement en premier, alors que le manque de logements décide **combien** de personnes se retrouvent à la rue.
+
 La flèche en pointillé (acheter coûte plus cher → moins de logements libres) est un lien souvent affirmé, mais pas démontré dans les études recensées.
 
 Sous le schéma, les solutions sont classées en trois colonnes : *ça marche*, *ça marche à moitié*, *ça ne règle pas le problème*. Les étoiles (★ à ★★★) indiquent à quel point chaque constat est prouvé.
