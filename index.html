@@ -3,24 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Vases communicants de l'habitation</title>
+<title>Logement et itinérance</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
 <style>
 :root{
   --bg:#f7f5f0; --fg:#1b2430; --muted:#5d6773; --line:#ddd7ca; --panel:#ffffff; --chip:#eee9de;
-  --glass:#1b2430; --water:#2a6fa0; --water-top:#5b9fcf; --on-water:#ffffff; --hi-water:#ffe28a;
-  --go:#2e7d4f; --go-soft:#e3f1e8; --mid:#b85f12; --mid-soft:#f8eadb; --no:#a8392f; --no-soft:#f6e1de;
+  --accent:#2a6fa0;
+  --go:#2e7d4f; --go-soft:#e3f1e8; --mid:#b85f12; --mid-soft:#f8eadb; --no:#a8392f; --no-soft:#f8e4e1;
   --ghost:#8a939d;
   --body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#12171d; --fg:#ebe7de; --muted:#a3acb6; --line:#2c353f; --panel:#1a2028; --chip:#262e38;
-  --glass:#d9d4c8; --water:#2b6e9e; --water-top:#4f93c2; --hi-water:#ffe28a;
+  --accent:#5fa9d6;
   --go:#5cc085; --go-soft:#1b3326; --mid:#e59a55; --mid-soft:#3a2a1b; --no:#ec7b6e; --no-soft:#3a1f1d;
   --ghost:#7b858f; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#12171d; --fg:#ebe7de; --muted:#a3acb6; --line:#2c353f; --panel:#1a2028; --chip:#262e38;
-  --glass:#d9d4c8; --water:#2b6e9e; --water-top:#4f93c2; --hi-water:#ffe28a;
+  --accent:#5fa9d6;
   --go:#5cc085; --go-soft:#1b3326; --mid:#e59a55; --mid-soft:#3a2a1b; --no:#ec7b6e; --no-soft:#3a1f1d;
   --ghost:#7b858f; color-scheme:dark}
 
@@ -28,57 +28,50 @@ html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px}
 [hidden]{display:none!important}
-.wrap{max-width:1120px;margin:0 auto}
+.wrap{max-width:1140px;margin:0 auto}
 
 /* En-tête : le message en une phrase */
 .eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
 h1{font-size:clamp(28px,4.4vw,46px);line-height:1.1;font-weight:700;margin:8px 0 12px;text-wrap:balance;max-width:24ch}
-.sub{font-size:clamp(17px,1.8vw,20px);color:var(--fg);max-width:60ch;margin:0}
+.sub{font-size:clamp(17px,1.8vw,20px);color:var(--fg);max-width:62ch;margin:0}
 
-/* Schéma */
-.stage{margin-top:22px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 8px 4px;overflow-x:auto}
-.stage svg{display:block;width:100%;height:auto;min-width:760px}
+/* Schéma : chaîne de causes et d'effets */
+.stage{margin-top:22px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 8px 4px;overflow-x:auto}
+.stage svg{display:block;width:100%;height:auto;min-width:840px}
 .hint{font-size:14px;color:var(--muted);margin:10px 4px 0}
 .swipe{display:none}
-@media (max-width:800px){.swipe{display:inline}}
+@media (max-width:860px){.swipe{display:inline}}
 
 svg text{font-family:var(--body)}
-.glass{fill:none;stroke:var(--glass);stroke-width:3;stroke-linejoin:round;stroke-linecap:round}
-.glass.rue{stroke:var(--no)}
-.water{fill:var(--water)}
-.wave{fill:var(--water-top)}
-.tw{fill:var(--on-water);text-anchor:middle}
-.tw.name{font-size:20px;font-weight:700}
-.tw.big{font-size:44px;font-weight:700}
-.tw.small{font-size:14.5px}
-.tw.hl{fill:var(--hi-water);font-weight:600}
-.lab{fill:var(--fg);font-size:20px;font-weight:700}
-.cap{fill:var(--muted);font-size:14.5px}
-.stream{fill:none;stroke:var(--water);stroke-width:15;stroke-linecap:round}
-.ghostline{fill:none;stroke:var(--ghost);stroke-width:2.5;stroke-dasharray:7 7}
-.ghosttxt{fill:var(--muted);font-size:14.5px}
-.ext{fill:none;stroke:var(--go);stroke-width:3;stroke-dasharray:8 7}
-.extfill{fill:var(--go-soft)}
-.gtxt{fill:var(--go);font-weight:700}
-.green{fill:none;stroke:var(--go);stroke-width:15;stroke-linecap:round}
-.pill rect{fill:var(--panel);stroke:var(--water);stroke-width:2}
-.pill text{font-size:16px;font-weight:600;fill:var(--fg);text-anchor:middle}
-.pill .st{fill:var(--water);letter-spacing:1px}
+.box rect{fill:var(--bg);stroke:var(--fg);stroke-width:2}
+.box.end rect{fill:var(--no-soft);stroke:var(--no);stroke-width:2.5}
+.bt{fill:var(--fg);font-size:17px;font-weight:700}
+.bn{fill:var(--accent);font-size:34px;font-weight:700}
+.box.end .bt,.box.end .bn{fill:var(--no)}
+.bc{fill:var(--muted);font-size:13.5px}
+.bh{fill:var(--mid);font-size:13.5px;font-weight:700}
+.bk{fill:var(--fg);font-size:13.5px;font-weight:700}
+.bl{fill:var(--fg);font-size:13.5px}
+.chain{fill:none;stroke:var(--fg);stroke-width:5}
+.dash rect{fill:none;stroke:var(--ghost);stroke-width:2;stroke-dasharray:6 6}
+.dash text{fill:var(--fg);font-size:15px;text-anchor:middle}
+.dashline{fill:none;stroke:var(--ghost);stroke-width:2.5;stroke-dasharray:6 6}
+.ghosttxt{fill:var(--muted);font-size:13.5px;font-style:italic}
 .callout rect{fill:var(--go-soft);stroke:var(--go);stroke-width:2}
-.legendbox rect.box{fill:none;stroke:var(--line);stroke-width:1.5}
-.legendbox text{fill:var(--fg);font-size:14.5px}
+.callout text{fill:var(--fg);font-size:14px}
+.callout .gt,.gtxt{fill:var(--go);font-weight:700}
+.green{fill:none;stroke:var(--go);stroke-width:12;stroke-linejoin:round}
+.gline{stroke:var(--go);stroke-width:3}
+.chip rect{fill:var(--panel);stroke:var(--go);stroke-width:2}
+.chip text{fill:var(--fg);font-size:14px}
 [data-id]{cursor:pointer}
 [data-id]:focus{outline:none}
-[data-id]:hover .glass,[data-id]:focus-visible .glass{stroke-width:5}
-[data-id]:hover .stream,[data-id]:focus-visible .stream{stroke-width:19}
-[data-id]:hover .green,[data-id]:focus-visible .green{stroke-width:19}
-[data-id]:hover .pill rect,[data-id]:focus-visible .pill rect,[data-id]:hover.pill rect,[data-id]:focus-visible.pill rect{stroke-width:3.5}
-[data-id]:hover .callout rect,[data-id]:focus-visible .callout rect{stroke-width:3.5}
-[data-id]:hover .ext,[data-id]:focus-visible .ext{stroke-width:5}
-[data-id]:hover .ghostline,[data-id]:focus-visible .ghostline{stroke-width:4}
+[data-id]:hover rect,[data-id]:focus-visible rect{stroke-width:4}
+[data-id]:hover .green,[data-id]:focus-visible .green{stroke-width:16}
+[data-id]:hover .dashline,[data-id]:focus-visible .dashline{stroke-width:4}
 [data-id]:focus-visible text{text-decoration:underline}
 
-/* Leviers */
+/* Solutions */
 .levers{margin-top:44px}
 .levers h2{font-size:clamp(22px,2.6vw,30px);font-weight:700;margin:0 0 6px}
 .levers .intro{color:var(--muted);margin:0 0 18px;font-size:15px}
@@ -94,7 +87,7 @@ svg text{font-family:var(--body)}
 .col.mid h3 i{background:var(--mid)} .col.mid{border-top:5px solid var(--mid)}
 .col.no h3 i{background:var(--no)} .col.no{border-top:5px solid var(--no)}
 .card{display:block;width:100%;text-align:left;font:inherit;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-top:8px;cursor:pointer}
-.card:hover,.card:focus-visible{outline:2px solid var(--water);outline-offset:1px}
+.card:hover,.card:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
 .card b{display:block;font-size:16px}
 .card span.s{display:block;font-size:14px;color:var(--muted);margin-top:2px}
 .card .stars{font-size:13px;display:block;margin-top:4px}
@@ -108,7 +101,7 @@ dialog::backdrop{background:rgba(10,15,20,.55)}
 .tag.go{background:var(--go-soft);color:var(--go)} .tag.mid{background:var(--mid-soft);color:var(--mid)} .tag.no{background:var(--no-soft);color:var(--no)}
 .fiche h2{font-size:26px;line-height:1.2;margin:10px 0 4px;text-wrap:balance}
 .fiche .ev{font-size:14px;color:var(--muted);margin:0 0 14px}
-.clair{font-size:18px;line-height:1.5;margin:0 0 6px;padding:14px 16px;background:var(--bg);border-left:5px solid var(--water);border-radius:6px}
+.clair{font-size:18px;line-height:1.5;margin:0 0 6px;padding:14px 16px;background:var(--bg);border-left:5px solid var(--accent);border-radius:6px}
 .fiche h3{font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:20px 0 8px}
 .qc{display:block;background:var(--chip);border-radius:6px;padding:9px 12px;margin-bottom:6px;font-size:15.5px}
 .fiche ul{margin:0;padding-left:20px}
@@ -117,13 +110,13 @@ dialog::backdrop{background:rgba(10,15,20,.55)}
 .fiche .src{font-size:13px;color:var(--muted);margin:0}
 .fiche .nav{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
 .fiche .nav button{font:500 14px var(--body);background:var(--chip);color:var(--fg);border:0;border-radius:6px;padding:6px 10px;cursor:pointer}
-.fiche .nav button:hover,.fiche .nav button:focus-visible{outline:2px solid var(--water)}
+.fiche .nav button:hover,.fiche .nav button:focus-visible{outline:2px solid var(--accent)}
 .close{float:right;font:600 22px/1 var(--body);background:none;border:0;color:var(--muted);cursor:pointer;padding:2px 6px;margin:-6px -8px 0 0}
 .close:hover{color:var(--fg)}
 
 /* Lexique et sources */
 a.g{color:inherit;text-decoration:underline dotted var(--muted);text-underline-offset:3px;cursor:help}
-a.g:hover{color:var(--water)}
+a.g:hover{color:var(--accent)}
 .lex{margin-top:40px;border-top:1px solid var(--line);padding-top:14px}
 .lex summary{cursor:pointer;font-size:18px;font-weight:700;list-style:none;display:flex;align-items:center;gap:10px}
 .lex summary::-webkit-details-marker{display:none}
@@ -144,139 +137,125 @@ footer p{margin:0 0 8px}
 <div class="wrap">
 
 <header>
-  <div class="eyebrow">Vases communicants de l'habitation · Québec</div>
+  <div class="eyebrow">Habitation et itinérance · Québec</div>
   <h1>Quand il manque de logements, des personnes finissent à la rue</h1>
-  <p class="sub">Les logements sont reliés comme des vases. Quand un vase est plein, les ménages débordent dans le suivant. Le dernier, c'est la rue.</p>
+  <p class="sub">Il ne se construit pas assez de logements. Les logements libres se font rares, les loyers montent, et les ménages les plus fragiles perdent le leur.</p>
 </header>
 
 <div class="stage">
-<svg viewBox="0 0 1000 668" role="img" aria-labelledby="svgt svgd">
-  <title id="svgt">Les vases communicants du logement</title>
-  <desc id="svgd">La propriété et les logements à louer sont pleins. Les loyers trop chers et les expulsions font déborder les ménages vers la rue. Trois actions : construire pour agrandir les vases, prévenir les expulsions, et reloger les gens de la rue dans un logement.</desc>
+<svg viewBox="0 0 1100 600" role="img" aria-labelledby="svgt svgd">
+  <title id="svgt">La chaîne des causes, du manque de logements à l'itinérance</title>
+  <desc id="svgd">Cinq étapes de gauche à droite : pas assez de logements construits, peu de logements libres, les loyers montent, évictions et loyers impayés, itinérance. Trois actions : construire, prévenir les évictions, reloger tout de suite s'il reste des logements libres.</desc>
   <defs>
-    <marker id="ag" viewBox="0 0 10 10" refX="6" refY="5" markerUnits="userSpaceOnUse" markerWidth="34" markerHeight="34" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--go)"/></marker>
+    <marker id="af" viewBox="0 0 10 10" refX="7" refY="5" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--fg)"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="30" markerHeight="30" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--go)"/></marker>
+    <marker id="agl" viewBox="0 0 10 10" refX="7" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--go)"/></marker>
     <marker id="ax" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--ghost)"/></marker>
   </defs>
 
-  <!-- Mini légende -->
-  <g class="legendbox" transform="translate(50 292)">
-    <rect x="0" y="0" width="16" height="16" rx="3" style="fill:var(--water)"/>
-    <text x="26" y="13">L'eau = les ménages</text>
-    <path class="glass" d="M0 34 V50 H16 V34" style="stroke-width:2.5"/>
-    <text x="26" y="48">Le vase = les logements</text>
-    <text x="0" y="80" style="font-weight:600">Vase plein → ça déborde</text>
-    <text x="0" y="98" style="font-weight:600">dans le suivant.</text>
+  <!-- Entrée en pointillé : acheter coûte plus cher (lien non démontré) -->
+  <g class="dash" data-id="prop" tabindex="0" role="button" aria-label="Acheter coûte plus cher : détails">
+    <rect x="224" y="22" width="200" height="62" rx="10"/>
+    <text x="324" y="47" style="font-weight:700">Acheter coûte plus cher</text>
+    <text x="324" y="70">taux : 1,9 % → 4,3 %</text>
+  </g>
+  <g data-id="fcb" tabindex="0" role="button" aria-label="Lien non démontré : détails">
+    <path d="M324 86 V124" style="stroke:transparent;stroke-width:24"/>
+    <path class="dashline" d="M324 88 V122" marker-end="url(#ax)"/>
+    <text class="ghosttxt" x="336" y="112">souvent dit, pas démontré</text>
   </g>
 
-  <!-- PROPRIÉTÉ -->
-  <g data-id="prop" tabindex="0" role="button" aria-label="Propriété : détails">
-    <text class="lab" x="50" y="80">Propriété</text>
-    <path class="water" d="M52 99 H248 V203 Q248 213 238 213 H62 Q52 213 52 203 Z"/>
-    <rect class="wave" x="52" y="99" width="196" height="9"/>
-    <path class="glass" d="M50 90 V203 Q50 215 62 215 H238 Q250 215 250 203 V90"/>
-    <text class="tw big" x="150" y="158" style="font-size:36px">635 000 $</text>
-    <text class="tw small" x="150" y="182">prix médian d'une maison</text>
-    <text class="tw small" x="150" y="200">région de Montréal</text>
-    <text class="cap" x="150" y="240" text-anchor="middle">Taux hypothécaire :</text>
-    <text class="cap" x="150" y="258" text-anchor="middle">1,9 % (2021) → 4,3 % (2025)</text>
+  <!-- Les cinq étapes -->
+  <g class="box" data-id="offre" tabindex="0" role="button" aria-label="Pas assez de logements construits : détails">
+    <rect x="20" y="130" width="180" height="200" rx="10"/>
+    <text class="bt" x="34" y="160">Pas assez de</text><text class="bt" x="34" y="181">logements</text><text class="bt" x="34" y="202">construits</text>
+    <text class="bn" x="34" y="252">54 100</text>
+    <text class="bc" x="34" y="276">mises en chantier par</text><text class="bc" x="34" y="294">an, en baisse (−11 %)</text>
+  </g>
+  <path class="chain" d="M204 230 H226" marker-end="url(#af)"/>
+
+  <g class="box" data-id="libres" tabindex="0" role="button" aria-label="Peu de logements libres : détails">
+    <rect x="234" y="130" width="180" height="200" rx="10"/>
+    <text class="bt" x="248" y="160">Peu de logements</text><text class="bt" x="248" y="181">libres</text>
+    <text class="bn" x="248" y="252">1,3 %</text>
+    <text class="bc" x="248" y="276">parmi les logements</text><text class="bc" x="248" y="294">les moins chers</text>
+    <text class="bh" x="248" y="316">Équilibre : environ 3 %</text>
+  </g>
+  <path class="chain" d="M418 230 H440" marker-end="url(#af)"/>
+
+  <g class="box" data-id="f5" tabindex="0" role="button" aria-label="Les loyers montent : détails">
+    <rect x="448" y="130" width="180" height="200" rx="10"/>
+    <text class="bt" x="462" y="160">Les loyers</text><text class="bt" x="462" y="181">montent</text>
+    <text class="bn" x="462" y="252">+7,2 %</text>
+    <text class="bc" x="462" y="276">en un an, pour les</text><text class="bc" x="462" y="294">mêmes logements</text>
+  </g>
+  <path class="chain" d="M632 230 H654" marker-end="url(#af)"/>
+
+  <g class="box" data-id="f6" tabindex="0" role="button" aria-label="Évictions et loyers impayés : détails">
+    <rect x="662" y="130" width="180" height="200" rx="10"/>
+    <text class="bt" x="676" y="160">Évictions,</text><text class="bt" x="676" y="181">loyers impayés</text>
+    <text class="bn" x="676" y="252">13,4 %</text>
+    <text class="bc" x="676" y="276">des locataires du privé</text><text class="bc" x="676" y="294">en difficulté</text><text class="bc" x="676" y="312">(8,5 % en 2022)</text>
+  </g>
+  <path class="chain" d="M846 230 H868" marker-end="url(#af)"/>
+
+  <g class="box end" data-id="rue" tabindex="0" role="button" aria-label="Itinérance : détails">
+    <rect x="876" y="130" width="204" height="262" rx="10"/>
+    <text class="bt" x="890" y="162" style="font-size:20px">Itinérance</text>
+    <text class="bn" x="890" y="212">12 077</text>
+    <text class="bc" x="890" y="236">personnes, +20 % en 3 ans</text>
+    <text class="bk" x="890" y="268">Toutes les régions,</text>
+    <text class="bk" x="890" y="286">dont :</text>
+    <text class="bl" x="890" y="310">Abitibi-Témisc. +119 %</text>
+    <text class="bl" x="890" y="330">Laurentides +73 %</text>
+    <text class="bl" x="890" y="350">Côte-Nord +65 %</text>
+    <text class="bl" x="890" y="370">Laval +59 %</text>
   </g>
 
-  <!-- Propriété → location : non démontré -->
-  <g data-id="fcb" tabindex="0" role="button" aria-label="Lien propriété vers location : pas démontré">
-    <path d="M252 93 C 290 93, 312 140, 320 196" style="fill:none;stroke:transparent;stroke-width:24"/>
-    <path class="ghostline" d="M252 93 C 290 93, 312 140, 320 196" marker-end="url(#ax)"/>
-    <text class="ghosttxt" x="268" y="58" style="fill:var(--fg)">Ne peut plus acheter → reste locataire</text>
-    <text class="ghosttxt" x="268" y="77" style="font-style:italic">(souvent dit, pas démontré)</text>
-  </g>
-
-  <!-- ① Construire : extension pointillée des vases -->
+  <!-- ① Construire -->
   <g data-id="build" tabindex="0" role="button" aria-label="Construire : détails">
-    <rect class="extfill" x="331" y="128" width="318" height="62" style="opacity:.75"/>
-    <path class="ext" d="M330 190 V128 M650 190 V128"/>
-    <text class="gtxt" x="490" y="157" text-anchor="middle" style="font-size:19px">① Construire = agrandir le vase</text>
-    <text x="490" y="179" text-anchor="middle" style="font-size:14.5px;fill:var(--go)">plus de place, moins de débordement</text>
-    <rect class="extfill" x="61" y="402" width="238" height="48" style="opacity:.75"/>
-    <path class="ext" d="M60 450 V402 M300 450 V402"/>
-    <text class="gtxt" x="180" y="432" text-anchor="middle" style="font-size:16px">① Construire</text>
+    <path class="gline" d="M110 384 V340" marker-end="url(#agl)"/>
+    <g class="callout"><rect x="20" y="386" width="210" height="72" rx="10"/>
+    <text class="gt" x="34" y="412" style="font-size:18px">① Construire</text>
+    <text x="34" y="432">plus de logements,</text>
+    <text x="34" y="449">privés et sociaux</text></g>
   </g>
 
-  <!-- LOGEMENTS À LOUER -->
-  <g data-id="loc" tabindex="0" role="button" aria-label="Logements à louer : détails">
-    <path class="water" d="M332 192 H648 V388 Q648 398 638 398 H342 Q332 398 332 388 Z"/>
-    <rect class="wave" x="332" y="192" width="316" height="9"/>
-    <path class="glass" d="M330 190 V388 Q330 400 342 400 H638 Q650 400 650 388 V190"/>
-    <text class="tw name" x="490" y="238">Logements à louer</text>
-    <text class="tw big" x="490" y="300" style="font-size:54px">1,3 %</text>
-    <text class="tw small" x="490" y="330">de logements libres parmi les moins chers</text>
-    <text class="tw small hl" x="490" y="356">Équilibre : environ 3 %</text>
-    <text class="tw small" x="490" y="380" style="font-size:13px;opacity:.9">moyenne, tous loyers : 2,7 % (oct. 2025)</text>
+  <!-- ② Prévenir les évictions (coupe le lien vers la rue) -->
+  <g data-id="prevent" tabindex="0" role="button" aria-label="Prévenir les évictions : détails">
+    <path class="gline" d="M857 386 V252"/>
+    <rect x="852" y="210" width="10" height="42" rx="3" style="fill:var(--go);stroke:var(--panel);stroke-width:2"/>
+    <g class="callout"><rect x="622" y="386" width="242" height="92" rx="10"/>
+    <text class="gt" x="636" y="412" style="font-size:18px">② Prévenir les évictions</text>
+    <text x="636" y="432">aide d'urgence pour le loyer,</text>
+    <text x="636" y="450">accompagnement à la sortie</text>
+    <text x="636" y="468">de l'hôpital, de prison, de la DPJ</text></g>
   </g>
 
-  <!-- Débordement 1 : loyers trop chers -->
-  <g data-id="f5" tabindex="0" role="button" aria-label="Loyers trop chers : détails">
-    <path class="stream" d="M651 194 C 712 190, 748 250, 758 474"/>
-    <g class="pill"><rect x="652" y="272" width="176" height="34" rx="17"/>
-    <text x="740" y="295">Loyers trop chers</text></g>
+  <!-- ③ Reloger : retour de la rue vers un logement -->
+  <g data-id="f8" tabindex="0" role="button" aria-label="Reloger tout de suite : détails">
+    <path d="M978 396 V530 Q978 545 963 545 H339 Q324 545 324 530 V350" style="fill:none;stroke:transparent;stroke-width:30"/>
+    <path class="green" d="M978 396 V530 Q978 545 963 545 H339 Q324 545 324 530 V352" marker-end="url(#ag)"/>
+    <text class="gtxt" x="660" y="512" text-anchor="middle" style="font-size:19px">③ Reloger tout de suite</text>
+    <text x="660" y="532" text-anchor="middle" style="font-size:14px;fill:var(--fg)">un logement d'abord, puis l'accompagnement</text>
   </g>
-  <!-- Débordement 2 : expulsions -->
-  <g data-id="f6" tabindex="0" role="button" aria-label="Expulsions : détails">
-    <path class="stream" d="M651 194 C 770 190, 870 250, 880 474"/>
-    <g class="pill"><rect x="806" y="352" width="140" height="34" rx="17"/>
-    <text x="876" y="375">Expulsions</text></g>
-  </g>
-
-  <!-- ② Prévenir -->
-  <g data-id="prevent" tabindex="0" role="button" aria-label="Prévenir les expulsions : détails">
-    <path d="M736 154 V200" style="stroke:var(--go);stroke-width:3"/>
-    <circle cx="736" cy="206" r="9" style="fill:var(--go);stroke:var(--panel);stroke-width:3"/>
-    <g class="callout"><rect x="700" y="54" width="290" height="100" rx="10"/>
-    <text class="gtxt" x="716" y="82" style="font-size:19px">② Prévenir les expulsions</text>
-    <text x="716" y="106" style="font-size:14.5px;fill:var(--fg)">aide d'urgence pour un loyer en retard,</text>
-    <text x="716" y="125" style="font-size:14.5px;fill:var(--fg)">accompagnement à la sortie de l'hôpital,</text>
-    <text x="716" y="144" style="font-size:14.5px;fill:var(--fg)">de prison ou d'un placement jeunesse</text></g>
-  </g>
-
-  <!-- LOGEMENT SOCIAL -->
-  <g data-id="soc" tabindex="0" role="button" aria-label="Logement social : détails">
-    <path class="water" d="M62 452 H298 V588 Q298 598 288 598 H72 Q62 598 62 588 Z"/>
-    <rect class="wave" x="62" y="452" width="236" height="9"/>
-    <path class="glass" d="M60 450 V588 Q60 600 72 600 H288 Q300 600 300 588 V450"/>
-    <text class="tw name" x="180" y="492">Logement social</text>
-    <text class="tw big" x="180" y="542">30 000</text>
-    <text class="tw small" x="180" y="566">ménages en attente d'un HLM</text>
-    <text class="tw small" x="180" y="586" style="font-size:13px;opacity:.9">HLM, coops, OBNL : plein</text>
-  </g>
-
-  <!-- ITINÉRANCE -->
-  <g data-id="rue" tabindex="0" role="button" aria-label="Itinérance : détails">
-    <path class="water" d="M702 478 H958 V588 Q958 598 948 598 H712 Q702 598 702 588 Z"/>
-    <rect class="wave" x="702" y="478" width="256" height="9"/>
-    <path class="glass rue" d="M700 440 V588 Q700 600 712 600 H948 Q960 600 960 588 V440"/>
-    <text class="lab" x="968" y="436" text-anchor="end" style="fill:var(--no)">La rue</text>
-    <text class="tw name" x="830" y="512">Itinérance</text>
-    <text class="tw big" x="830" y="558" style="font-size:40px">12 077</text>
-    <text class="tw small" x="830" y="584">personnes · +20 % en 3 ans</text>
-  </g>
-
-  <!-- ③ Reloger -->
-  <g data-id="f8" tabindex="0" role="button" aria-label="Reloger d'abord : détails">
-    <path d="M694 574 C 600 628, 400 628, 318 578" style="fill:none;stroke:transparent;stroke-width:34"/>
-    <path class="green" d="M694 574 C 600 628, 400 628, 318 578" marker-end="url(#ag)"/>
-    <text class="gtxt" x="500" y="538" text-anchor="middle" style="font-size:20px">③ Reloger tout de suite</text>
-    <text x="500" y="562" text-anchor="middle" style="font-size:14.5px;fill:var(--fg)">un logement d'abord, puis l'accompagnement</text>
+  <g class="chip" data-id="soc" tabindex="0" role="button" aria-label="Logement social : détails">
+    <rect x="342" y="400" width="262" height="52" rx="10"/>
+    <text x="356" y="422" style="font-weight:700">Logement social</text>
+    <text x="356" y="441">30 000 ménages attendent un HLM</text>
   </g>
   <g data-id="f9" tabindex="0" role="button" aria-label="Il faut des logements libres : détails">
-    <text x="500" y="656" text-anchor="middle" style="font-size:15px;fill:var(--go);font-weight:600">… mais seulement s'il reste des logements libres</text>
+    <text x="660" y="578" text-anchor="middle" style="font-size:15px;fill:var(--go);font-weight:600">… mais seulement s'il reste des logements libres</text>
   </g>
 </svg>
 </div>
-<p class="hint">Cliquez sur un vase, une flèche ou une action pour voir les chiffres et les études. <span class="swipe">Sur cellulaire, glissez le schéma vers la gauche.</span></p>
+<p class="hint">Se lit de gauche à droite : chaque étape entraîne la suivante. Cliquez sur une étape ou une action pour voir les chiffres et les études. <span class="swipe">Sur cellulaire, glissez le schéma vers la gauche.</span></p>
 
 <section class="levers" aria-labelledby="lv">
   <h2 id="lv">Les solutions : qu'est-ce qui marche?</h2>
   <p class="intro">Classées selon ce que montrent les études. Les étoiles disent à quel point c'est prouvé : <span class="stars">★★★</span> preuve forte · <span class="stars">★★<span class="off">★</span></span> moyenne · <span class="stars">★<span class="off">★★</span></span> faible.</p>
   <div class="cols">
-    <div class="col go"><h3><i>✓</i>Ça marche</h3><p class="why">Ça réduit le débordement vers la rue.</p><div id="c-go"></div></div>
+    <div class="col go"><h3><i>✓</i>Ça marche</h3><p class="why">Ça réduit le nombre de personnes qui se retrouvent à la rue.</p><div id="c-go"></div></div>
     <div class="col mid"><h3><i>!</i>Ça marche à moitié</h3><p class="why">Utile, mais seulement à certaines conditions.</p><div id="c-mid"></div></div>
     <div class="col no"><h3><i>✕</i>Ça ne règle pas le problème</h3><p class="why">Peu ou pas d'effet sur le nombre de personnes à la rue.</p><div id="c-no"></div></div>
   </div>
@@ -289,7 +268,7 @@ footer p{margin:0 0 8px}
 
 <footer id="foot">
   <p>Sources : études scientifiques publiées (citées dans chaque fiche) et données publiques (SCHL, ISQ, MSSS, Statistique Canada, SHQ, APCIQ, FLHLMQ).</p>
-  <p>Étoiles : ★★★ plusieurs études rigoureuses qui concordent (essais où le hasard décide qui reçoit l'aide, synthèses d'essais, comparaisons naturelles); ★★ quelques études rigoureuses ou des liens solides observés entre villes; ★ projections ou cas isolés. Les niveaux d'eau du schéma sont illustratifs.</p>
+  <p>Étoiles : ★★★ plusieurs études rigoureuses qui concordent (essais où le hasard décide qui reçoit l'aide, synthèses d'essais, comparaisons naturelles); ★★ quelques études rigoureuses ou des liens solides observés entre villes; ★ projections ou cas isolés.</p>
 </footer>
 </div>
 
@@ -298,58 +277,63 @@ footer p{margin:0 0 8px}
 <script>
 /* Chaque fiche : clair = l'idée en 2-3 phrases; qc = chiffres québécois avec repères; etudes = [constat en langage simple, référence]. */
 const F={
-prop:{kind:"Vase",title:"Propriété",
+offre:{kind:"Étape 1",title:"Pas assez de logements construits",
+ clair:"Le Québec ne construit pas assez de logements pour suivre la demande, et la construction ralentit. C'est le point de départ de toute la chaîne.",
+ qc:["Mises en chantier : environ 54 100 par an (tendance de sept. 2026), −11 % en un mois","Les écarts entre les villes sont grands : 3,9 logements construits par 1 000 habitants sur l'île de Montréal, 10,0 à Laval","Région de Montréal : il en faudrait environ 72 000 par an d'ici 2035; on en prévoit 23 000 (SCHL)","Projets bloqués faute d'infrastructures d'eau : Lévis, La Prairie, Sherbrooke","Coûts de construction : +6,4 % par an; productivité −17 % en 5 ans; un chantier locatif dure 18,4 mois"],
+ etudes:[["Montréal est la 3e région sur 33 au Canada où la construction réagit le moins quand la demande augmente.","Paixão, Banque du Canada, 2021"],["Les mises en chantier ne disent pas tout : il faut suivre aussi les permis, les logements terminés et ceux qui disparaissent du parc.","—"]],
+ src:"SCHL; ISQ; APCHQ; Paixão 2021; Gyourko & Molloy 2015",links:["build","zonage","libres"]},
+libres:{kind:"Étape 2",title:"Peu de logements libres",
+ clair:"Quand il se construit trop peu, les logements libres se font rares, surtout parmi les moins chers. Les locataires ont alors peu de choix, et les propriétaires peuvent demander plus cher.",
+ qc:["Logements libres : 2,7 % en moyenne, mais seulement 1,3 % parmi les moins chers (oct. 2025). Repère : on parle d'équilibre autour de 3 %.","Un logement affiché à louer coûte beaucoup plus cher que ce que paient les locataires déjà en place : +34 % à Montréal, +35 % à Sherbrooke","Les logements libres qui reviennent sont surtout neufs et chers"],
+ etudes:[["Un immeuble neuf, même cher, libère des logements moins chers par ricochet : ceux qui y emménagent laissent leur ancien logement à quelqu'un d'autre.","Mast, 2023; Asquith, Mast et Reed, 2023"]],
+ src:"SCHL, Enquête sur les logements locatifs 2025; Statistique Canada",links:["offre","f5","build","fcb"]},
+prop:{kind:"Facteur",title:"Acheter coûte plus cher",
  clair:"Acheter une maison coûte beaucoup plus cher qu'avant : les prix sont élevés et les taux hypothécaires ont plus que doublé depuis 2021.",
- qc:["Maison unifamiliale, région de Montréal : 635 000 $ (prix médian, stable)","Région de Québec : 475 000 $ (+4,7 %)","Taux hypothécaire moyen des propriétaires : 1,9 % en 2021 → 4,3 % en 2025","Ventes en septembre 2026 : 7 045 (−7 %)","59,9 % des ménages sont propriétaires, 40,1 % locataires (2021)"],
- etudes:[["Les taux d'intérêt font surtout varier les prix des maisons. Ils ne changent presque pas le nombre de logements construits.","Surprenant, Banque du Canada, 2026"],["On dit souvent que les ménages qui ne peuvent plus acheter restent locataires et font monter les loyers. C'est plausible, mais aucune des études recensées ne l'a démontré.","—"]],
- src:"APCIQ; Statistique Canada; Surprenant 2026",links:["fcb","taux","loc"]},
-loc:{kind:"Vase",title:"Logements à louer",
- clair:"C'est le vase du milieu, celui où presque tout le monde passe. Quand il manque de logements libres, les loyers montent, surtout pour les moins chers. Ceux qui ne peuvent plus payer débordent vers la rue.",
- qc:["Logements libres : 2,7 % en moyenne, mais seulement 1,3 % parmi les moins chers (oct. 2025). Repère : on parle d'équilibre autour de 3 %.","Logement de 2 chambres : 1 273 $ par mois en moyenne; +7,2 % en un an pour les mêmes logements","Un logement affiché à louer à Montréal coûte 34 % de plus que ce que paient les locataires déjà en place (Sherbrooke : +35 %)","Locataires du privé en « besoins impérieux » : 8,5 % en 2022 → 13,4 % en 2024","Hausse de loyer suggérée par le TAL pour 2026-2027 : 3,1 % (nouvelle formule)"],
- etudes:[["Les logements libres qui reviennent sont surtout neufs et chers. Les logements bon marché restent rares.","SCHL, Enquête sur les logements locatifs 2025"],["Deux portes mènent de ce vase à la rue : les loyers trop chers et les expulsions.","Voir les fiches correspondantes"]],
- src:"SCHL, Enquête sur les logements locatifs 2025; Statistique Canada; TAL",links:["f5","f6","build","aide","control"]},
-soc:{kind:"Vase",title:"Logement social",
- clair:"HLM, coopératives et OBNL d'habitation : des logements dont le loyer ne suit pas le marché. C'est le vase de secours, celui qui peut accueillir les gens qu'on sort de la rue. Il est plein.",
- qc:["Environ 74 000 HLM; environ 30 000 ménages en attente","3 993 logements abordables livrés en 2025; environ 9 000 visés en 2026","Financement fédéral prévu : 198 M$ (2025) → 143 M$ → 71 M$ (2027)","Déficit d'exploitation des HLM : 527,9 M$, soit environ 8 035 $ par logement"],
- etudes:[["Finlande : 10,9 % des logements sont sociaux. Canada : 3,5 %. Le succès finlandais contre l'itinérance repose sur cette réserve de logements.","OCDE"],["Pays-Bas, Autriche, Danemark : plus de 20 % des logements, gérés par des organismes qui réinvestissent leurs surplus dans le système.","Housing 2030"],["Attention : une partie des logements sociaux construits remplace des logements privés qui auraient été construits de toute façon.","Études américaines sur le LIHTC"]],
- src:"SHQ, rapport annuel 2024-2025; FLHLMQ; OCDE; Housing 2030",links:["f8","f9","equity","place"]},
-rue:{kind:"Vase",title:"Itinérance",
- clair:"C'est le vase du bas : il se remplit quand les autres débordent. Il ne se vide que si on reloge les gens, et pour ça, il faut des logements libres.",
- qc:["12 077 personnes en itinérance visible la nuit du 15 avril 2025 : +20 % depuis 2022","Montréal : 5 036 personnes (42 % du total)","Dehors ou en campement : 1 887 personnes (16 %), la forme qui augmente le plus vite","Plus fortes hausses : Abitibi-Témiscamingue +119 %, Laurentides +73 %, Côte-Nord +65 %, Laval +59 %"],
- etudes:[["Les régions où l'itinérance est la plus forte (Montréal, Abitibi, Outaouais, Côte-Nord) sont aussi parmi celles qui construisent le moins. C'est un lien observé, pas une preuve de cause.","MSSS 2025; SCHL"],["Un dénombrement d'une seule nuit oublie l'itinérance cachée : femmes, jeunes et Autochtones qui dorment chez d'autres. Le Nord n'est pas dénombré.","MSSS 2025"]],
- src:"MSSS, dénombrement 2025; Infrastructure Canada; SCHL",links:["f5","f6","f8","camps","services"]},
-
+ qc:["Taux hypothécaire moyen des propriétaires : 1,9 % en 2021 → 4,3 % en 2025","Prix médian d'une maison unifamiliale : région de Montréal 635 000 $ (stable), région de Québec 475 000 $ (+4,7 %)","Ventes en septembre 2026 : 7 045 (−7 %)","59,9 % des ménages sont propriétaires, 40,1 % locataires (2021)"],
+ etudes:[["Les taux d'intérêt font surtout varier les prix des maisons. Ils ne changent presque pas le nombre de logements construits.","Surprenant, Banque du Canada, 2026"],["On dit souvent que les ménages qui ne peuvent plus acheter restent locataires et réduisent le nombre de logements libres. C'est plausible, mais aucune des études recensées ne l'a démontré.","—"]],
+ src:"APCIQ; Statistique Canada; Surprenant 2026",links:["fcb","taux","libres"]},
 fcb:{kind:"Lien",title:"Ne peut plus acheter, reste locataire",stars:0,
- clair:"On entend souvent que les ménages qui ne peuvent plus acheter restent locataires et font grimper la demande de logements à louer. C'est plausible, mais aucune des études recensées ne l'a démontré. C'est pourquoi la flèche est en pointillé.",
+ clair:"On entend souvent que les ménages qui ne peuvent plus acheter restent locataires et réduisent le nombre de logements libres. C'est plausible, mais aucune des études recensées ne l'a démontré. C'est pourquoi la flèche est en pointillé.",
  etudes:[["À vérifier par une recherche ciblée si ce lien devient important pour la décision.","—"]],
- src:"Aucune dans les études recensées",links:["prop","loc"]},
-f5:{kind:"Débordement",title:"Les loyers trop chers poussent vers la rue",stars:2,
- clair:"Pourquoi une ville a-t-elle plus d'itinérance qu'une autre? Surtout à cause du prix des loyers et du manque de logements libres, plus que de la drogue, de la santé mentale ou du climat.",
- qc:["Là où il reste moins de 1 % de logements libres (Abitibi, Côte-Nord), l'itinérance a bondi de 119 % et de 65 %"],
- etudes:[["Chaque hausse de 100 $ du loyer médian va avec environ 15 % plus d'itinérance dans les grandes villes américaines, et 39 % en banlieue et en région.","Byrne et coll., 2013"],["Un rapport du Congrès américain arrive à environ +9 % pour chaque 100 $ de loyer de plus.","GAO, 2020"],["Détroit, une ville pauvre, a moins d'itinérance que Seattle, une ville chère.","Colburn et Aldern, 2022"],["Ce sont des comparaisons entre villes : un lien solide, mais pas une preuve de cause à effet.","—"]],
- src:"Byrne et coll. 2013; GAO 2020; Colburn & Aldern 2022",links:["loc","rue","prevent","build"]},
-f6:{kind:"Débordement",title:"L'expulsion mène à la rue",stars:3,
- clair:"Être expulsé ne fait pas que précéder l'itinérance : ça la cause. On le sait grâce à une étude qui a comparé des locataires tombés par hasard sur des juges plus ou moins sévères.",
- qc:["Il n'existe pas de statistiques sur les expulsions au Québec, ni sur le nombre de personnes encore logées 6 et 12 mois après une aide"],
- etudes:[["Une expulsion multiplie par plus de quatre le risque d'aller en refuge la première année. Les visites à l'hôpital augmentent de 29 % et font plus que doubler en santé mentale. Le revenu baisse de 14 % la deuxième année.","Collinson et coll., 2024, Quarterly Journal of Economics"],["New York : un avocat gratuit pour les locataires a un effet modeste.","NYU Furman Center"],["Pays de Galles : les services doivent aider dès 56 jours avant la perte du logement. 58 % des ménages menacés sont aidés, mais ça ne remplace pas des logements qui manquent.","Gouvernement du pays de Galles"]],
- src:"Collinson et coll. 2024; NYU Furman Center; Gouvernement du pays de Galles",links:["loc","rue","prevent"]},
-f8:{kind:"Action ③",cat:"go",title:"Reloger d'abord (Logement d'abord)",stars:3,
+ src:"Aucune dans les études recensées",links:["prop","libres"]},
+f5:{kind:"Étape 3",title:"Les loyers montent, l'itinérance aussi",stars:2,
+ clair:"Pourquoi une région a-t-elle plus d'itinérance qu'une autre? Surtout à cause du prix des loyers et du manque de logements libres, plus que de la drogue, de la santé mentale ou du climat.",
+ qc:["Logement de 2 chambres : 1 273 $ par mois en moyenne; +7,2 % en un an pour les mêmes logements","Hausse de loyer suggérée par le TAL pour 2026-2027 : 3,1 % (nouvelle formule)","Là où il reste moins de 1 % de logements libres (Abitibi-Témiscamingue, Côte-Nord), l'itinérance a bondi de 119 % et de 65 %"],
+ etudes:[["Chaque hausse de 100 $ du loyer médian va avec environ 15 % plus d'itinérance dans les grandes villes américaines, et 39 % en banlieue et en région.","Byrne et coll., 2013"],["Un rapport du Congrès américain arrive à environ +9 % pour chaque 100 $ de loyer de plus.","GAO, 2020"],["Détroit, une ville pauvre, a moins d'itinérance que Seattle, une ville chère.","Colburn et Aldern, 2022"],["Ce sont des comparaisons entre villes et régions : un lien solide, mais pas une preuve de cause à effet.","—"]],
+ src:"SCHL; TAL; Byrne et coll. 2013; GAO 2020; Colburn & Aldern 2022",links:["libres","f6","rue","aide","control"]},
+f6:{kind:"Étape 4",title:"Les évictions mènent à la rue",stars:3,
+ clair:"Perdre son logement contre son gré ne fait pas que précéder l'itinérance : ça la cause. On le sait grâce à une étude qui a comparé des locataires tombés par hasard sur des juges plus ou moins sévères.",
+ qc:["Locataires du privé en « besoins impérieux » : 8,5 % en 2022 → 13,4 % en 2024","Il n'existe pas de statistiques sur les évictions au Québec, ni sur le nombre de personnes encore logées 6 et 12 mois après une aide"],
+ etudes:[["Une éviction multiplie par plus de quatre le risque d'aller en refuge la première année. Les visites à l'hôpital augmentent de 29 % et font plus que doubler en santé mentale. Le revenu baisse de 14 % la deuxième année.","Collinson et coll., 2024, Quarterly Journal of Economics"],["Précision : cette étude porte sur des locataires délogés par jugement, surtout pour un loyer impayé (au Québec, une résiliation du bail ordonnée par le TAL). Les reprises de logement et les rénovictions n'y sont pas mesurées.","Collinson et coll., 2024"],["New York : un avocat gratuit pour les locataires a un effet modeste.","NYU Furman Center"],["Pays de Galles : les services doivent aider dès 56 jours avant la perte du logement. 58 % des ménages menacés sont aidés, mais ça ne remplace pas des logements qui manquent.","Gouvernement du pays de Galles"]],
+ src:"Statistique Canada; Collinson et coll. 2024; NYU Furman Center; Gouvernement du pays de Galles",links:["f5","rue","prevent"]},
+rue:{kind:"Étape 5",title:"Itinérance",
+ clair:"C'est le bout de la chaîne. L'itinérance touche toutes les régions du Québec, pas seulement Montréal, et les plus fortes hausses sont en région. On n'en sort que si on reloge les gens, et pour ça, il faut des logements libres.",
+ qc:["12 077 personnes en itinérance visible la nuit du 15 avril 2025 : +20 % depuis 2022","Plus fortes hausses : Abitibi-Témiscamingue +119 %, Laurentides +73 %, Côte-Nord +65 %, Laval +59 %","Les régions où l'itinérance est la plus forte par habitant : Montréal, Abitibi-Témiscamingue, Outaouais, Côte-Nord","Dehors ou en campement : 1 887 personnes (16 %), la forme qui augmente le plus vite"],
+ etudes:[["Les régions où l'itinérance est la plus forte sont aussi parmi celles qui construisent le moins par habitant. C'est un lien observé, pas une preuve de cause.","MSSS 2025; SCHL"],["Un dénombrement d'une seule nuit oublie l'itinérance cachée : femmes, jeunes et Autochtones qui dorment chez d'autres. Le Nord n'est pas dénombré.","MSSS 2025"]],
+ src:"MSSS, dénombrement 2025; Infrastructure Canada; SCHL",links:["f6","f8","camps","services"]},
+soc:{kind:"Réserve",title:"Logement social",
+ clair:"HLM, coopératives et OBNL d'habitation : des logements dont le loyer ne suit pas le marché. C'est la réserve qui permet de reloger les gens qu'on sort de la rue. Elle est pleine.",
+ qc:["Environ 74 000 HLM; environ 30 000 ménages en attente","3 993 logements abordables livrés en 2025; environ 9 000 visés en 2026","Financement fédéral prévu : 198 M$ (2025) → 143 M$ → 71 M$ (2027)","Déficit d'exploitation des HLM : 527,9 M$, soit environ 8 035 $ par logement"],
+ etudes:[["Finlande : 10,9 % des logements sont sociaux. Canada : 3,5 %. Le succès finlandais contre l'itinérance repose sur cette réserve de logements.","OCDE"],["Pays-Bas, Autriche, Danemark : plus de 20 % des logements, gérés par des organismes qui réinvestissent leurs surplus dans de nouveaux logements.","Housing 2030"],["Attention : une partie des logements sociaux construits remplace des logements privés qui auraient été construits de toute façon.","Études américaines sur le LIHTC"]],
+ src:"SHQ, rapport annuel 2024-2025; FLHLMQ; OCDE; Housing 2030",links:["f8","f9","equity","place"]},
+
+f8:{kind:"Action ③",cat:"go",title:"Reloger d'abord (Logement d'abord)",stars:3,short:"Loger sans condition : 2 fois plus de gens restent logés.",
  clair:"On donne d'abord un logement, sans exiger d'être sobre ou en traitement, avec une aide pour payer le loyer et un accompagnement. C'est l'intervention contre l'itinérance la mieux prouvée.",
  qc:["Ça ne fonctionne que s'il y a des logements libres : 30 000 ménages attendent un HLM et il ne reste que 1,3 % de logements libres parmi les moins chers"],
  etudes:[["Deux fois plus de personnes sont encore logées après 18 à 24 mois. 37 % moins de visites aux urgences, 24 % moins d'hospitalisations.","Baxter et coll., 2019 (synthèse de 4 essais)"],["Projet Chez Soi (5 villes canadiennes dont Montréal, plus de 2 000 personnes) : 62 % logées de façon stable, contre 31 % avec les services habituels.","Goering et coll., 2014"],["Pour les 10 % de personnes qui utilisent le plus les services, chaque 10 $ investi en fait économiser 21,72 $.","Goering et coll., 2014"],["Familles américaines : une aide au loyer de longue durée réduit de moitié l'itinérance. Les aides courtes et le logement de transition n'ont presque pas d'effet.","Gubits et coll., 2016"],["Limite : peu d'effet sur la santé mentale et la consommation. Pour la plupart des gens, c'est un choix de société plus qu'une source d'économies.","Baxter et coll., 2019"]],
  src:"Baxter et coll. 2019; Goering et coll. 2014; Gubits et coll. 2016; Peng et coll. 2020",links:["f9","soc","rue","aide"]},
 f9:{kind:"Condition",title:"Pour reloger, il faut des logements libres",stars:2,
- clair:"Reloger fonctionne très bien dans les essais. Mais à l'échelle d'une ville, on ne peut reloger que s'il existe des logements libres, privés (avec une aide au loyer) ou sociaux.",
+ clair:"Reloger fonctionne très bien dans les essais. Mais à l'échelle du Québec, on ne peut reloger que s'il existe des logements libres, privés (avec une aide au loyer) ou sociaux.",
  qc:["30 000 ménages en attente d'un HLM; 1,3 % de logements libres parmi les moins chers. Sans logements libres, l'action ③ tourne à vide."],
  etudes:[["Finlande : depuis 2008, les refuges ont été transformés en logements permanents; une fondation y possède environ 19 000 logements. Environ 20 000 personnes sans logement en 1984, 3 806 en 2024.","Y-Foundation; Falvo, 2025"],["Houston et Medicine Hat ont aussi fait baisser l'itinérance, mais sans groupe de comparaison pour le prouver.","Falvo, 2025"],["Comment faire ça à grande échelle reste peu étudié.","Munthe-Kaas et coll., 2018"]],
  src:"Munthe-Kaas et coll. 2018; Falvo 2025; Y-Foundation",links:["f8","build","soc"]},
 
 build:{kind:"Action ①",cat:"go",title:"Construire plus de logements",stars:3,short:"Même cher, le neuf fait baisser les loyers autour.",
  clair:"Un immeuble neuf, même cher, fait baisser les loyers autour. Les gens qui y emménagent laissent leur ancien logement à quelqu'un d'autre, qui libère le sien, et ainsi de suite jusqu'aux logements moins chers.",
- qc:["Mises en chantier : environ 54 100 par an (tendance de sept. 2026), −11 % en un mois","Région de Montréal : il en faudrait environ 72 000 par an d'ici 2035; on en prévoit 23 000 (SCHL)","Île de Montréal : 3,9 logements construits par 1 000 habitants; Laval : 10,0","Coûts de construction : +6,4 % par an; un chantier locatif dure 18,4 mois","Montréal est la 3e région sur 33 au Canada où la construction réagit le moins à la demande (Banque du Canada)"],
+ qc:["Mises en chantier : environ 54 100 par an (tendance de sept. 2026), −11 % en un mois","Coûts de construction : +6,4 % par an; un chantier locatif dure 18,4 mois"],
  etudes:[["Autour d'un nouvel immeuble de 50 logements et plus, les loyers voisins sont de 5 à 7 % plus bas.","Asquith, Mast et Reed, 2023 (11 villes américaines)"],["100 logements neufs au prix du marché en libèrent, par ricochet, l'équivalent de 70 dans des quartiers sous le revenu médian, dont 40 dans les plus pauvres.","Mast, 2023"],["Même résultat à Helsinki, avec des données gouvernementales.","Bratu, Harjunen et Saarimaa, 2023"],["Construire est nécessaire, mais ne suffit pas pour les plus pauvres.","Been, Ellen et O'Regan, 2019"]],
- src:"SCHL; ISQ; APCHQ; Asquith, Mast & Reed 2023; Mast 2023; Bratu et coll. 2023; Been et coll. 2019; Paixão 2021",links:["zonage","subv","loc"]},
-prevent:{kind:"Action ②",cat:"go",title:"Prévenir les expulsions",stars:2,short:"Aide d'urgence pour le loyer : −76 % d'arrivées en refuge.",
+ src:"SCHL; Asquith, Mast & Reed 2023; Mast 2023; Bratu et coll. 2023; Been et coll. 2019",links:["offre","zonage","subv"]},
+prevent:{kind:"Action ②",cat:"go",title:"Prévenir les évictions",stars:2,short:"Aide d'urgence pour le loyer : −76 % d'arrivées en refuge.",
  clair:"Agir avant que la personne perde son logement : une aide d'urgence pour un loyer en retard, un accompagnement à la sortie de l'hôpital, de prison ou d'un placement jeunesse.",
  qc:["Moments à cibler : retards de loyer, sorties d'hôpital, de prison et de la DPJ"],
  etudes:[["Chicago : une aide ponctuelle pour payer le loyer réduit de 76 % les arrivées en refuge dans les 6 mois. Coût : environ 10 300 $ par cas évité.","Evans, Sullivan et Wallskog, 2016, Science"],["Accompagnement intensif après une hospitalisation en psychiatrie : 5 % se retrouvent à la rue, contre 19 % sans accompagnement.","Herman et coll., 2011"],["Vancouver : 7 500 $ versés d'un coup à 50 personnes devenues sans abri. Moins de jours sans logement et environ 777 $ d'économies nettes par personne. Petit échantillon.","Dwyer et coll., 2023"],["Quitter un placement jeunesse à 18 ans est un moment à haut risque.","Gaetz et coll."]],
@@ -358,7 +342,7 @@ zonage:{kind:"Solution",cat:"go",title:"Permettre de construire plus (zonage, d�
  clair:"Les règles municipales qui limitent ce qu'on peut construire freinent la construction et font monter les prix. Assouplir ces règles dans toute une ville fait baisser les loyers. Le faire dans un seul quartier, pas toujours.",
  qc:["C'est le levier le moins coûteux pour l'État, mais il relève des municipalités. Québec peut agir par des cibles, des conditions de financement ou de nouveaux pouvoirs.","À Montréal, les frais municipaux peuvent atteindre 12 % du coût d'une tour locative","Projets bloqués faute d'infrastructures d'eau : Lévis, La Prairie, Sherbrooke"],
  etudes:[["Auckland (Nouvelle-Zélande) a permis de construire plus densément sur une grande partie de la ville. Six ans plus tard, les loyers étaient de 14 à 35 % plus bas que sans la réforme.","Greenaway-McGrevy, 2023"],["Dans les villes canadiennes où il est difficile de construire, les prix réels ont quadruplé de 1990 à 2020, contre un triplement ailleurs.","Paixão, Banque du Canada, 2021"],["New York : 53 changements de zonage quartier par quartier ont ajouté 7,8 % de logements, mais les loyers ont monté dans ces quartiers. Un quartier qui se transforme attire aussi de nouveaux résidents.","Kim et Lee, 2025"],["Plus de réglementation va avec des prix plus élevés et moins de construction.","Gyourko et Molloy, 2015"]],
- src:"Gyourko & Molloy 2015; Paixão 2021; Greenaway-McGrevy 2023; Kim & Lee 2025; SCHL 2022",links:["build"]},
+ src:"Gyourko & Molloy 2015; Paixão 2021; Greenaway-McGrevy 2023; Kim & Lee 2025; SCHL 2022",links:["build","offre"]},
 place:{kind:"Solution",cat:"go",title:"Bien choisir l'emplacement du logement social",stars:2,short:"Il aide ses occupants et peut relancer un quartier pauvre.",
  clair:"Le logement social aide ses occupants et peut revitaliser un quartier pauvre. Ses effets sur les enfants sont importants, mais ils dépendent beaucoup du quartier. L'emplacement compte.",
  qc:["Utile pour choisir les terrains (terrains publics, Maisons Canada, Pointe-de-Longueuil) et pour mélanger les revenus dans les projets"],
@@ -369,12 +353,12 @@ aide:{kind:"Solution",cat:"mid",title:"Aider à payer le loyer",stars:3,short:"A
  clair:"L'aide au loyer aide vraiment le ménage qui la reçoit. Mais quand il manque de logements, une bonne partie finit en hausses de loyer. Elle marche bien là où il y a assez de logements.",
  qc:["Le Programme de supplément au loyer (PSL) est cette aide au Québec","Avec 1,3 % de logements libres parmi les moins chers, le risque que l'aide finisse dans les loyers est à son plus haut"],
  etudes:[["France : environ 78 % de l'aide a été absorbée par des hausses de loyer, sans meilleur logement.","Fack, 2006"],["Royaume-Uni : quand l'aide a baissé, les loyers ont baissé de 6 à 11 %.","Gibbons et Manning, 2006"],["L'effet sur les loyers disparaît là où la construction suit la demande.","Grislain-Letrémy et Trevien"],["Pour les ménages, ça marche : une aide de longue durée réduit de moitié l'itinérance des familles.","Gubits et coll., 2016"]],
- src:"Fack 2006; Gibbons & Manning 2006; Grislain-Letrémy & Trevien; Gubits et coll. 2016",links:["build","f8","loc"]},
+ src:"Fack 2006; Gibbons & Manning 2006; Grislain-Letrémy & Trevien; Gubits et coll. 2016",links:["build","f8","libres"]},
 control:{kind:"Solution",cat:"mid",title:"Contrôler les loyers",stars:3,short:"Protège les locataires en place, mais un contrôle strict réduit l'offre.",
  clair:"Un contrôle strict (gel ou plafond) protège les locataires en place. Mais à la longue, il réduit le nombre de logements à louer et leur entretien. Le régime québécois, plus souple, n'a jamais été évalué.",
  qc:["Le TAL suggère chaque année une hausse selon une formule (3,1 % pour 2026-2027); les immeubles neufs en sont exemptés pendant 5 ans","Son effet sur la construction n'a jamais été mesuré"],
  etudes:[["San Francisco : les locataires protégés restent plus souvent dans leur logement (+20 %), mais le nombre de logements visés à louer baisse de 15 % et les loyers de la ville montent de 5,1 %.","Diamond, McQuade et Qian, 2019"],["Cambridge (Massachusetts) : après la fin du contrôle, la valeur des immeubles a monté, même chez les voisins jamais contrôlés.","Autor, Palmer et Pathak, 2014"],["La grande majorité des études concluent à moins de logements, moins bien entretenus, et à des loyers plus chers ailleurs dans le marché.","Kholodilin, 2024"],["Allemagne : un contrôle plus souple n'a pas montré d'effet négatif sur la construction.","DIW, 2018"]],
- src:"Diamond, McQuade & Qian 2019; Autor, Palmer & Pathak 2014; Kholodilin 2024; DIW 2018",links:["loc","f6"]},
+ src:"Diamond, McQuade & Qian 2019; Autor, Palmer & Pathak 2014; Kholodilin 2024; DIW 2018",links:["f5","f6"]},
 subv:{kind:"Solution",cat:"mid",title:"Subventionner la construction privée",stars:2,short:"Une partie aurait été construite de toute façon.",
  clair:"Une partie des logements subventionnés auraient été construits de toute façon, sans aide. L'argent public est alors mal ciblé. La subvention est utile quand elle vise ce que le privé ne construirait pas seul.",
  qc:["Retrait de la TPS sur le locatif neuf (2023); seuil de remboursement de la TVQ à 225 000 $, pas indexé depuis 2011","Leur effet sur la construction n'a pas été évalué"],
@@ -403,18 +387,18 @@ services:{kind:"Solution",cat:"no",title:"Miser seulement sur les causes personn
  src:"Bramley & Fitzpatrick 2018; Infrastructure Canada, dénombrements 2020-2022",links:["rue","f5","prevent"]}
 };
 const COLS={go:["build","prevent","f8","zonage","place"],mid:["aide","control","subv","equity"],no:["taux","camps","services"]};
-F.f8.short="Loger sans condition : 2 fois plus de gens restent logés.";
 
 const G={
 "HLM":{s:"Habitation à loyer modique : logement public où le loyer est fixé à 25 % du revenu du ménage."},
 "OBNL":{s:"Organisme à but non lucratif; ici, un organisme d'habitation communautaire."},
 "PSL":{s:"Programme de supplément au loyer : l'État paie la différence entre 25 % du revenu du ménage et le loyer d'un logement privé ou communautaire."},
-"TAL":{s:"Tribunal administratif du logement : fixe les loyers en cas de désaccord et publie chaque année une hausse suggérée."},
+"TAL":{s:"Tribunal administratif du logement : tranche les litiges entre locataires et propriétaires (loyers, résiliations de bail) et publie chaque année une hausse de loyer suggérée."},
 "SHQ":{s:"Société d'habitation du Québec : organisme public qui finance et encadre le logement social et abordable."},
 "SCHL":{s:"Société canadienne d'hypothèques et de logement : organisme fédéral, source des données sur la construction et les logements libres."},
 "MSSS":{s:"Ministère de la Santé et des Services sociaux : responsable du dénombrement de l'itinérance."},
 "DPJ":{s:"Direction de la protection de la jeunesse; la sortie de placement à 18 ans est un moment à risque."},
 "APCIQ":{s:"Association professionnelle des courtiers immobiliers du Québec : source des prix et des ventes de maisons."},
+"APCHQ":{s:"Association des professionnels de la construction et de l'habitation du Québec."},
 "ISQ":{s:"Institut de la statistique du Québec."},
 "FLHLMQ":{s:"Fédération des locataires d'habitations à loyer modique du Québec : source associative."},
 "LIHTC":{s:"Crédit d'impôt américain pour le logement à loyer modique (1986).",l:"<p>Low-Income Housing Tax Credit : principal programme américain de construction de logements abordables (environ 3 millions de logements). Le promoteur s'engage à louer à prix réduit pendant au moins 30 ans; en échange, il reçoit des crédits d'impôt qu'il revend à des investisseurs.</p><p>C'est le programme le plus étudié au monde, d'où la preuve qu'une partie des logements subventionnés remplace de la construction privée qui aurait eu lieu de toute façon.</p>"},
