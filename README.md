@@ -8,4 +8,4 @@ Infographie interactive : cinq réservoirs (offre neuve, locatif privé, propri�
 
 Ouvrir `index.html` dans un navigateur. Aucune dépendance locale (polices Google chargées en ligne, avec repli système).
 
-Corpus : revue de littérature (oct. 2026), portrait Habitation et itinérance au Québec 2026, « ce qui se fait ailleurs », cahiers de transition.
+Sources : études publiées (citées dans chaque fiche) et données publiques (SCHL, ISQ, MSSS, Statistique Canada, SHQ).
