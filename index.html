@@ -99,6 +99,22 @@ header p{margin:0;color:var(--muted);font-size:14px;max-width:62ch}
 .nav button{font:500 12px var(--body);background:var(--chip);color:var(--fg);border:0;border-radius:4px;padding:5px 9px;cursor:pointer}
 .nav button:hover,.nav button:focus-visible{outline:2px solid var(--water);outline-offset:1px}
 
+/* glossaire */
+a.g{color:inherit;text-decoration:underline dotted var(--muted);text-underline-offset:3px;text-decoration-thickness:1px;cursor:help}
+a.g:hover,a.g:focus-visible{text-decoration-color:var(--water);color:var(--water)}
+.lex{margin-top:28px;border-top:1px solid var(--line);padding-top:14px}
+.lex summary{cursor:pointer;font-family:var(--display);font-size:17px;font-weight:600;color:var(--ink-strong);list-style:none;display:flex;align-items:center;gap:10px}
+.lex summary::-webkit-details-marker{display:none}
+.lex summary::before{content:"+";font-family:var(--mono);width:20px;height:20px;border:1px solid var(--line);border-radius:4px;display:inline-grid;place-items:center;font-size:14px;color:var(--muted)}
+.lex[open] summary::before{content:"\2212"}
+.lex summary small{font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted)}
+.lex dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:8px 16px;margin:14px 0 0;font-size:13.5px}
+@media (max-width:600px){.lex dl{grid-template-columns:1fr;gap:2px 0}.lex dd{margin-bottom:10px}}
+.lex dt{font-family:var(--mono);font-size:12.5px;color:var(--ink-strong);padding-top:2px;scroll-margin-top:12px}
+.lex dd{margin:0;max-width:78ch}
+.lex dd p{margin:0 0 6px}
+.lex .flash{background:var(--chip);border-radius:3px;outline:4px solid var(--chip)}
+
 .reading{margin-top:28px;border-top:1px solid var(--line);padding-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
 .reading h3{font-family:var(--display);font-size:17px;font-weight:600;margin:0 0 6px;color:var(--ink-strong)}
 .reading p{margin:0;font-size:14px;max-width:48ch}
@@ -296,7 +312,12 @@ footer{margin-top:28px;font-size:12.5px;color:var(--muted);max-width:80ch}
   <div><h3>La chaise musicale</h3><p>Le trop-plein se remplit par les loyers et l'inoccupation (5-6), pas par la santé mentale ni la drogue. Les facteurs individuels (7) décident qui tombe; le marché décide combien tombent.</p></div>
 </section>
 
-<footer>Corpus : revue de littérature (27 oct. 2026). Niveaux de preuve : élevé = méta-analyses, essais randomisés ou quasi-expérimental convergent; moyen = quasi-expérimental isolé ou corrélation robuste; faible = modélisation ou étude de cas. Les chiffres de niveau dans les vases viennent du portrait 2026 (SCHL, ISQ, MSSS, SHQ, FLHLMQ). La ligne pointillée grise C → B est une relation souvent affirmée mais sans étude causale dans le corpus. Le niveau d'eau dessiné est illustratif.</footer>
+<details class="lex" id="lex">
+  <summary>Lexique <small>sigles et termes utilisés dans les fiches</small></summary>
+  <dl id="lexlist"></dl>
+</details>
+
+<footer id="foot">Corpus : revue de littérature (27 oct. 2026). Niveaux de preuve : élevé = méta-analyses, essais randomisés ou quasi-expérimental convergent; moyen = quasi-expérimental isolé ou corrélation robuste; faible = modélisation ou étude de cas. Les chiffres de niveau dans les vases viennent du portrait 2026 (SCHL, ISQ, MSSS, SHQ, FLHLMQ). La ligne pointillée grise C → B est une relation souvent affirmée mais sans étude causale dans le corpus. Le niveau d'eau dessiné est illustratif.</footer>
 </div>
 
 <script>
@@ -372,8 +393,62 @@ t13:{kind:"Note 13 · sur D",title:"Effets de quartier du logement social",lead:
  qc:["Pertinent pour le choix des terrains (foncier public, Maisons Canada, Pointe-de-Longueuil) et pour la mixité des projets."],src:"Revue de littérature, Logement social; Ce qui se fait ailleurs",links:["D","t16"]}
 };
 const NAMES={A:"A Offre neuve",B:"B Locatif privé",C:"C Propriété",D:"D Parc hors marché",E:"E Itinérance",f1:"Tuyau 1",fcb:"Lien C→B",f5:"Tuyau 5",f6:"Tuyau 6",f8:"Tuyau 8",f9:"Tuyau 9",t23:"Robinet 2·3",t12:"Robinet 12",t4:"Robinet 4",t10:"Robinet 10",t11:"Robinet 11",t14:"Robinet 14",t7:"Robinet 7",t15:"Robinet 15",t16:"Robinet 16",t13:"Note 13"};
+const G={
+"LIHTC":{s:"Low-Income Housing Tax Credit : crédit d'impôt américain pour le logement à loyer modique (1986). L'outil de subvention à la construction privée le plus étudié au monde.",l:"<p>Low-Income Housing Tax Credit, créé en 1986. Principal outil fédéral américain de production de logements abordables : environ 3 millions de logements financés, 100 000 à 110 000 par année.</p><p>Mécanique : Washington alloue à chaque État une enveloppe annuelle de crédits; l'État les attribue par concours à des promoteurs qui réservent une part des logements à des ménages sous 60 % du revenu médian, à loyer plafonné, pendant au moins 30 ans. Le promoteur vend les crédits à des investisseurs (banques, assureurs), qui réduisent leur impôt sur 10 ans; le produit de la vente sert de mise de fonds et permet des loyers plus bas.</p><p>Pourquoi il sert de référence ici : c'est sur lui que repose la preuve de l'effet d'éviction (30 à 100 % des logements remplacent de la construction privée qui aurait eu lieu de toute façon, surtout où la demande est forte). Critiques récurrentes : coût élevé par logement parce que les intermédiaires prennent leur part, engagements d'abordabilité qui expirent, concentration dans les quartiers déjà pauvres.</p><p>Leçon pour le Québec : une subvention à la construction privée ajoute de l'offre seulement là où le privé n'aurait pas construit seul. Les incitatifs québécois les plus proches (retrait de la TPS sur le locatif neuf, remboursement partiel de la TVQ) ne sont pas ciblés sur l'abordabilité et n'ont pas été évalués.</p>"},
+"Logement d'abord":{s:"Housing First : loger immédiatement et sans condition de traitement, avec aide au loyer et accompagnement. L'intervention en itinérance la mieux démontrée."},
+"Chez Soi":{s:"Essai randomisé canadien de Logement d'abord (2009–2013), plus de 2 000 participants dans 5 villes dont Montréal; référence majeure de la littérature."},
+"TAL":{s:"Tribunal administratif du logement (anciennement Régie du logement) : fixe les loyers en cas de désaccord et publie un pourcentage de hausse suggéré chaque année."},
+"SHQ":{s:"Société d'habitation du Québec : organisme public qui finance et encadre le logement social et abordable."},
+"SCHL":{s:"Société canadienne d'hypothèques et de logement : organisme fédéral, source des données sur les mises en chantier et l'inoccupation."},
+"ISQ":{s:"Institut de la statistique du Québec."},
+"MSSS":{s:"Ministère de la Santé et des Services sociaux : responsable du dénombrement de l'itinérance."},
+"FLHLMQ":{s:"Fédération des locataires d'habitations à loyer modique du Québec : source associative, identifiée comme telle."},
+"HLM":{s:"Habitation à loyer modique : logement public où le loyer est fixé à 25 % du revenu du ménage."},
+"PSL":{s:"Programme de supplément au loyer : l'État paie la différence entre 25 % du revenu du ménage et le loyer d'un logement privé ou communautaire."},
+"FQHC":{s:"Fonds québécois d'habitation communautaire : reçoit des contributions des organismes financés par les programmes de la SHQ; embryon d'un fonds de mise en commun."},
+"OSBL":{s:"Organisme sans but lucratif; ici, un organisme d'habitation communautaire."},
+"RMR":{s:"Région métropolitaine de recensement : bassin métropolitain au sens de Statistique Canada, plus large que la ville et différent de la région administrative."},
+"DPJ":{s:"Direction de la protection de la jeunesse; la sortie de placement à 18 ans est un point de bascule vers l'itinérance."},
+"CTI":{s:"Critical Time Intervention : accompagnement intensif et limité dans le temps autour d'une transition (sortie d'hôpital, de prison, de placement)."},
+"ECR":{s:"Essai contrôlé randomisé : les participants sont répartis au hasard entre l'intervention et les services usuels; le niveau de preuve le plus élevé."},
+"quasi-expérimental":{s:"Étude qui exploite une situation naturelle (un incendie, l'assignation aléatoire des juges, un changement de loi) pour approcher une preuve causale sans tirage au sort."},
+"besoins impérieux":{s:"Besoins impérieux en matière de logement : ménage dont le logement est inabordable (plus de 30 % du revenu), trop petit ou en mauvais état, et qui ne pourrait pas trouver mieux sans y consacrer plus de 30 % de son revenu."},
+"QJE":{s:"Quarterly Journal of Economics, une des grandes revues d'économie."},
+"GAO":{s:"Government Accountability Office : vérificateur général du Congrès américain."},
+"CDC":{s:"Centers for Disease Control and Prevention (États-Unis); son Community Guide recense les interventions évaluées."},
+"HUD":{s:"Department of Housing and Urban Development : ministère américain du logement, commanditaire de la Family Options Study."},
+"BdC":{s:"Banque du Canada."},
+"DIW":{s:"Institut allemand de recherche économique (Berlin), évaluateur du frein aux loyers allemand."},
+"OCDE":{s:"Organisation de coopération et de développement économiques; sa base de données compare les parcs de logement social."},
+"WSW":{s:"Waarborgfonds Sociale Woningbouw : fonds de garantie néerlandais qui couvre la dette des associations de logement social (environ 100 G€), adossé à l'État."},
+"EGW":{s:"Centrale d'émission suisse pour les maîtres d'ouvrage d'utilité publique : emprunte groupé sur les marchés pour des coopératives trop petites pour le faire seules."},
+"Y-Foundation":{s:"Fondation finlandaise, quatrième propriétaire immobilier du pays (environ 19 000 logements), pilier de la stratégie Logement d'abord."},
+"Maisons Canada":{s:"Agence fédérale créée en 2025 pour construire du logement abordable sur des terrains publics; premiers projets au Québec dont la Pointe-de-Longueuil."},
+"PNAS":{s:"Proceedings of the National Academy of Sciences (États-Unis)."},
+"JAMA":{s:"Journal of the American Medical Association."},
+"NBER":{s:"National Bureau of Economic Research : diffuse des documents de travail avant publication."}
+};
+const GKEYS=Object.keys(G).sort((a,b)=>b.length-a.length);
+const GRE=new RegExp('(?<![\\p{L}\\d])('+GKEYS.map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')(?![\\p{L}\\d])','gu');
 const panel=document.getElementById('panel');
-function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+function esc0(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+function esc(s){return esc0(s).replace(GRE,(m)=>'<a class="g" href="#lex" data-g="'+esc0(m)+'" title="'+esc0(G[m].s).replace(/"/g,'&quot;')+'">'+esc0(m)+'</a>')}
+function gid(k){return 'lex-'+k.toLowerCase().replace(/[^a-z0-9]+/g,'-')}
+(function buildLex(){
+  const dl=document.getElementById('lexlist');
+  const keys=Object.keys(G).sort((a,b)=>a.localeCompare(b,'fr'));
+  dl.innerHTML=keys.map(k=>'<dt id="'+gid(k)+'">'+esc0(k)+'</dt><dd>'+(G[k].l||'<p>'+esc0(G[k].s)+'</p>')+'</dd>').join('');
+  const f=document.getElementById('foot'); f.innerHTML=esc(f.textContent);
+})();
+document.addEventListener('click',e=>{
+  const a=e.target.closest('a.g'); if(!a) return;
+  e.preventDefault();
+  const lex=document.getElementById('lex'); lex.open=true;
+  const dt=document.getElementById(gid(a.dataset.g)); if(!dt) return;
+  dt.scrollIntoView({behavior:'smooth',block:'start'});
+  dt.classList.add('flash'); dt.nextElementSibling.classList.add('flash');
+  setTimeout(()=>{dt.classList.remove('flash');dt.nextElementSibling.classList.remove('flash')},1800);
+});
 function show(id){
   const d=D[id]; if(!d) return;
   document.querySelectorAll('[data-id].on').forEach(e=>e.classList.remove('on'));
