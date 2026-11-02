@@ -1,0 +1,359 @@
+<title>Carte des parties prenantes</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Carte de système : la chaîne des causes de gauche à droite, familles en boîtes, panneau de détail à droite */
+:root{
+  color-scheme: dark;
+  --bg:#0E1319; --panel:#151C24; --panel2:#1B2430; --line:#2B3746; --fg:#DCE3EB; --muted:#8C99A8; --accent:#7DB7DD;
+  --p2:#2E9E68; --p1:#8FD1AA; --z0:#A3ADB8; --m1:#EFA45F; --m2:#DE5646;
+  --top:#C3A3EE; --c1:#E3B65B; --c2:#EF8D72; --c3:#DE74A3; --c4:#5DC6C0; --c5:#7FB4EE; --c6:#93CF7F; --bot:#BDB5A4;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif; --body:"Public Sans","Segoe UI",Arial,sans-serif; --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:14px;line-height:1.45}
+.wrap{max-width:1360px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1{font-family:var(--display);font-weight:700;font-size:26px;letter-spacing:.2px;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;max-width:80ch}
+.banner{margin:12px 0 0;font-size:12.5px;color:var(--fg);background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--c1);border-radius:6px;padding:7px 10px;max-width:110ch}
+.banner .mono{color:var(--muted);margin-left:4px}
+.toplinks{display:flex;flex-wrap:wrap;gap:16px;margin-top:8px;font-size:13px}
+.toplinks a{color:var(--accent)}
+.kpis{display:flex;flex-wrap:wrap;gap:18px;margin:14px 0 4px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.kpis b{color:var(--fg);font-weight:600;font-size:18px;margin-right:6px}
+nav{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 12px;border-bottom:1px solid var(--line)}
+nav a{font-family:var(--display);font-weight:600;font-size:14px;color:var(--muted);text-decoration:none;padding:8px 12px;border:1px solid transparent;border-bottom:none;border-radius:6px 6px 0 0}
+nav a[aria-current="page"]{color:var(--fg);background:var(--panel);border-color:var(--line)}
+nav a:focus-visible,button:focus-visible,.fbox:focus-visible,.chip:focus-visible,.orow:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:12px;color:var(--muted);margin:6px 0 14px}
+.sw{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-2px;margin-right:5px}
+.dash{display:inline-block;width:22px;height:12px;border:1.5px dashed var(--muted);border-radius:3px;vertical-align:-2px;margin-right:5px}
+.note summary{cursor:pointer;color:var(--fg);font-family:var(--display);font-weight:600;font-size:12.5px}
+.note{font-size:12.5px;color:var(--muted);border-left:2px solid var(--line);padding:2px 0 2px 10px;margin:0 0 14px;max-width:110ch}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px;align-items:start}
+@media (max-width:1000px){.layout{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 10px);max-height:calc(100vh - 40px);overflow:auto;min-width:0}
+@media (max-width:1000px){.panel{position:static;max-height:none}}
+.panel h2{font-family:var(--display);font-size:17px;margin:0 0 4px;text-wrap:balance}
+.panel .meta{color:var(--muted);font-size:12px;margin-bottom:10px}
+.lbl{font-family:var(--display);font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin:12px 0 6px}
+/* carte */
+.map{min-width:0;overflow-x:auto}
+.band{display:flex;flex-wrap:wrap;gap:10px;padding:10px;border:1px dashed var(--line);border-radius:8px;margin-bottom:10px}
+.band .bt{width:100%;font-family:var(--display);font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
+.chain{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px;margin-bottom:10px;min-width:880px}
+.col{display:flex;flex-direction:column;gap:10px;position:relative}
+.col .ch{font-family:var(--display);font-weight:700;font-size:13px;padding:7px 9px;border-radius:6px;background:var(--panel2);border:1px solid var(--line)}
+.col .ch small{display:block;font-family:var(--mono);font-weight:400;font-size:11px;color:var(--muted)}
+.col:not(:last-child)::after{content:"";position:absolute;top:17px;right:-17px;width:15px;height:2px;background:var(--line)}
+.col:not(:last-child)::before{content:"";position:absolute;top:13px;right:-18px;border:5px solid transparent;border-left-color:var(--muted)}
+.fbox{background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:9px 10px;cursor:pointer;text-align:left;color:var(--fg);font:inherit;width:100%;display:block}
+.band .fbox{width:auto;flex:1 1 200px}
+.fbox:hover{border-color:var(--muted)}
+.fbox[aria-pressed="true"]{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.fbox.todo{border-style:dashed}
+.fbox .fn{display:flex;align-items:center;gap:7px;font-family:var(--display);font-weight:600;font-size:13.5px;line-height:1.2}
+.dot{width:9px;height:9px;border-radius:50%;flex:none}
+.fbox .fs{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin:5px 0 0}
+.bar{display:flex;height:6px;border-radius:3px;overflow:hidden;background:var(--panel2)}
+.bar span{display:block;height:100%}
+.state{display:inline-block;margin-left:0;font-family:var(--mono);font-size:10px;padding:1px 6px;border-radius:9px;border:1px solid var(--line);color:var(--muted);margin-top:6px}
+.state.ok{color:var(--p1);border-color:#2f5a44}.state.part{color:var(--c1);border-color:#5a4a26}.state.no{color:var(--m1);border-color:#5d3e22;border-style:dashed}
+/* lignes org */
+.orow{display:block;width:100%;text-align:left;background:none;border:none;border-top:1px solid var(--line);color:var(--fg);font:inherit;padding:7px 2px;cursor:pointer}
+.orow:hover{background:var(--panel2)}
+.orow .on{font-weight:600;font-size:13px}
+.orow .or{font-size:11.5px;color:var(--muted)}
+.pills{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
+.pill{font-family:var(--mono);font-size:10px;font-weight:600;padding:1px 4px;border-radius:3px;color:#0E1319}
+.pill.c2{background:var(--p2);color:#fff}.pill.c1{background:var(--p1)}.pill.c0{background:var(--z0)}.pill.cm1{background:var(--m1)}.pill.cm2{background:var(--m2);color:#fff}
+.more{font-family:var(--mono);font-size:10px;color:var(--muted);padding:1px 2px}
+.tag{font-family:var(--mono);font-size:10px;color:var(--m1);border:1px dashed #6b4a2a;border-radius:9px;padding:0 6px;margin-left:4px}
+.pos{border-top:1px solid var(--line);padding:9px 0}
+.pos .ph{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.pos .pe{font-weight:600;font-size:13px}
+.pos q{display:block;font-size:12.5px;color:#C5CED8;margin:5px 0;quotes:"« " " »"}
+.pos .ps{font-size:11.5px;color:var(--muted)}
+.pos a{color:var(--accent)}
+.empty{color:var(--muted);font-size:13px}
+button.back{background:none;border:1px solid var(--line);color:var(--muted);border-radius:6px;padding:3px 9px;font:inherit;font-size:12px;cursor:pointer;margin-bottom:8px}
+/* enjeux */
+.echips{display:grid;gap:6px;margin-bottom:12px}
+.eg{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.egt{font-family:var(--display);font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);width:210px}
+@media (max-width:760px){.egt{width:100%}}
+.echips button{background:var(--panel);border:1px solid var(--line);color:var(--fg);border-radius:6px;padding:5px 9px;font:inherit;font-size:12.5px;cursor:pointer}
+.echips button b{font-family:var(--mono);font-weight:600;margin-right:5px;color:var(--muted)}
+.echips button[aria-pressed="true"]{border-color:var(--accent);background:var(--panel2)}
+.aff{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-bottom:10px}
+.aff .at{font-family:var(--display);font-weight:600;font-size:15px}
+.aff .ad{color:#C5CED8;margin-top:3px}
+.aff .as{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:6px}
+.lanes{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px}
+.chip.strong{background:#22342c}
+@media (max-width:760px){.lanes{grid-template-columns:minmax(0,1fr)}}
+.lane{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px;min-width:0}
+.lane h3{margin:0 0 6px;font-family:var(--display);font-size:12.5px;display:flex;justify-content:space-between;gap:6px}
+.lane h3 span{font-family:var(--mono);color:var(--muted);font-weight:400}
+.chip{display:flex;align-items:flex-start;gap:6px;width:100%;text-align:left;background:var(--panel2);border:1px solid transparent;border-radius:5px;padding:4px 6px;margin-bottom:4px;color:var(--fg);font:inherit;font-size:12px;line-height:1.25;cursor:pointer}
+.chip:hover{border-color:var(--muted)}
+.chip .dot{margin-top:3px}
+.chip i{font-style:normal;color:var(--muted);font-family:var(--mono);font-size:10px;margin-left:auto;padding-left:4px}
+/* liens */
+.grid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:11px 12px;min-width:0}
+.card h3{margin:0 0 4px;font-family:var(--display);font-size:14.5px;text-wrap:balance}
+.card .cs{font-size:11.5px;color:var(--muted);margin-bottom:7px}
+.card .chip{display:inline-flex;width:auto;margin:0 4px 4px 0}
+.sec{font-family:var(--display);font-size:16px;margin:18px 0 8px}
+.frac{display:grid;grid-template-columns:120px minmax(0,1fr) minmax(0,1fr);gap:8px;align-items:start;border-top:1px solid var(--line);padding:8px 0}
+@media (max-width:760px){.frac{grid-template-columns:minmax(0,1fr)}}
+.frac .fe{font-family:var(--mono);font-size:12px}
+.frac .fe b{display:block;font-family:var(--body);font-size:13px}
+.mono{font-family:var(--mono)}
+.tctl{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;margin-bottom:8px}
+.tctl label{display:flex;flex-direction:column;gap:3px;font-family:var(--display);font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted)}
+.tctl label.grow{flex:1 1 220px}
+.tctl label{min-width:0;max-width:100%}
+.tctl select{max-width:100%;width:100%}
+#lab-enj{flex:0 1 300px}
+.tctl select,.tctl input{font:inherit;font-size:13px;text-transform:none;letter-spacing:0;color:var(--fg);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:6px 8px;min-width:0}
+.tctl select:focus-visible,.tctl input:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.tcount{font-size:12px;color:var(--muted);margin:4px 0 8px}
+.tscroll{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+#t-table{border-collapse:collapse;width:100%;min-width:980px;font-size:12.5px}
+#t-table th{position:sticky;top:0;background:var(--panel2);text-align:left;font-family:var(--display);font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);padding:8px;border-bottom:1px solid var(--line)}
+#t-table td{padding:8px;border-bottom:1px solid var(--line);vertical-align:top}
+#t-table tr:hover td{background:var(--panel)}
+#t-table td.cit{max-width:520px;color:#C5CED8}
+#t-table a{color:var(--accent)}
+#t-table .ok{color:var(--p1);font-family:var(--mono);font-size:11px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Carte des parties prenantes — habitation et itinérance</h1>
+    <p class="sub">Qui agit sur chaque maillon de la chaîne des causes, et ce que chacun a dit publiquement. Positions codées de −2 à +2 à partir des mémoires de 2026, chaque cote appuyée par une citation.</p>
+    <div class="kpis" id="kpis"></div>
+    <div class="banner"><b>Document de travail personnel.</b> Codage préliminaire, non validé, fait à partir de sources publiques. Il ne représente la position d'aucun ministère ni du gouvernement du Québec. <span class="mono">Mis à jour le __DATE__.</span></div>
+    <div class="toplinks"><a href="https://syl77qc.github.io/habitation_itinerance/" target="_blank" rel="noopener">← Retour à l’infographie : la chaîne des causes</a><a href="https://syl77qc.github.io/habitation_itinerance/Parties_prenantes_habitation_itinerance.xlsx" target="_blank" rel="noopener">Classeur Excel (source des données)</a></div>
+  </header>
+  <nav aria-label="Vues">
+    <a href="#carte" data-v="carte">Carte des familles</a>
+    <a href="#enjeux" data-v="enjeux">Alliances par enjeu</a>
+    <a href="#liens" data-v="liens">Liens et fractures</a>
+    <a href="#tableau" data-v="tableau">Tableau</a>
+  </nav>
+  <div class="legend">
+    <span><span class="sw" style="background:var(--p2)"></span>+2 appui fort</span>
+    <span><span class="sw" style="background:var(--p1)"></span>+1 appui</span>
+    <span><span class="sw" style="background:var(--z0)"></span>0 nuancé</span>
+    <span><span class="sw" style="background:var(--m1)"></span>−1 réserve</span>
+    <span><span class="sw" style="background:var(--m2)"></span>−2 opposition forte</span>
+    <span><span class="dash"></span>famille surtout à documenter</span>
+  </div>
+  <details class="note"><summary>À savoir sur le corpus</summary>Le corpus principal vient d'une consultation en santé et services sociaux : le communautaire y est très présent, le marché locatif et la construction beaucoup moins (leurs positions viennent surtout des mémoires prébudgétaires). Les « contre » sont donc sous-représentés. Une case absente veut dire « position non trouvée », jamais « neutre ».</details>
+
+  <section id="v-carte" hidden>
+    <div class="layout">
+      <div class="map">
+        <div class="band" id="band-top"><div class="bt">Acteurs transversaux — décident, financent ou appuient sur toute la chaîne</div></div>
+        <div class="chain" id="chain"></div>
+      </div>
+      <aside class="panel" id="panel-carte" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <section id="v-enjeux" hidden>
+    <div class="echips" id="echips" role="group" aria-label="Choisir un enjeu"></div>
+    <div class="layout">
+      <div style="min-width:0">
+        <div class="aff" id="aff"></div>
+        <div class="lanes" id="lanes"></div>
+      </div>
+      <aside class="panel" id="panel-enjeux" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <section id="v-liens" hidden>
+    <div class="layout">
+      <div style="min-width:0">
+        <div class="aff" id="synth"></div>
+        <div class="sec">Liens observés dans les documents</div>
+        <div class="grid2" id="links"></div>
+        <div class="sec">Lignes de fracture — enjeux où des acteurs s'opposent ou nuancent</div>
+        <div id="fractures"></div>
+      </div>
+      <aside class="panel" id="panel-liens" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <section id="v-tableau" hidden>
+    <div class="tctl">
+      <label>Afficher<select id="t-mode"><option value="pos">Positions</option><option value="pp">Parties prenantes</option></select></label>
+      <label class="grow">Rechercher<input id="t-q" type="search" placeholder="organisation, mot de la citation…"></label>
+      <label>Famille<select id="t-fam"><option value="">Toutes</option></select></label>
+      <label id="lab-enj">Enjeu<select id="t-enj"><option value="">Tous</option></select></label>
+      <label id="lab-cote">Cote<select id="t-cote"><option value="">Toutes</option><option value="pour">Pour (+1, +2)</option><option value="0">Nuancé (0)</option><option value="contre">Contre (−1, −2)</option></select></label>
+      <label>Région<select id="t-reg"><option value="">Toutes</option></select></label>
+    </div>
+    <div class="tcount mono" id="t-count"></div>
+    <div class="tscroll"><table id="t-table"></table></div>
+  </section>
+</div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+const D=JSON.parse(document.getElementById('data').textContent);
+const fam=Object.fromEntries(D.fams.map(f=>[f.code,f]));
+const org=Object.fromEntries(D.orgs.map(o=>[o.id,o]));
+const enj=Object.fromEntries(D.enj.map(e=>[e.code,e]));
+const byOrg={},byEnj={};
+D.pos.forEach(p=>{(byOrg[p.o]=byOrg[p.o]||[]).push(p);(byEnj[p.e]=byEnj[p.e]||[]).push(p)});
+const COLS=[['c1','Construire','mises en chantier'],['c2','Logements libres et loyers','taux d\'inoccupation'],['c3','Évictions','perte du logement'],['c4','Ce qui rend vulnérable','santé, pauvreté, institutions'],['c5','Itinérance','dans la rue, refuges'],['c6','Reloger et logement social','sortie de la rue']];
+const colVar=c=>`var(--${c==='autres'?'bot':c})`;
+const famColor=f=>colVar(fam[f].col);
+const cls=c=>c===2?'c2':c===1?'c1':c===0?'c0':c===-1?'cm1':'cm2';
+const sens=c=>({2:'Appui fort',1:'Appui',0:'Nuancé','-1':'Réserve','-2':'Opposition forte'})[c];
+const esc=s=>String(s??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+const nm=o=>o.nom+(o.sig&&!o.nom.includes(o.sig)?` (${o.sig})`:'');
+const sg=c=>c>0?'+'+c:(c<0?'−'+Math.abs(c):'0');
+
+// KPIs
+const todo=D.orgs.filter(o=>!o.doc).length;
+document.getElementById('kpis').innerHTML=`<span><b>${D.orgs.length}</b>parties prenantes</span><span><b>${D.pos.length}</b>positions codées</span><span><b>${todo}</b>à documenter</span>`;
+
+function dist(list){const d={2:0,1:0,0:0,'-1':0,'-2':0};list.forEach(p=>d[p.c]++);return d}
+function barHTML(d){const t=Object.values(d).reduce((a,b)=>a+b,0);if(!t)return '<div class="bar"></div>';
+  return '<div class="bar">'+[[2,'--p2'],[1,'--p1'],[0,'--z0'],[-1,'--m1'],[-2,'--m2']].map(([k,v])=>d[k]?`<span style="width:${d[k]/t*100}%;background:var(${v})"></span>`:'').join('')+'</div>'}
+function famStats(code){const os=D.orgs.filter(o=>o.fam===code);const ps=D.pos.filter(p=>org[p.o].fam===code);const docd=os.filter(o=>o.doc).length;return {os,ps,docd}}
+function fboxHTML(f){const s=famStats(f.code);const share=s.os.length?s.docd/s.os.length:0;
+  const st=share>=.75?['ok','documentée']:share>=.4?['part','partielle']:['no','à documenter'];
+  return `<button class="fbox ${share<.5?'todo':''}" data-f="${f.code}" aria-pressed="false"><div class="fn"><span class="dot" style="background:${colVar(f.col)}"></span>${esc(f.nom)}</div>
+  <div class="fs">${s.os.length} organisations</div><span class="state ${st[0]}">${st[1]}</span></button>`}
+const AUTRES=D.fams.filter(f=>f.col==='autres').map(f=>f.code);
+function renderCarte(){
+  const top=document.getElementById('band-top'),ch=document.getElementById('chain');
+  D.fams.filter(f=>f.col==='top').forEach(f=>top.insertAdjacentHTML('beforeend',fboxHTML(f)));
+  const nA=D.orgs.filter(o=>AUTRES.includes(o.fam)).length;
+  top.insertAdjacentHTML('beforeend',`<button class="fbox todo" data-f="AUTRES" aria-pressed="false"><div class="fn"><span class="dot" style="background:var(--bot)"></span>Autres acteurs</div><div class="fs">${AUTRES.length} familles · ${nA} organisations</div><span class="state part">recherche, droits, syndicats…</span></button>`);
+  ch.innerHTML=COLS.map(([c,t,s])=>`<div class="col"><div class="ch" style="border-top:3px solid ${colVar(c)}">${t}<small>${s}</small></div>${D.fams.filter(f=>f.col===c&&!AUTRES.includes(f.code)).map(fboxHTML).join('')}</div>`).join('');
+  document.querySelectorAll('#v-carte .fbox').forEach(b=>b.addEventListener('click',()=>b.dataset.f==='AUTRES'?selectAutres():selectFam(b.dataset.f)));
+  selectFam('F07');
+}
+function selectAutres(){
+  document.querySelectorAll('#v-carte .fbox').forEach(b=>b.setAttribute('aria-pressed',b.dataset.f==='AUTRES'));
+  const P=document.getElementById('panel-carte');
+  P.innerHTML=`<h2>Autres acteurs</h2><div class="meta">Familles qui appuient ou encadrent sans être sur un maillon précis.</div>`+AUTRES.map(c=>{const s=famStats(c);return `<button class="orow" data-f="${c}"><div class="on"><span class="dot" style="display:inline-block;background:${colVar(fam[c].col)};margin-right:7px"></span>${esc(fam[c].nom)}</div><div class="or">${s.os.length} organisations · ${s.ps.length} positions</div></button>`}).join('');
+  P.querySelectorAll('.orow').forEach(b=>b.addEventListener('click',()=>selectFam(b.dataset.f,selectAutres)));
+}
+function orgRowHTML(o){const ps=(byOrg[o.id]||[]).slice().sort((a,b)=>a.e.localeCompare(b.e));
+  return `<button class="orow" data-o="${o.id}"><div class="on">${esc(nm(o))}${o.doc?'':'<span class="tag">à documenter</span>'}</div><div class="or">${esc(o.sous)} · ${esc(o.reg)}</div>${ps.length?`<div class="pills">${ps.slice(0,4).map(p=>`<span class="pill ${cls(p.c)}" title="${esc(enj[p.e].nom)} : ${sens(p.c)}">${p.e} ${sg(p.c)}</span>`).join('')}${ps.length>4?`<span class="more">+${ps.length-4} autres</span>`:''}</div>`:''}</button>`}
+function selectFam(code,back){
+  document.querySelectorAll('#v-carte .fbox').forEach(b=>b.setAttribute('aria-pressed',b.dataset.f===code));
+  const f=fam[code],s=famStats(code);
+  const os=s.os.slice().sort((a,b)=>(byOrg[b.id]||[]).length-(byOrg[a.id]||[]).length||a.nom.localeCompare(b.nom,'fr'));
+  const P=document.getElementById('panel-carte');
+  const withP=os.filter(o=>(byOrg[o.id]||[]).length),rest=os.filter(o=>!(byOrg[o.id]||[]).length);
+  P.innerHTML=`${back?'<button class="back">← retour</button>':''}<h2><span class="dot" style="display:inline-block;background:${colVar(f.col)};margin-right:7px"></span>${esc(f.nom)}</h2><div class="meta">${esc(f.sous)}</div>
+  <div class="lbl" style="margin-bottom:2px">Positions de la famille · ${s.ps.length}</div>${barHTML(dist(s.ps))}
+  <div class="lbl">Organisations avec positions · ${withP.length}</div>${withP.map(orgRowHTML).join('')||'<p class="empty">Aucune pour l\'instant.</p>'}
+  ${rest.length?`<button class="back" id="showrest" style="margin-top:10px">Afficher les ${rest.length} autres (à documenter ou sans position)</button><div id="rest" hidden>${rest.map(orgRowHTML).join('')}</div>`:''}`;
+  if(back)P.querySelector('.back').addEventListener('click',back);
+  const sr=P.querySelector('#showrest'); if(sr) sr.addEventListener('click',()=>{P.querySelector('#rest').hidden=false;sr.hidden=true});
+  P.querySelectorAll('.orow').forEach(b=>b.addEventListener('click',()=>showOrg(P,b.dataset.o,()=>selectFam(code,back))));
+}
+function posHTML(p,showE=true){return `<div class="pos"><div class="ph"><span class="pill ${cls(p.c)}">${sg(p.c)}</span><span class="pe">${showE?p.e+' · '+esc(enj[p.e].nom):sens(p.c)}</span><span class="ps">confiance ${esc(p.k).toLowerCase()}</span></div>
+  <q>${esc(p.t)}</q>${p.n?`<div class="ps">Note : ${esc(p.n)}</div>`:''}<div class="ps">${esc(p.d)}${p.pg?', p. '+p.pg:''} · <a href="${esc(p.u)}" target="_blank" rel="noopener">source</a></div></div>`}
+function showOrg(P,id,back,focusE){
+  const o=org[id];const ps=(byOrg[id]||[]).slice().sort((a,b)=>(a.e===focusE?-1:b.e===focusE?1:a.e.localeCompare(b.e)));
+  P.innerHTML=`${back?'<button class="back">← retour</button>':''}<h2>${esc(nm(o))}</h2><div class="meta">${esc(fam[o.fam].nom)} · ${esc(o.sous)} · ${esc(o.reg)}${o.note?'<br>'+esc(o.note):''}</div>
+  ${ps.length?ps.map(p=>posHTML(p)).join(''):`<p class="empty">${o.doc?'Document analysé, mais aucune position codée sur la grille.':'Aucun document analysé pour l\'instant : à documenter.'}</p>`}`;
+  if(back)P.querySelector('.back').addEventListener('click',back);
+  P.scrollTop=0;
+}
+// Enjeux
+let curE='E11';
+function renderEnjeuxChips(){
+  const G=[['Construire et loyers',['E13','E09','E06','E07']],['Itinérance et vulnérabilités',['E02','E03','E04','E05','E08','E12']],['Relogement et logement social',['E01','E10','E11','E14']]];
+  document.getElementById('echips').innerHTML=G.map(([t,cs])=>`<div class="eg"><span class="egt">${t}</span>${cs.map(c=>`<button data-e="${c}" aria-pressed="false"><b>${c}</b>${esc(enj[c].nom)}</button>`).join('')}</div>`).join('');
+  document.querySelectorAll('#echips button').forEach(b=>b.addEventListener('click',()=>selectEnj(b.dataset.e)));
+}
+function selectEnj(code){
+  curE=code;document.querySelectorAll('#echips button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.e===code));
+  const e=enj[code],ps=(byEnj[code]||[]);const d=dist(ps);
+  const famsPour=new Set(ps.filter(p=>p.c>=1).map(p=>org[p.o].fam)),famsContre=new Set(ps.filter(p=>p.c<=-1).map(p=>org[p.o].fam));
+  document.getElementById('aff').innerHTML=`<div class="at">${code} · ${esc(e.nom)}</div><div class="ad">${esc(e.aff)}</div>
+  <div class="as">${ps.length} positions · pour ${d[2]+d[1]} (${famsPour.size} familles) · nuancé ${d[0]} · contre ${d['-1']+d['-2']}${famsContre.size?' ('+[...famsContre].map(f=>fam[f].nom).join(', ')+')':''}</div>`;
+  const L=[['Pour',p=>p.c>=1,'p2'],['Nuancé',p=>p.c===0,'z0'],['Contre',p=>p.c<=-1,'m2']];
+  document.getElementById('lanes').innerHTML=L.map(([t,fn,col])=>{const xs=ps.filter(fn).sort((a,b)=>Math.abs(b.c)-Math.abs(a.c)||org[a.o].nom.localeCompare(org[b.o].nom,'fr'));
+    return `<div class="lane" style="border-top:3px solid var(--${col})"><h3>${t}<span>${xs.length}</span></h3>${xs.map(p=>{const o=org[p.o];return `<button class="chip${Math.abs(p.c)===2?' strong':''}" data-o="${o.id}"><span class="dot" style="background:${famColor(o.fam)}"></span><span>${esc(o.sig||o.nom)}</span><i>${sg(p.c)}</i></button>`}).join('')||'<div class="empty" style="font-size:12px">—</div>'}</div>`}).join('');
+  const P=document.getElementById('panel-enjeux');
+  document.querySelectorAll('#lanes .chip').forEach(b=>b.addEventListener('click',()=>showOrg(P,b.dataset.o,()=>enjPanel(),code)));
+  enjPanel();
+}
+function enjPanel(){const P=document.getElementById('panel-enjeux');const ps=byEnj[curE]||[];
+  const byF={};ps.forEach(p=>{const f=org[p.o].fam;(byF[f]=byF[f]||[]).push(p)});
+  P.innerHTML=`<h2>Qui se prononce sur ${curE}</h2><div class="meta">Par famille. Cliquer une organisation dans les colonnes pour lire sa citation. Le chiffre à droite donne la cote.</div>`+
+  Object.keys(byF).sort((a,b)=>byF[b].length-byF[a].length).map(f=>`<div class="lbl"><span class="dot" style="display:inline-block;background:${famColor(f)};margin-right:6px"></span>${esc(fam[f].nom)} · ${byF[f].length}</div>${barHTML(dist(byF[f]))}`).join('')+
+  (ps.length?'':'<p class="empty">Aucune position codée.</p>');}
+// Liens
+function chipO(id){const o=org[id];return `<button class="chip" data-o="${id}"><span class="dot" style="background:${famColor(o.fam)}"></span><span>${esc(o.sig||o.nom)}</span></button>`}
+function renderLiens(){
+  const P=document.getElementById('panel-liens');
+  document.getElementById('links').innerHTML=D.links.map(l=>`<div class="card"><h3>${esc(l.nom)}</h3><div class="cs">${esc(l.src)}</div>${l.orgs.map(chipO).join('')}</div>`).join('');
+  const fr=D.enj.map(e=>{const ps=byEnj[e.code]||[];const pour=ps.filter(p=>p.c>=1),autres=ps.filter(p=>p.c<=0);return {e,pour,autres}}).filter(x=>x.autres.length);
+  document.getElementById('fractures').innerHTML=fr.map(x=>`<div class="frac"><div class="fe">${x.e.code}<b>${esc(x.e.nom)}</b></div><div><div class="lbl" style="margin-top:0">Pour · ${x.pour.length}</div>${[...new Set(x.pour.map(p=>org[p.o].fam))].map(f=>`<span class="chip" style="display:inline-flex;width:auto;margin:0 4px 4px 0;cursor:default"><span class="dot" style="background:${famColor(f)}"></span>${esc(fam[f].nom)}</span>`).join('')}</div><div><div class="lbl" style="margin-top:0">Nuancé ou contre · ${x.autres.length}</div>${x.autres.map(p=>chipO(p.o).replace('</span></button>',` ${sg(p.c)}</span></button>`)).join('')}</div></div>`).join('');
+  const brx=D.enj.map(e=>{const ps=(byEnj[e.code]||[]).filter(p=>p.c>=1);return {e,n:new Set(ps.map(p=>org[p.o].fam)).size}}).sort((a,b)=>b.n-a.n).slice(0,3);
+  const zerox=D.fams.filter(f=>!D.pos.some(p=>org[p.o].fam===f.code));
+  document.getElementById('synth').innerHTML=`<div class="ad"><b>Alliances les plus larges :</b> ${brx.map(x=>`${x.e.code} ${esc(x.e.nom)} (${x.n} familles)`).join(' · ')}</div><div class="ad" style="margin-top:4px"><b>Angles morts :</b> aucune position pour ${zerox.map(f=>esc(f.nom)).join(', ')}; Abitibi-Témiscamingue, Côte-Nord et Outaouais presque absents.</div>`;
+  if(0){const br=D.enj.map(e=>{const ps=(byEnj[e.code]||[]).filter(p=>p.c>=1);return {e,n:new Set(ps.map(p=>org[p.o].fam)).size,o:ps.length}}).sort((a,b)=>b.n-a.n||b.o-a.o).slice(0,5);
+  }if(0){document.getElementById('broad').innerHTML=br.map(x=>`<div class="frac" style="grid-template-columns:120px minmax(0,1fr)"><div class="fe">${x.e.code}<b>${esc(x.e.nom)}</b></div><div class="mono" style="font-size:12.5px">${x.n} familles · ${x.o} organisations en appui</div></div>`).join('');
+  const zero=D.fams.filter(f=>!D.pos.some(p=>org[p.o].fam===f.code));
+  const regs=['Abitibi-Témiscamingue','Côte-Nord','Outaouais','Mauricie','Gaspésie–Îles-de-la-Madeleine','Nord-du-Québec','Centre-du-Québec','Lanaudière','Estrie','Laurentides','Saguenay–Lac-Saint-Jean','Bas-Saint-Laurent','Chaudière-Appalaches','Capitale-Nationale','Montérégie','Laval','Montréal'];
+  const regCount=r=>D.pos.filter(p=>(org[p.o].reg||'').includes(r)).length;
+  document.getElementById('blind').innerHTML=`<div class="card"><h3>Familles sans aucune position codée</h3><div class="cs">${zero.map(f=>esc(f.nom)).join(' · ')}</div>
+  <h3 style="margin-top:10px">Positions codées par région (organisations régionales seulement)</h3><div class="mono" style="font-size:12px;line-height:1.7">${regs.map(r=>`${esc(r)} <b style="color:${regCount(r)?'var(--fg)':'var(--m1)'}">${regCount(r)}</b>`).join(' · ')}</div>
+  <div class="cs"></div></div>`;}
+  document.querySelectorAll('#v-liens button.chip').forEach(b=>b.addEventListener('click',()=>showOrg(P,b.dataset.o,()=>liensPanel())));
+  liensPanel();
+}
+function liensPanel(){document.getElementById('panel-liens').innerHTML=`<h2>Comment lire cette vue</h2><div class="meta">Les liens viennent de ce que les documents disent eux-mêmes : texte commun, demande commune, démarche conjointe. Ce ne sont pas des appartenances formelles.</div><p class="empty">Cliquer une organisation pour voir ses positions et ses citations.</p>`}
+// routes
+const views=['carte','enjeux','liens','tableau'];let built={};
+function route(){let v=(location.hash||'#carte').slice(1);if(!views.includes(v))v='carte';
+  views.forEach(x=>document.getElementById('v-'+x).hidden=x!==v);
+  document.querySelectorAll('nav a').forEach(a=>{if(a.dataset.v===v)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+  if(!built[v]){built[v]=1; if(v==='carte')renderCarte(); if(v==='enjeux'){renderEnjeuxChips();selectEnj(curE)} if(v==='liens')renderLiens(); if(v==='tableau')renderTableau();}
+}
+function renderTableau(){
+  const $=id=>document.getElementById(id);
+  D.fams.forEach(f=>$('t-fam').insertAdjacentHTML('beforeend',`<option value="${f.code}">${esc(f.nom)}</option>`));
+  D.enj.forEach(e=>$('t-enj').insertAdjacentHTML('beforeend',`<option value="${e.code}">${e.code} · ${esc(e.nom)}</option>`));
+  [...new Set(D.orgs.map(o=>o.reg))].sort((a,b)=>a.localeCompare(b,'fr')).forEach(r=>$('t-reg').insertAdjacentHTML('beforeend',`<option>${esc(r)}</option>`));
+  const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  function draw(){
+    const mode=$('t-mode').value,q=norm($('t-q').value),fm=$('t-fam').value,en=$('t-enj').value,co=$('t-cote').value,rg=$('t-reg').value;
+    $('lab-enj').hidden=$('lab-cote').hidden=mode!=='pos';
+    const okO=o=>(!fm||o.fam===fm)&&(!rg||o.reg===rg);
+    let html,n;
+    if(mode==='pos'){
+      const rows=D.pos.filter(p=>{const o=org[p.o];return okO(o)&&(!en||p.e===en)&&(!co||(co==='pour'?p.c>=1:co==='contre'?p.c<=-1:p.c===0))&&(!q||norm(nm(o)+' '+p.t+' '+(p.n||'')).includes(q))})
+        .sort((a,b)=>a.e.localeCompare(b.e)||b.c-a.c||org[a.o].nom.localeCompare(org[b.o].nom,'fr'));
+      n=rows.length;
+      html='<thead><tr><th>Organisation</th><th>Famille</th><th>Enjeu</th><th>Cote</th><th>Confiance</th><th>Citation</th><th>Source</th><th>Validé</th></tr></thead><tbody>'+
+        rows.map(p=>{const o=org[p.o];return `<tr><td><b>${esc(o.sig||o.nom)}</b>${o.sig?`<br><span style="color:var(--muted)">${esc(o.nom)}</span>`:''}</td><td><span class="dot" style="display:inline-block;background:${famColor(o.fam)};margin-right:5px"></span>${esc(fam[o.fam].nom)}</td><td>${p.e}<br><span style="color:var(--muted)">${esc(enj[p.e]?enj[p.e].nom:'')}</span></td><td><span class="pill ${cls(p.c)}">${sg(p.c)}</span></td><td>${esc(p.k)}</td><td class="cit">${esc(p.t)}${p.n?`<br><span style="color:var(--muted)">Note : ${esc(p.n)}</span>`:''}</td><td><a href="${esc(p.u)}" target="_blank" rel="noopener">${esc(p.d)}</a>${p.pg?', p. '+p.pg:''}</td><td>${p.v?`<span class="ok">${esc(p.v)}</span>`:''}</td></tr>`}).join('')+'</tbody>';
+    }else{
+      const rows=D.orgs.filter(o=>okO(o)&&(!q||norm(nm(o)+' '+o.sous+' '+o.note).includes(q))).sort((a,b)=>fam[a.fam].nom.localeCompare(fam[b.fam].nom,'fr')||a.nom.localeCompare(b.nom,'fr'));
+      n=rows.length;
+      html='<thead><tr><th>Organisation</th><th>Famille</th><th>Sous-famille</th><th>Région</th><th>Positions</th><th>Statut</th><th>Note</th></tr></thead><tbody>'+
+        rows.map(o=>{const ps=byOrg[o.id]||[];return `<tr><td><b>${esc(nm(o))}</b></td><td><span class="dot" style="display:inline-block;background:${famColor(o.fam)};margin-right:5px"></span>${esc(fam[o.fam].nom)}</td><td>${esc(o.sous)}</td><td>${esc(o.reg)}</td><td><div class="pills" style="margin:0">${ps.map(p=>`<span class="pill ${cls(p.c)}">${p.e} ${sg(p.c)}</span>`).join('')}</div></td><td>${o.doc?'documentée':'<span class="tag" style="margin:0">à documenter</span>'}</td><td>${esc(o.note)}</td></tr>`}).join('')+'</tbody>';
+    }
+    $('t-table').innerHTML=html; $('t-count').textContent=`${n} ligne${n>1?'s':''}`;
+  }
+  ['t-mode','t-fam','t-enj','t-cote','t-reg'].forEach(id=>$(id).addEventListener('change',draw)); $('t-q').addEventListener('input',draw);
+  draw();
+}
+addEventListener('hashchange',route);route();
+</script>

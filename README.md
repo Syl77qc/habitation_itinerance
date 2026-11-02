@@ -21,3 +21,13 @@ Un clic sur une étape, une action ou une solution ouvre une fiche : l'idée en 
 Ouvrir `index.html` dans un navigateur. Aucune dépendance locale (police Google chargée en ligne, avec repli système).
 
 Sources : études publiées (citées dans chaque fiche) et données publiques (SCHL, ISQ, MSSS, Statistique Canada, SHQ, APCIQ).
+
+## Cartographie des parties prenantes
+
+Page : [`parties-prenantes.html`](https://syl77qc.github.io/habitation_itinerance/parties-prenantes.html) · retour à l'[infographie](https://syl77qc.github.io/habitation_itinerance/).
+
+Qui agit sur chaque maillon de la chaîne des causes, et ce que chacun a dit publiquement. Quatre vues : la carte des familles, les alliances par enjeu, les liens et fractures, et un tableau filtrable des positions. Chaque position est cotée de −2 à +2 et appuyée par une citation tirée d'un document public (mémoires de la consultation nationale santé mentale, itinérance et dépendance 2026, mémoires prébudgétaires 2026-2027, communiqués).
+
+Document de travail personnel : codage préliminaire, non validé. Il ne représente la position d'aucun ministère ni du gouvernement du Québec.
+
+La source des données est le classeur `Parties_prenantes_habitation_itinerance.xlsx`. Après une modification, régénérer la page avec `python outils/generer_page.py` (requiert `openpyxl`).
