@@ -67,7 +67,8 @@ def main():
             sys.exit(f"Famille inconnue pour {i} : « {r.get('Famille')} »")
         orgs.append(dict(id=i, nom=texte(r.get("Organisation")), sig=texte(r.get("Sigle")), fam=fam,
                          sous=texte(r.get("Sous-famille")), reg=texte(r.get("Région")),
-                         doc=texte(r.get("Source principale")) not in ("", "À documenter"), note=texte(r.get("Note"))))
+                         doc=texte(r.get("Source principale")) not in ("", "À documenter"), note=texte(r.get("Note")),
+                         syn=texte(r.get("Synthèse des positions")), etat=texte(r.get("État de documentation"))))
         ids.add(i)
 
     pos = []

@@ -69,6 +69,7 @@ nav a:focus-visible,button:focus-visible,.fbox:focus-visible,.chip:focus-visible
 .pill.c2{background:var(--p2);color:#fff}.pill.c1{background:var(--p1)}.pill.c0{background:var(--z0)}.pill.cm1{background:var(--m1)}.pill.cm2{background:var(--m2);color:#fff}
 .more{font-family:var(--mono);font-size:10px;color:var(--muted);padding:1px 2px}
 .tag{font-family:var(--mono);font-size:10px;color:var(--m1);border:1px dashed #6b4a2a;border-radius:9px;padding:0 6px;margin-left:4px}
+.syn{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:8px 10px;margin:4px 0 8px;font-size:12.5px;color:#C5CED8}
 .pos{border-top:1px solid var(--line);padding:9px 0}
 .pos .ph{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
 .pos .pe{font-weight:600;font-size:13px}
@@ -268,7 +269,7 @@ function posHTML(p,showE=true){return `<div class="pos"><div class="ph"><span cl
   <q>${esc(p.t)}</q>${p.n?`<div class="ps">Note : ${esc(p.n)}</div>`:''}<div class="ps">${esc(p.d)}${p.pg?', p. '+p.pg:''} · <a href="${esc(p.u)}" target="_blank" rel="noopener">source</a></div></div>`}
 function showOrg(P,id,back,focusE){
   const o=org[id];const ps=(byOrg[id]||[]).slice().sort((a,b)=>(a.e===focusE?-1:b.e===focusE?1:a.e.localeCompare(b.e)));
-  P.innerHTML=`${back?'<button class="back">← retour</button>':''}<h2>${esc(nm(o))}</h2><div class="meta">${esc(fam[o.fam].nom)} · ${esc(o.sous)} · ${esc(o.reg)}${o.note?'<br>'+esc(o.note):''}</div>
+  P.innerHTML=`${back?'<button class="back">← retour</button>':''}<h2>${esc(nm(o))}</h2><div class="meta">${esc(fam[o.fam].nom)} · ${esc(o.sous)} · ${esc(o.reg)}${o.note?'<br>'+esc(o.note):''}</div>${o.syn?`<div class="syn"><div class="lbl" style="margin-top:0">En bref</div>${esc(o.syn)}${o.etat?`<div class="ps" style="margin-top:4px">${esc(o.etat)}</div>`:''}</div>`:''}
   ${ps.length?ps.map(p=>posHTML(p)).join(''):`<p class="empty">${o.doc?'Document analysé, mais aucune position codée sur la grille.':'Aucun document analysé pour l\'instant : à documenter.'}</p>`}`;
   if(back)P.querySelector('.back').addEventListener('click',back);
   P.scrollTop=0;
@@ -345,10 +346,10 @@ function renderTableau(){
       html='<thead><tr><th>Organisation</th><th>Famille</th><th>Enjeu</th><th>Cote</th><th>Confiance</th><th>Citation</th><th>Source</th><th>Validé</th></tr></thead><tbody>'+
         rows.map(p=>{const o=org[p.o];return `<tr><td><b>${esc(o.sig||o.nom)}</b>${o.sig?`<br><span style="color:var(--muted)">${esc(o.nom)}</span>`:''}</td><td><span class="dot" style="display:inline-block;background:${famColor(o.fam)};margin-right:5px"></span>${esc(fam[o.fam].nom)}</td><td>${p.e}<br><span style="color:var(--muted)">${esc(enj[p.e]?enj[p.e].nom:'')}</span></td><td><span class="pill ${cls(p.c)}">${sg(p.c)}</span></td><td>${esc(p.k)}</td><td class="cit">${esc(p.t)}${p.n?`<br><span style="color:var(--muted)">Note : ${esc(p.n)}</span>`:''}</td><td><a href="${esc(p.u)}" target="_blank" rel="noopener">${esc(p.d)}</a>${p.pg?', p. '+p.pg:''}</td><td>${p.v?`<span class="ok">${esc(p.v)}</span>`:''}</td></tr>`}).join('')+'</tbody>';
     }else{
-      const rows=D.orgs.filter(o=>okO(o)&&(!q||norm(nm(o)+' '+o.sous+' '+o.note).includes(q))).sort((a,b)=>fam[a.fam].nom.localeCompare(fam[b.fam].nom,'fr')||a.nom.localeCompare(b.nom,'fr'));
+      const rows=D.orgs.filter(o=>okO(o)&&(!q||norm(nm(o)+' '+o.sous+' '+o.note+' '+(o.syn||'')).includes(q))).sort((a,b)=>fam[a.fam].nom.localeCompare(fam[b.fam].nom,'fr')||a.nom.localeCompare(b.nom,'fr'));
       n=rows.length;
-      html='<thead><tr><th>Organisation</th><th>Famille</th><th>Sous-famille</th><th>Région</th><th>Positions</th><th>Statut</th><th>Note</th></tr></thead><tbody>'+
-        rows.map(o=>{const ps=byOrg[o.id]||[];return `<tr><td><b>${esc(nm(o))}</b></td><td><span class="dot" style="display:inline-block;background:${famColor(o.fam)};margin-right:5px"></span>${esc(fam[o.fam].nom)}</td><td>${esc(o.sous)}</td><td>${esc(o.reg)}</td><td><div class="pills" style="margin:0">${ps.map(p=>`<span class="pill ${cls(p.c)}">${p.e} ${sg(p.c)}</span>`).join('')}</div></td><td>${o.doc?'documentée':'<span class="tag" style="margin:0">à documenter</span>'}</td><td>${esc(o.note)}</td></tr>`}).join('')+'</tbody>';
+      html='<thead><tr><th>Organisation</th><th>Famille</th><th>Sous-famille</th><th>Région</th><th>Positions</th><th>En bref</th><th>Statut</th></tr></thead><tbody>'+
+        rows.map(o=>{const ps=byOrg[o.id]||[];return `<tr><td><b>${esc(nm(o))}</b></td><td><span class="dot" style="display:inline-block;background:${famColor(o.fam)};margin-right:5px"></span>${esc(fam[o.fam].nom)}</td><td>${esc(o.sous)}</td><td>${esc(o.reg)}</td><td><div class="pills" style="margin:0">${ps.map(p=>`<span class="pill ${cls(p.c)}">${p.e} ${sg(p.c)}</span>`).join('')}</div></td><td class="cit">${esc(o.syn||o.note)}</td><td>${o.etat?esc(o.etat):(o.doc?'documentée':'<span class="tag" style="margin:0">à documenter</span>')}</td></tr>`}).join('')+'</tbody>';
     }
     $('t-table').innerHTML=html; $('t-count').textContent=`${n} ligne${n>1?'s':''}`;
   }
