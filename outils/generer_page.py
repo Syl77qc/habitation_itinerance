@@ -41,20 +41,23 @@ def lire_forum(wb):
         return None
     ws = wb["Propositions × familles"]
     entetes = [texte(c.value) for c in ws[1]]
-    fams = entetes[3:]
+    ib = entetes.index("Bloc") if "Bloc" in entetes else len(entetes)
+    fams = entetes[3:ib]
     props = {}
     for r in ws.iter_rows(min_row=2, values_only=True):
         pid = texte(r[0])
         if not re.fullmatch(r"P\d+", pid):
             continue
-        props[pid] = dict(id=pid, t=texte(r[1]), th=texte(r[2]), codes=[texte(v) for v in r[3:3 + len(fams)]])
+        props[pid] = dict(id=pid, t=texte(r[1]), th=texte(r[2]), codes=[texte(v) for v in r[3:3 + len(fams)]],
+                          b=texte(r[ib]) if ib < len(r) else "")
     for r in lignes(wb["Preuve et consensus"]):
         pid = texte(r.get("ID"))
         if pid not in props:
             continue
         num = lambda k: int(r.get(k) or 0) if isinstance(r.get(k), (int, float)) else 0
         props[pid].update(ap=num("Appui (P+A)"), co=num("Conditionnel (C)"), op=num("Oppositions (O)"),
-                          pr=texte(r.get("Niveau de preuve")), z=texte(r.get("Zone")), lit=texte(r.get("Ce que dit la littérature")))
+                          pr=texte(r.get("Niveau de preuve")), z=texte(r.get("Zone")), lit=texte(r.get("Ce que dit la littérature")),
+                          mo=texte(r.get("Motif (à retravailler)")), pi=texte(r.get("Piste")))
         if not props[pid]["z"]:
             sys.exit(f"Zone vide pour {pid} : ouvrir le classeur dans Excel et l'enregistrer pour recalculer les formules.")
     det = []
@@ -69,7 +72,12 @@ def lire_forum(wb):
             t = texte(r[0])
             if t[:1] == "T" and t[1:2].isdigit():
                 themes[t.split(" ")[0]] = t.split(" ", 1)[1]
-    return dict(fams=fams, props=list(props.values()), det=det, themes=themes)
+    blocs = []
+    if "Blocs" in wb.sheetnames:
+        for r in wb["Blocs"].iter_rows(min_row=4, values_only=True):
+            if re.fullmatch(r"B\d+", texte(r[0])):
+                blocs.append(dict(code=texte(r[0]), nom=texte(r[1])))
+    return dict(fams=fams, props=list(props.values()), det=det, themes=themes, blocs=blocs)
 
 
 def main():

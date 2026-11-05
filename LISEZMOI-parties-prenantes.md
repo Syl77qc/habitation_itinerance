@@ -18,4 +18,4 @@
 
 Le script vérifie que chaque position et chaque lien pointe vers une organisation de l'onglet « Parties prenantes ».
 
-La vue « Forum » lit les onglets Propositions × familles, Preuve et consensus et Positions forum (détail). Les zones sont des formules : si le classeur a été modifié ailleurs qu'Excel, l'ouvrir et l'enregistrer dans Excel avant de lancer le script, pour que les valeurs soient recalculées.
+La vue « Forum » lit les onglets Propositions × familles (dont la colonne Bloc), Preuve et consensus, Blocs et Positions forum (détail). Les zones sont des formules : si le classeur a été modifié ailleurs qu'Excel, l'ouvrir et l'enregistrer dans Excel avant de lancer le script, pour que les valeurs soient recalculées.
