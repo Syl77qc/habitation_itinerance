@@ -8,7 +8,7 @@ insère les données dans outils/gabarit_parties_prenantes.html et écrit
 parties-prenantes.html à la racine. Il faut Python 3 et openpyxl
 (pip install openpyxl).
 """
-import json, sys, datetime
+import json, re, sys, datetime
 from pathlib import Path
 from openpyxl import load_workbook
 
@@ -33,6 +33,43 @@ def lignes(ws):
 
 def texte(v):
     return "" if v is None else str(v).strip()
+
+
+def lire_forum(wb):
+    """Lit les onglets du forum (propositions probables, preuve, zones). Retourne None s'ils sont absents."""
+    if not all(n in wb.sheetnames for n in ("Propositions × familles", "Preuve et consensus", "Positions forum (détail)")):
+        return None
+    ws = wb["Propositions × familles"]
+    entetes = [texte(c.value) for c in ws[1]]
+    fams = entetes[3:]
+    props = {}
+    for r in ws.iter_rows(min_row=2, values_only=True):
+        pid = texte(r[0])
+        if not re.fullmatch(r"P\d+", pid):
+            continue
+        props[pid] = dict(id=pid, t=texte(r[1]), th=texte(r[2]), codes=[texte(v) for v in r[3:3 + len(fams)]])
+    for r in lignes(wb["Preuve et consensus"]):
+        pid = texte(r.get("ID"))
+        if pid not in props:
+            continue
+        num = lambda k: int(r.get(k) or 0) if isinstance(r.get(k), (int, float)) else 0
+        props[pid].update(ap=num("Appui (P+A)"), co=num("Conditionnel (C)"), op=num("Oppositions (O)"),
+                          pr=texte(r.get("Niveau de preuve")), z=texte(r.get("Zone")), lit=texte(r.get("Ce que dit la littérature")))
+        if not props[pid]["z"]:
+            sys.exit(f"Zone vide pour {pid} : ouvrir le classeur dans Excel et l'enregistrer pour recalculer les formules.")
+    det = []
+    for r in lignes(wb["Positions forum (détail)"]):
+        pid = texte(r.get("ID"))
+        if pid in props:
+            det.append(dict(p=pid, f=texte(r.get("Famille")), c=texte(r.get("Code")), k=texte(r.get("Confiance")),
+                            s=texte(r.get("Sources (document, page)"))))
+    themes = {}
+    if "Grille des thèmes" in wb.sheetnames:
+        for r in wb["Grille des thèmes"].iter_rows(min_row=2, values_only=True):
+            t = texte(r[0])
+            if t[:1] == "T" and t[1:2].isdigit():
+                themes[t.split(" ")[0]] = t.split(" ", 1)[1]
+    return dict(fams=fams, props=list(props.values()), det=det, themes=themes)
 
 
 def main():
@@ -95,12 +132,14 @@ def main():
                 sys.exit(f"Lien « {r.get('Lien')} » : ID inconnu(s) {inconnus}")
             links.append(dict(nom=texte(r.get("Lien")), orgs=membres, src=texte(r.get("Source"))))
 
-    data = dict(fams=fams, orgs=orgs, pos=pos, enj=enj, links=links)
+    forum = lire_forum(wb)
+    data = dict(fams=fams, orgs=orgs, pos=pos, enj=enj, links=links, forum=forum)
     js = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     date = datetime.date.today().strftime("%Y-%m-%d")
     html = GABARIT.read_text(encoding="utf-8").replace("__DATA__", js).replace("__DATE__", date)
     SORTIE.write_text(html, encoding="utf-8")
-    print(f"Page écrite : {SORTIE.name} · {len(orgs)} parties prenantes · {len(pos)} positions · {len(links)} liens")
+    print(f"Page écrite : {SORTIE.name} · {len(orgs)} parties prenantes · {len(pos)} positions · {len(links)} liens"
+          + (f" · {len(forum['props'])} propositions du forum" if forum else ""))
 
 
 if __name__ == "__main__":
