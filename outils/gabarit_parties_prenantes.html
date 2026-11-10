@@ -157,6 +157,7 @@ button.back{background:none;border:1px solid var(--line);color:var(--muted);bord
 .fdet .ph{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
 .fdet .pe{font-weight:600;font-size:13px}
 .fdet .ps{font-size:11.5px;color:var(--muted);margin-top:3px}
+.defs dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 14px;margin:8px 0 10px}.defs dt{font-weight:600;display:flex;align-items:center;gap:7px;white-space:nowrap}.defs dd{margin:0;color:#C5CED8}.defs p{margin:6px 0}@media (max-width:700px){.defs dl{grid-template-columns:1fr}.defs dd{margin-bottom:6px}}
 .lit{font-size:12.5px;color:#C5CED8;border-left:2px solid var(--line);padding-left:9px;margin:6px 0}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -248,7 +249,22 @@ button.back{background:none;border:1px solid var(--line);color:var(--muted);bord
       <span><span class="cd O">O</span> s’oppose</span>
       <span>case vide : non documenté, jamais « neutre »</span>
     </div>
-    <details class="note"><summary>Comment les zones sont calculées</summary><b>Consensus possible</b> : au moins 5 familles portent ou appuient la proposition (ou 4, dont 2 parmi propriétaires, construction, municipal et milieux économiques), la preuve est au moins moyenne et aucune famille ne s’y oppose. <b>Consensus fragile</b> : appui large, preuve faible ou non évaluée. <b>À porter</b> : preuve au moins moyenne, appui étroit ou opposition. <b>À retravailler</b> : appui étroit et preuve faible; chaque proposition reçoit un motif (désaccord à désamorcer, mal formulée, acquise mais à définir, preuve à bâtir, appui à élargir). Ce n’est pas un rejet. <b>Solidité</b> : chaque consensus possible est mis à l’épreuve de trois façons : on retire l’appui le moins sûr, on exige 6 familles (ou 5 dont 2 hors du milieu social), on baisse la preuve d’un cran. Il est robuste s’il tient aux trois, probable s’il tient à deux, à confirmer s’il tient à une seule. Les cotes de preuve ont été révisées le 10 novembre 2026 après une recherche ciblée par proposition. <b>Blocs</b> : les propositions sont regroupées en cinq blocs pour viser des ententes partielles; une famille « porte » un bloc si elle appuie au moins la moitié de ses propositions. Le réseau de la santé n’est pas coté : il applique les orientations du gouvernement. Les seuils sont modifiables dans le classeur (onglet Paramètres).</details>
+    <details class="note defs" open><summary>Définitions : zones et solidité</summary>
+      <p>Chaque proposition est classée dans une <b>zone</b> selon deux choses : combien de familles d’acteurs l’appuient, et ce que montrent les études.</p>
+      <dl>
+        <dt><span class="zd" style="background:var(--p2)"></span>Consensus possible</dt><dd>Au moins 5 familles la portent ou l’appuient (ou 4, dont 2 parmi propriétaires, construction, municipal et milieux économiques), aucune ne s’y oppose, et la preuve est au moins moyenne. C’est un terrain d’entente réaliste au forum.</dd>
+        <dt><span class="zd" style="background:var(--c1)"></span>Consensus fragile</dt><dd>L’appui est large, mais la preuve est faible ou n’existe pas. Tout le monde le veut, sans que les études montrent que ça marche.</dd>
+        <dt><span class="zd" style="background:var(--accent)"></span>À porter</dt><dd>La preuve est au moins moyenne, mais peu de familles l’appuient ou une famille s’y oppose. Le gouvernement devra la défendre lui-même.</dd>
+        <dt><span class="zd" style="background:var(--m1)"></span>À retravailler</dt><dd>Appui étroit et preuve faible. Ce n’est pas un rejet : la proposition n’est pas prête telle qu’elle est formulée. Un motif précise pourquoi (désaccord à désamorcer, mal formulée, acquise mais à définir, preuve à bâtir, appui à élargir).</dd>
+      </dl>
+      <p>Chaque consensus possible reçoit aussi une étiquette de <b>solidité</b>. On le met à l’épreuve trois fois : on retire l’appui le moins sûr, on exige 6 familles (ou 5 dont 2 hors du milieu social), on baisse la preuve d’un cran.</p>
+      <dl>
+        <dt>Robuste</dt><dd>Il tient aux trois épreuves.</dd>
+        <dt>Probable</dt><dd>Il tient à deux épreuves sur trois.</dd>
+        <dt>À confirmer</dt><dd>Il ne tient qu’à une seule.</dd>
+      </dl>
+      <p class="ps">Blocs : les propositions sont regroupées en cinq blocs pour viser des ententes partielles; une famille « porte » un bloc si elle appuie au moins la moitié de ses propositions. Le réseau de la santé n’est pas coté : il applique les orientations du gouvernement. Les seuils sont modifiables dans le classeur (onglet Paramètres). Cotes de preuve révisées le 10 novembre 2026.</p>
+    </details>
     <div class="layout">
       <div style="min-width:0"><div class="fscroll"><table class="fmx" id="fmx"></table></div></div>
       <aside class="panel" id="panel-forum" aria-live="polite"></aside>
@@ -374,6 +390,7 @@ function renderLiens(){
 }
 function liensPanel(){document.getElementById('panel-liens').innerHTML=`<h2>Comment lire cette vue</h2><div class="meta">Les liens viennent de ce que les documents disent eux-mêmes : texte commun, demande commune, démarche conjointe. Ce ne sont pas des appartenances formelles.</div><p class="empty">Cliquer une organisation pour voir ses positions et ses citations.</p>`}
 // Forum
+const ZDEF={'Consensus possible':'Appui large, preuve au moins moyenne, aucune opposition','Consensus fragile':'Appui large, preuve faible ou absente','À porter':'Preuve au moins moyenne, appui étroit ou opposition','À retravailler':'Appui étroit et preuve faible'};
 const ZC={'Consensus possible':'var(--p2)','Consensus fragile':'var(--c1)','À porter':'var(--accent)','À retravailler':'var(--m1)'};
 const FSHORT=n=>({'Communautaire – itinérance':'Comm. itinérance','Communautaire – jeunesse, femmes, aînés, pauvreté':'Comm. jeunes, femmes','Locataires et consommateurs':'Locataires','Parc hors marché (OSBL, coops, offices)':'Hors marché','Construction et immobilier':'Construction','Ordres professionnels et recherche':'Ordres, recherche','Justice et sécurité publique':'Justice'})[n]||n;
 let curZ='',curB='',curP='';
@@ -384,7 +401,7 @@ function renderForum(){
   const F=D.forum;if(!F){document.getElementById('v-forum').innerHTML='<p class="empty">Les onglets du forum ne sont pas dans le classeur.</p>';return}
   const zs=Object.keys(ZC);
   const zb=document.getElementById('zbar');
-  zb.innerHTML=`<button data-z="" aria-pressed="true">Toutes <b>${F.props.length}</b></button>`+zs.map(z=>`<button data-z="${esc(z)}" aria-pressed="false"><span class="zd" style="background:${ZC[z]}"></span>${esc(z)} <b>${F.props.filter(p=>p.z===z).length}</b></button>`).join('');
+  zb.innerHTML=`<button data-z="" aria-pressed="true">Toutes <b>${F.props.length}</b></button>`+zs.map(z=>`<button data-z="${esc(z)}" aria-pressed="false" title="${esc(ZDEF[z]||'')}"><span class="zd" style="background:${ZC[z]}"></span>${esc(z)} <b>${F.props.filter(p=>p.z===z).length}</b></button>`).join('');
   zb.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{curZ=b.dataset.z;zb.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));drawForum()}));
   const bb=document.getElementById('bbar');
   if(F.blocs&&F.blocs.length){bb.innerHTML=`<button data-b="" aria-pressed="true">Tous les blocs</button>`+F.blocs.map(b=>`<button data-b="${b.code}" aria-pressed="false"><b>${b.code}</b>${esc(b.nom)} <b>${F.props.filter(p=>p.b===b.code).length}</b></button>`).join('');
