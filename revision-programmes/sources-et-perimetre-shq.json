@@ -1,0 +1,261 @@
+{
+  "date_verification": "2026-11-07",
+  "registre_source": "https://www.quebec.ca/gouvernement/ministeres-organismes/societe-habitation/acces-a-linformation-a-la-societe-dhabitation-du-quebec/acces-information/documents-servant-a-la-prise-de-decision",
+  "definition": "Cadre en vigueur et programme opérationnel; appels temporairement fermés admis. Programmes suspendus, cadres expirés sans renouvellement confirmé et programmes limités aux anciennes programmations exclus.",
+  "programmes": [
+    {
+      "id": "DEFICIT-HLM",
+      "title": "Financement du déficit d’exploitation de certains ensembles immobiliers du parc HLM",
+      "version": "18 août 2026 — cadre 2026-2029",
+      "end": "31 décembre 2029",
+      "endref": [
+        8,
+        7
+      ],
+      "pdf": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/Normes-Deficit-exploitation-parc-HLM.pdf",
+      "html": "cartographie-deficit-hlm.html",
+      "url": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/Normes-Deficit-exploitation-parc-HLM.pdf",
+      "pages": 7,
+      "sha256": "ffae85253444f58ecde9e176521935a42302317d0c35e193190270dfc52ce92c"
+    },
+    {
+      "id": "HLM",
+      "title": "Programme de logement sans but lucratif — HLM, volets public et privé",
+      "version": "18 août 2026 — cadre 2026-2029",
+      "end": "31 décembre 2029",
+      "endref": [
+        10,
+        16
+      ],
+      "pdf": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/cadre-normatif-HLM.pdf",
+      "html": "cartographie-hlm.html",
+      "url": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/cadre-normatif-HLM.pdf",
+      "pages": 16,
+      "sha256": "49131d708fe11f932d5a4902acb58280ec5c78e50f7a5eafa4149d1316301bcf"
+    },
+    {
+      "id": "KATIVIK",
+      "title": "Programme favorisant l’accession à la propriété et la rénovation résidentielle dans la région Kativik",
+      "version": "22 juin 2026 — cadre 2026-2027",
+      "end": "31 décembre 2027",
+      "endref": [
+        14,
+        20
+      ],
+      "pdf": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/normes-programme-kativik.pdf",
+      "html": "cartographie-kativik.html",
+      "url": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/normes-programme-kativik.pdf",
+      "pages": 20,
+      "sha256": "dddd4c5e7e1e57569f4838d6a7c97076471583e281dc5e46341dc7b4fca8e155"
+    },
+    {
+      "id": "PAD",
+      "title": "Programme d’adaptation de domicile",
+      "version": "30 juin 2026 — cadre 2026-2027",
+      "end": "30 juin 2027",
+      "endref": [
+        15,
+        26
+      ],
+      "pdf": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/PAD-cadre-normatif.pdf",
+      "html": "cartographie-pad.html",
+      "url": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/PAD-cadre-normatif.pdf",
+      "pages": 26,
+      "sha256": "f8ec338c1036f91f78eeb036fcd31f5ccdf4c4ffaeb860a0592704d76e51982f"
+    },
+    {
+      "id": "PAL",
+      "title": "Programme Allocation-logement",
+      "version": "30 juin 2026 — cadre 2026-2027",
+      "end": "30 septembre 2027",
+      "endref": [
+        15,
+        17
+      ],
+      "pdf": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/PAL-normes.pdf",
+      "html": "cartographie-pal.html",
+      "url": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/PAL-normes.pdf",
+      "pages": 17,
+      "sha256": "2d76b267d277debef6dac9a42718d8e6b04767cfe1e22a9889a8aefcb0ee71df"
+    },
+    {
+      "id": "PAMH",
+      "title": "Programme d’amélioration des maisons d’hébergement",
+      "version": "7 avril 2026 — cadre 2026-2029",
+      "end": "31 mars 2029",
+      "endref": [
+        12,
+        16
+      ],
+      "pdf": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/PAMH-cadre-normatif.pdf",
+      "html": "cartographie-pamh.html",
+      "url": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/PAMH-cadre-normatif.pdf",
+      "pages": 16,
+      "sha256": "c03d7ba62cb24014323c6427814cd96aef471174d9068f5bc5ecdf7cb54e66d9"
+    },
+    {
+      "id": "PAOC",
+      "title": "Programme d’aide aux organismes communautaires",
+      "version": "7 juillet 2026 — cadre 2026-2029",
+      "end": "31 mars 2029",
+      "endref": [
+        10,
+        18
+      ],
+      "pdf": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/Normes-PAOC.pdf",
+      "html": "cartographie-paoc.html",
+      "url": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/Normes-PAOC.pdf",
+      "pages": 18,
+      "sha256": "e39dfe8572a0956ae6b33bd082fec5454c2655c1cfea308abafa48311e4d2598"
+    },
+    {
+      "id": "PFH",
+      "title": "Programme de financement en habitation",
+      "version": "18 août 2026 — cadre 2025-2027",
+      "end": "31 mars 2027",
+      "endref": [
+        10,
+        30
+      ],
+      "pdf": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/cadre-normatif-pfh.pdf",
+      "html": "cartographie-pfh.html",
+      "url": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/cadre-normatif-pfh.pdf",
+      "pages": 30,
+      "sha256": "423c103428b0fb837512eb998d97cadbf2c54dd1054fa8f7871b45b0f6065317"
+    },
+    {
+      "id": "PHAQ",
+      "title": "Programme d’habitation abordable Québec",
+      "version": "7 mai 2025 — cadre 2025-2027",
+      "end": "31 décembre 2027",
+      "endref": [
+        17,
+        80
+      ],
+      "pdf": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/cadre-normatif-phaq.pdf",
+      "html": "cartographie-phaq.html",
+      "url": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/cadre-normatif-phaq.pdf",
+      "pages": 85,
+      "sha256": "31a4de9cfac87d9ad979576c5f1e564e75ce1ce58d99e33079608c10545e2d75"
+    },
+    {
+      "id": "PHTARL",
+      "title": "Programme d’hébergement temporaire et d’aide à la recherche de logement",
+      "version": "17 décembre 2025 — cadre 2026-2028",
+      "end": "31 décembre 2028",
+      "endref": [
+        8,
+        13
+      ],
+      "pdf": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/PHTARL-Normes.pdf",
+      "html": "cartographie-phtarl.html",
+      "url": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/PHTARL-Normes.pdf",
+      "pages": 13,
+      "sha256": "9444644e7aea8a689a062aa71e8b85d8322843234c561c1fdccdcef5be53d1b9"
+    },
+    {
+      "id": "PPPIC",
+      "title": "Programme d’aide financière visant la préservation du parc immobilier communautaire",
+      "version": "27 mars 2024 — cadre 2024-2027",
+      "end": "31 mars 2027",
+      "endref": [
+        11,
+        17
+      ],
+      "pdf": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/PPPIC-normes.pdf",
+      "html": "cartographie-pppic.html",
+      "url": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/PPPIC-normes.pdf",
+      "pages": 17,
+      "sha256": "dd715c4891478254f8fcb834ccc329f812adeed9c3899eba75e26a7572148087"
+    },
+    {
+      "id": "PRHLM",
+      "title": "Programme de rénovation des habitations à loyer modique",
+      "version": "25 mars 2026 — cadre 2026-2029",
+      "end": "31 mars 2029",
+      "endref": [
+        11,
+        54
+      ],
+      "pdf": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/PRHLM-cadre-normatif.pdf",
+      "html": "cartographie-prhlm.html",
+      "url": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/PRHLM-cadre-normatif.pdf",
+      "pages": 55,
+      "sha256": "e7500accac3d4a45b007b483fc67e00397860ea27c7dc6f55fa3a73f59273fa5"
+    },
+    {
+      "id": "PRR",
+      "title": "Programme RénoRégion",
+      "version": "7 mai 2025 — cadre 2025-2027",
+      "end": "31 mars 2027",
+      "endref": [
+        7,
+        18
+      ],
+      "pdf": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/normes-programme-PRR.pdf",
+      "html": "cartographie-prr.html",
+      "url": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/normes-programme-PRR.pdf",
+      "pages": 18,
+      "sha256": "6713885ce567c313e425edb15e609b23f445b79359e8dced0a877075eae3f8bb"
+    },
+    {
+      "id": "PSLQ",
+      "title": "Programme de supplément au loyer Québec",
+      "version": "17 décembre 2025 — cadre 2026-2028",
+      "end": "31 décembre 2028",
+      "endref": [
+        9,
+        14
+      ],
+      "pdf": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/PSLQ-Normes.pdf",
+      "html": "cartographie-pslq.html",
+      "url": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/PSLQ-Normes.pdf",
+      "pages": 15,
+      "sha256": "02bf55546bbd2890a72d140528e78f0077d0e00092b0aaadc84e72d5d67bc947"
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "PEA",
+      "title": "Petits établissements accessibles",
+      "reason": "Fin annoncée le 31 mars 2026.",
+      "url": "https://www.quebec.ca/habitation-territoire/construction-renovation/adapter-etablissement-domicile-personnes-handicapees/programme-petits-etablissements-accessibles"
+    },
+    {
+      "id": "PYRRHOTITE",
+      "title": "Résidences endommagées par la pyrrhotite",
+      "reason": "Fin annoncée le 30 septembre 2026.",
+      "url": "https://www.quebec.ca/habitation-territoire/construction-renovation/renovation-residentielle/programme-residences-endommagees-pyrrhotite/programme-pyrrhotite-aide-financiere-realisation-travaux"
+    },
+    {
+      "id": "PRQ",
+      "title": "Rénovation Québec",
+      "reason": "Suspendu depuis le 1er avril 2025; aucune demande acceptée selon la page officielle consultée.",
+      "url": "https://www.quebec.ca/habitation-territoire/construction-renovation/renovation-residentielle/programme-renovation-quebec"
+    },
+    {
+      "id": "PADIQH",
+      "title": "Appui au développement de l’industrie québécoise de l’habitation",
+      "reason": "Cadre publié arrivé à échéance le 31 mars 2026 (§ 8, PDF 20). Renouvellement non confirmé dans les sources consultées : non retenu parmi les actifs confirmés.",
+      "url": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/PADIQH-Normes.pdf#page=20"
+    },
+    {
+      "id": "INITIATIVES",
+      "title": "Développement et concertation d’initiatives publiques et privées",
+      "reason": "Cadre publié arrivé à échéance le 31 décembre 2025 (§ 6, PDF 5). Renouvellement non confirmé : non retenu parmi les actifs confirmés.",
+      "url": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/ProgFondsFiscalises-Normes.pdf#page=5"
+    },
+    {
+      "id": "MONTREAL",
+      "title": "Financement de programmes municipaux d’habitation de Montréal",
+      "reason": "Cadre jusqu’au 31 mars 2028, mais interventions limitées aux dossiers antérieurs désignés aux dispositions 29.1 et 29.2. Exclu du périmètre des nouvelles interventions; ne signifie pas que les anciennes obligations sont éteintes.",
+      "url": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/NormesProgFinancementMtl.pdf#page=5"
+    },
+    {
+      "id": "ACL",
+      "title": "AccèsLogis Québec",
+      "reason": "Gestion des programmations et ensembles existants écartée du présent périmètre. Normes encore mises à jour au 11 août 2026; l’absence de cartographie ne signifie pas l’abrogation du programme ni la fin de ses obligations. Aucun nouveau guichet confirmé pour cet inventaire.",
+      "url": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/org/shq/Documents/SHQ/acces/prise-de-decision/ACL-normes.pdf"
+    }
+  ]
+}

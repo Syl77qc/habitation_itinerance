@@ -33,3 +33,13 @@ Qui agit sur chaque maillon de la chaîne des causes, et ce que chacun a dit pub
 Document de travail personnel : codage préliminaire, non validé. Il ne représente la position d'aucun ministère ni du gouvernement du Québec.
 
 La source des données est le classeur `Parties_prenantes_habitation_itinerance.xlsx`. Après une modification, régénérer la page avec `python outils/generer_page.py` (requiert `openpyxl`).
+
+## Révision des programmes de la SHQ
+
+Page : [`revision-programmes/index-programmes-shq.html`](https://syl77qc.github.io/habitation_itinerance/revision-programmes/index-programmes-shq.html) · retour à l'[infographie](https://syl77qc.github.io/habitation_itinerance/).
+
+Cartographies de processus des 14 programmes actifs de la SHQ (qui agit, à quelle étape, sur quel fondement), tirées des cadres normatifs publiés dans le [répertoire des documents servant à la prise de décision de la SHQ](https://www.quebec.ca/gouvernement/ministeres-organismes/societe-habitation/acces-a-linformation-a-la-societe-dhabitation-du-quebec/acces-information/documents-servant-a-la-prise-de-decision). Une matrice comparative (`simplification-programmes-shq.html`) propose des pistes de simplification reliées aux exigences actuelles, avec l'analyse complète (`analyse-simplification-shq.md`) et les données structurées (`matrice-simplification-shq.json`).
+
+Les liens « PDF » renvoient aux documents officiels de la SHQ; la version consultée le 7 novembre 2026 et son empreinte figurent dans `sources-et-perimetre-shq.json`. La SHQ peut avoir remplacé un document depuis.
+
+Document de travail personnel : analyse documentaire préliminaire, non validée. Ce n'est pas une publication de la SHQ et il ne représente la position d'aucun ministère ni du gouvernement du Québec.
