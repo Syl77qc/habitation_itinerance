@@ -57,7 +57,8 @@ def lire_forum(wb):
         num = lambda k: int(r.get(k) or 0) if isinstance(r.get(k), (int, float)) else 0
         props[pid].update(ap=num("Appui (P+A)"), co=num("Conditionnel (C)"), op=num("Oppositions (O)"),
                           pr=texte(r.get("Niveau de preuve")), z=texte(r.get("Zone")), lit=texte(r.get("Ce que dit la littérature")),
-                          mo=texte(r.get("Motif (à retravailler)")), pi=texte(r.get("Piste")))
+                          mo=texte(r.get("Motif (à retravailler)")), pi=texte(r.get("Piste")),
+                          so=texte(r.get("Solidité")), som=texte(r.get("Solidité – motif")))
         if not props[pid]["z"]:
             sys.exit(f"Zone vide pour {pid} : ouvrir le classeur dans Excel et l'enregistrer pour recalculer les formules.")
     det = []

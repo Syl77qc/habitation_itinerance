@@ -248,7 +248,7 @@ button.back{background:none;border:1px solid var(--line);color:var(--muted);bord
       <span><span class="cd O">O</span> s’oppose</span>
       <span>case vide : non documenté, jamais « neutre »</span>
     </div>
-    <details class="note"><summary>Comment les zones sont calculées</summary><b>Consensus possible</b> : au moins 5 familles portent ou appuient la proposition (ou 4, dont 2 parmi propriétaires, construction, municipal et milieux économiques), la preuve est au moins moyenne et aucune famille ne s’y oppose. <b>Consensus fragile</b> : appui large, preuve faible ou non évaluée. <b>À porter</b> : preuve au moins moyenne, appui étroit ou opposition. <b>À retravailler</b> : appui étroit et preuve faible; chaque proposition reçoit un motif (désaccord à désamorcer, mal formulée, acquise mais à définir, preuve à bâtir, appui à élargir). Ce n’est pas un rejet. <b>Blocs</b> : les propositions sont regroupées en cinq blocs pour viser des ententes partielles; une famille « porte » un bloc si elle appuie au moins la moitié de ses propositions. Le réseau de la santé n’est pas coté : il applique les orientations du gouvernement. Les seuils sont modifiables dans le classeur (onglet Paramètres).</details>
+    <details class="note"><summary>Comment les zones sont calculées</summary><b>Consensus possible</b> : au moins 5 familles portent ou appuient la proposition (ou 4, dont 2 parmi propriétaires, construction, municipal et milieux économiques), la preuve est au moins moyenne et aucune famille ne s’y oppose. <b>Consensus fragile</b> : appui large, preuve faible ou non évaluée. <b>À porter</b> : preuve au moins moyenne, appui étroit ou opposition. <b>À retravailler</b> : appui étroit et preuve faible; chaque proposition reçoit un motif (désaccord à désamorcer, mal formulée, acquise mais à définir, preuve à bâtir, appui à élargir). Ce n’est pas un rejet. <b>Solidité</b> : chaque consensus possible est mis à l’épreuve de trois façons : on retire l’appui le moins sûr, on exige 6 familles (ou 5 dont 2 hors du milieu social), on baisse la preuve d’un cran. Il est robuste s’il tient aux trois, probable s’il tient à deux, à confirmer s’il tient à une seule. Les cotes de preuve ont été révisées le 10 novembre 2026 après une recherche ciblée par proposition. <b>Blocs</b> : les propositions sont regroupées en cinq blocs pour viser des ententes partielles; une famille « porte » un bloc si elle appuie au moins la moitié de ses propositions. Le réseau de la santé n’est pas coté : il applique les orientations du gouvernement. Les seuils sont modifiables dans le classeur (onglet Paramètres).</details>
     <div class="layout">
       <div style="min-width:0"><div class="fscroll"><table class="fmx" id="fmx"></table></div></div>
       <aside class="panel" id="panel-forum" aria-live="polite"></aside>
@@ -379,6 +379,7 @@ const FSHORT=n=>({'Communautaire – itinérance':'Comm. itinérance','Communaut
 let curZ='',curB='',curP='';
 const MOTX={'Désaccord à désamorcer':'Des familles d’acteurs s’y opposent explicitement.','Mal formulée':'Les familles en parlent, mais sous des angles opposés.','Acquise, contenu à définir':'La mesure se fera de toute façon; son contenu reste à préciser.','Preuve à bâtir':'Peu d’études existent : la preuve est faible faute de recherche, pas parce que les résultats sont négatifs.','Appui à élargir':'Portée surtout par une ou deux familles d’acteurs.'};
 function zTag(z,mo){return `<span class="zt" style="color:${ZC[z]||'var(--muted)'};border-color:${ZC[z]||'var(--line)'}"${mo?` title="${esc(mo)}"`:''}>${esc(z)}${mo?' · '+esc(mo.toLowerCase()):''}</span>`}
+function sTag(so){return so?` <span class="zt" title="Solidité du consensus">${esc(so.toLowerCase())}</span>`:''}
 function renderForum(){
   const F=D.forum;if(!F){document.getElementById('v-forum').innerHTML='<p class="empty">Les onglets du forum ne sont pas dans le classeur.</p>';return}
   const zs=Object.keys(ZC);
@@ -400,7 +401,7 @@ function drawForum(){
     co.innerHTML=`Familles qui portent ce bloc : ${port.map(x=>esc(FSHORT(x[0]))+' ('+x[1]+'/'+ps.length+')').join(' · ')||'aucune'}${abs.length?` — absentes : ${abs.map(f=>esc(FSHORT(f))).join(', ')}`:''}`;}
   else co.innerHTML='';
   document.getElementById('fmx').innerHTML='<thead><tr><th class="l">ID</th><th class="l" style="min-width:230px">Proposition probable</th>'+F.fams.map(f=>`<th class="v" title="${esc(f)}">${esc(FSHORT(f))}</th>`).join('')+'<th>Zone</th></tr></thead><tbody>'+
-   rows.map(p=>`<tr tabindex="0" data-p="${p.id}" aria-selected="${p.id===curP}"><td class="id">${p.id}</td><td class="t">${esc(p.t)}</td>${p.codes.map((c,i)=>`<td class="c" title="${esc(F.fams[i])}">${c?`<span class="cd ${c}">${c}</span>`:''}</td>`).join('')}<td>${zTag(p.z,p.mo)}</td></tr>`).join('')+'</tbody>';
+   rows.map(p=>`<tr tabindex="0" data-p="${p.id}" aria-selected="${p.id===curP}"><td class="id">${p.id}</td><td class="t">${esc(p.t)}</td>${p.codes.map((c,i)=>`<td class="c" title="${esc(F.fams[i])}">${c?`<span class="cd ${c}">${c}</span>`:''}</td>`).join('')}<td>${zTag(p.z,p.mo)}${sTag(p.so)}</td></tr>`).join('')+'</tbody>';
   document.querySelectorAll('#fmx tbody tr').forEach(tr=>{tr.addEventListener('click',()=>selectProp(tr.dataset.p));tr.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();selectProp(tr.dataset.p)}})});
 }
 function selectProp(id){
@@ -412,6 +413,7 @@ function selectProp(id){
   const lab={P:'Porte la demande',A:'Appuie',C:'Appui conditionnel',O:'S’oppose'};
   const none=F.fams.filter((f,i)=>!p.codes[i]);
   document.getElementById('panel-forum').innerHTML=`<div class="meta mono">${p.id} · ${esc(F.themes[p.th]||p.th)}</div><h2>${esc(p.t)}</h2>${zTag(p.z)}${p.b?` <span class="zt">${esc(p.b)} · ${esc((F.blocs.find(b=>b.code===p.b)||{}).nom||'')}</span>`:''}
+  ${p.so?`<div class="lbl">Solidité du consensus</div><div class="lit"><b>${esc(p.so)}.</b> ${esc(p.som||'')}</div>`:''}
   ${p.mo?`<div class="lbl">Pourquoi « à retravailler »</div><div class="lit"><b>${esc(p.mo)}.</b> ${esc(MOTX[p.mo]||'')}</div>`:''}
   <div class="lbl">Appui des familles</div><div class="mono" style="font-size:12.5px">${p.ap} portent ou appuient · ${p.co} conditionnel${p.co>1?'s':''} · ${p.op} opposition${p.op>1?'s':''}</div>
   <div class="lbl">Ce que dit la littérature · preuve ${esc(p.pr).toLowerCase()}</div><div class="lit">${esc(p.lit)}</div>
