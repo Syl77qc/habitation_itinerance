@@ -16,7 +16,7 @@ La flèche en pointillé (acheter coûte plus cher → moins de logements libres
 
 Sous le schéma, les solutions sont classées en trois colonnes : *ça marche*, *ça marche à moitié*, *ça ne règle pas le problème*. Les étoiles (★ à ★★★) indiquent à quel point chaque constat est prouvé.
 
-Sous les trois colonnes, une section « Ce que personne ne propose » présente cinq pistes appuyées par des études, mais absentes des demandes des acteurs : repérer qui est vraiment à risque, distinguer trois profils d'itinérance, le vieillissement, l'aide souple après une violence conjugale et la location touristique de courte durée.
+La colonne *ça marche* comprend aussi deux pistes que les acteurs ne proposent pas : repérer qui est vraiment à risque avant de verser l'aide d'urgence, et une aide souple après une violence conjugale. Sous les trois colonnes, une section « Ce que personne ne propose » présente quatre constats appuyés par des études, mais absents des demandes des acteurs : trois profils d'itinérance, le vieillissement, la location touristique de courte durée et la demande démographique.
 
 Un clic sur une étape, une action ou une solution ouvre une fiche : l'idée en clair, les chiffres du Québec, ce que montrent les études (avec leurs références) et les sources.
 
