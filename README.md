@@ -12,7 +12,7 @@ pas assez de logements construits → peu de logements libres → les loyers mon
 
 Un bloc « Ce qui rend plus vulnérable » (pauvreté, santé mentale, dépendances, sortie de placement) entre dans l'étape des évictions : ces facteurs décident **qui** perd son logement en premier, alors que le manque de logements décide **combien** de personnes se retrouvent à la rue.
 
-La flèche en pointillé (acheter coûte plus cher → moins de logements libres) est un lien souvent affirmé, mais pas démontré dans les études recensées.
+La flèche en pointillé (acheter coûte plus cher → moins de logements libres) est un lien observé par la SCHL, mais pas chiffré : quand les locataires ne peuvent plus acheter, la chaîne des déménagements ralentit et il se libère moins de logements. Le contrôle des loyers est présenté en deux fiches : le gel ou le plafond strict (ça ne règle pas le problème) et l'encadrement souple du TAL (jamais évalué).
 
 Sous le schéma, les solutions sont classées en trois colonnes : *ça marche*, *ça marche à moitié*, *ça ne règle pas le problème*. Les étoiles (★ à ★★★) indiquent à quel point chaque constat est prouvé.
 
