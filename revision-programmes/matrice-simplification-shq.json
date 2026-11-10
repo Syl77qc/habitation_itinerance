@@ -1,0 +1,1347 @@
+{
+  "date": "2026-11-07",
+  "version": 1,
+  "levels": {
+    "A": {
+      "name": "Pratique / outil",
+      "authority": "Responsable opérationnel habilité, sous contrôle de conformité; vérifier formulaires, directives et délégations avant le pilote.",
+      "meaning": "La proposition conserve les exigences citées. Compatibilité préliminaire, non constat d’une autorisation déjà acquise."
+    },
+    "B": {
+      "name": "Entente / coordination",
+      "authority": "SHQ et parties concernées selon leurs pouvoirs de signature; les clauses modifiées doivent rester conformes au cadre.",
+      "meaning": "Les ententes particulières ne sont pas disponibles. Elles peuvent imposer des conditions supplémentaires ou rendre nécessaire une modification normative."
+    },
+    "C": {
+      "name": "Cadre normatif",
+      "authority": "SHQ et ministères concernés pour préparer la modification; circuit d’approbation à confirmer selon l’instrument en vigueur, notamment Conseil du trésor ou gouvernement.",
+      "meaning": "Une modification de la norme est envisagée ou doit être instruite. Les effets budgétaires, contractuels et les dispositions transitoires sont à établir."
+    },
+    "D": {
+      "name": "Règlement",
+      "authority": "SHQ pour le règlement pris sous son habilitation; approbation gouvernementale selon l’article 87 de la Loi sur la SHQ.",
+      "meaning": "La proposition touche une exigence réglementaire identifiée. Une simple consigne administrative ne suffit pas."
+    }
+  },
+  "proposals": [
+    {
+      "id": "PAL-01",
+      "programs": [
+        "PAL"
+      ],
+      "title": "Renouvellement prérempli",
+      "current": "Une nouvelle demande annuelle doit décrire le logement, la famille et les revenus; le cadre prévoit des échéances et un risque d’interruption.",
+      "hypothesis": "La ressaisie de renseignements inchangés pourrait augmenter les erreurs ou les abandons; leur fréquence reste inconnue.",
+      "proposal": "Préremplir les champs déjà détenus légalement par Revenu Québec, faire confirmer ou corriger chaque donnée et maintenir la demande annuelle. Ajouter rappels et accompagnement papier/téléphonique.",
+      "level": "A",
+      "lead": "Revenu Québec, avec la SHQ",
+      "check": "Examiner le formulaire actuel et les données réellement réutilisables; mesurer les demandes incomplètes.",
+      "guard": "Conserver attestation, pièces requises, réévaluation et délais actuels.",
+      "metric": "Temps de préparation; taux de dossiers complets; interruptions au renouvellement.",
+      "priority": "P1",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "PAL",
+          "section": "9.1",
+          "page": 12
+        },
+        {
+          "program": "PAL",
+          "section": "10",
+          "page": 16
+        }
+      ],
+      "authority": "Responsable opérationnel habilité, sous contrôle de conformité; vérifier formulaires, directives et délégations avant le pilote.",
+      "levelName": "Pratique / outil",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PAL-02",
+      "programs": [
+        "PAL"
+      ],
+      "title": "Réévaluation sans nouvelle demande : option à instruire",
+      "current": "Le cadre exige une nouvelle demande pour chaque période de versement.",
+      "hypothesis": "Certains dossiers stables pourraient ne pas nécessiter une nouvelle démarche complète.",
+      "proposal": "Étudier un renouvellement sur avis prérempli et déclaration des changements, avec vérification des conditions actuelles. Définir les cas où une réponse positive demeure indispensable.",
+      "level": "C",
+      "lead": "SHQ et Revenu Québec",
+      "check": "Analyser les interruptions, les données manquantes et les erreurs potentielles; vérifier les bases de réutilisation et de communication des données.",
+      "guard": "Maintenir avis motivé, correction accessible et révision; traiter explicitement absence de réponse et changements non détectés.",
+      "metric": "Non-recours évité; erreurs d’admissibilité; trop-versés; charge des bénéficiaires.",
+      "priority": "P3",
+      "effort": "Élevé",
+      "refs": [
+        {
+          "program": "PAL",
+          "section": "10–12",
+          "page": 16
+        }
+      ],
+      "authority": "SHQ et ministères concernés pour préparer la modification; circuit d’approbation à confirmer selon l’instrument en vigueur, notamment Conseil du trésor ou gouvernement.",
+      "levelName": "Cadre normatif",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "HLM-01",
+      "programs": [
+        "HLM"
+      ],
+      "title": "Un jeu de données pour budget et régularisation",
+      "current": "La SHQ finance un déficit prévisionnel puis ajuste selon les états audités; la reddition est annuelle et distincte par ensemble.",
+      "hypothesis": "Les passages du budget aux états et à la régularisation pourraient demander des rapprochements manuels.",
+      "proposal": "Définir un dictionnaire de données et un fichier de rapprochement commun liant prévision, réalisé, aide versée et écart par ensemble; préremplir la régularisation.",
+      "level": "A",
+      "lead": "SHQ et organismes gestionnaires",
+      "check": "Comparer les exports actuels et demander aux auditeurs où les rapprochements sont refaits.",
+      "guard": "Conserver audit, séparation par ensemble, vérification et décision sur les écarts.",
+      "metric": "Heures de rapprochement; corrections; délai de clôture annuelle.",
+      "priority": "P1",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "HLM",
+          "section": "5.2",
+          "page": 6
+        },
+        {
+          "program": "HLM",
+          "section": "6–8",
+          "page": 14
+        }
+      ],
+      "authority": "Responsable opérationnel habilité, sous contrôle de conformité; vérifier formulaires, directives et délégations avant le pilote.",
+      "levelName": "Pratique / outil",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "HLM-02",
+      "programs": [
+        "HLM"
+      ],
+      "title": "Réinscription à la liste sur avis simplifié",
+      "current": "L’article 42 prévoit une inscription généralement annuelle, un avis préalable et une confirmation écrite du demandeur.",
+      "hypothesis": "La non-réponse pourrait retirer de la liste des ménages dont le besoin demeure; aucune incidence n’est mesurée ici.",
+      "proposal": "Étudier une réinscription simplifiée avec relances graduées et actualisation des changements. Toute suppression de la confirmation écrite doit passer par une modification réglementaire.",
+      "level": "D",
+      "lead": "SHQ, organismes locateurs et instances réglementaires",
+      "check": "Examiner les motifs de radiation, l’accessibilité des avis et les règlements locaux; analyser les listes qui resteraient artificiellement actives.",
+      "guard": "Préserver classement équitable, actualité des renseignements et possibilité de contester les décisions.",
+      "metric": "Radiations pour défaut de réponse; inscriptions périmées; délai d’actualisation.",
+      "priority": "P3",
+      "effort": "Élevé",
+      "refs": [
+        {
+          "program": "HLM",
+          "section": "6",
+          "page": 14
+        }
+      ],
+      "authority": "SHQ pour le règlement pris sous son habilitation; approbation gouvernementale selon l’article 87 de la Loi sur la SHQ.",
+      "levelName": "Règlement",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": [
+        {
+          "label": "Règlement S-8, r. 1, art. 42–44",
+          "url": "https://www.legisquebec.gouv.qc.ca/fr/document/rc/S-8,%20r.%201#se:42"
+        },
+        {
+          "label": "Loi sur la SHQ, art. 86–87",
+          "url": "https://www.legisquebec.gouv.qc.ca/fr/document/lc/S-8#se:86"
+        }
+      ]
+    },
+    {
+      "id": "DEF-01",
+      "programs": [
+        "DEFICIT-HLM",
+        "HLM"
+      ],
+      "title": "Traiter la continuité HLM dans le dossier existant",
+      "current": "Le programme de continuité renvoie au PSBL pour calcul, versement et reddition; une convention est maintenue.",
+      "hypothesis": "Un traitement séparé pourrait créer des doubles dossiers, mais le cadre n’impose pas un deuxième formulaire autonome.",
+      "proposal": "Documenter une procédure de bascule dans le même dossier d’ensemble immobilier, avec grille d’admissibilité et historique de convention. Vérifier d’abord si cette intégration existe déjà.",
+      "level": "B",
+      "lead": "SHQ, organisme et municipalité signataires",
+      "check": "Lire les conventions et la procédure de bascule; vérifier les restrictions des outils et les responsabilités signataires.",
+      "guard": "Maintenir le fondement de financement, la contribution municipale et les obligations propres à chaque ensemble.",
+      "metric": "Documents redemandés; délai de bascule; ruptures de versements.",
+      "priority": "P1",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "DEFICIT-HLM",
+          "section": "3–6",
+          "page": 5
+        },
+        {
+          "program": "HLM",
+          "section": "5.2",
+          "page": 6
+        }
+      ],
+      "authority": "SHQ et parties concernées selon leurs pouvoirs de signature; les clauses modifiées doivent rester conformes au cadre.",
+      "levelName": "Entente / coordination",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PAOC-01",
+      "programs": [
+        "PAOC"
+      ],
+      "title": "Utiliser les conventions pluriannuelles déjà permises",
+      "current": "Le volet 1 permet des conventions d’au plus trois ans, avec versements et reddition annuels.",
+      "hypothesis": "Si des organismes stables reçoivent encore des conventions annuelles, la répétition pourrait être évitable.",
+      "proposal": "Recenser les conventions annuelles; proposer une durée de trois ans aux organismes répondant à des critères transparents de stabilité, dans les autorisations et budgets disponibles.",
+      "level": "B",
+      "lead": "SHQ et organismes signataires",
+      "check": "Mesurer la proportion de conventions annuelles et les raisons de leur durée.",
+      "guard": "Maintenir conditions annuelles, disponibilité des fonds et contrôles prévus; éviter une présomption de droit au financement.",
+      "metric": "Renouvellements contractuels par organisme; temps de négociation; stabilité des services.",
+      "priority": "P1",
+      "effort": "Faible",
+      "refs": [
+        {
+          "program": "PAOC",
+          "section": "5.3.2",
+          "page": 9
+        },
+        {
+          "program": "PAOC",
+          "section": "5.4.4–5.5",
+          "page": 11
+        }
+      ],
+      "authority": "SHQ et parties concernées selon leurs pouvoirs de signature; les clauses modifiées doivent rester conformes au cadre.",
+      "levelName": "Entente / coordination",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PAOC-02",
+      "programs": [
+        "PAOC"
+      ],
+      "title": "Une reddition structurée par volet",
+      "current": "Le volet 1 module les rapports comptables selon le cumul d’aides; le volet 2 exige un rapport final et des données de résultats.",
+      "hypothesis": "Des pièces pourraient être demandées au-delà du niveau requis ou répétées dans plusieurs gabarits.",
+      "proposal": "Construire une liste de pièces par volet et tranche d’aide; intégrer activités, résultats et pièces comptables dans un seul envoi, sans modifier les seuils ni les échéances.",
+      "level": "A",
+      "lead": "SHQ et responsables de reddition des organismes",
+      "check": "Comparer lettres de demande, conventions et exigences du cadre sur des dossiers récents.",
+      "guard": "Maintenir le rapport professionnel prescrit et les preuves de l’utilisation des fonds.",
+      "metric": "Pièces non prévues demandées; demandes de correction; heures de reddition.",
+      "priority": "P1",
+      "effort": "Faible",
+      "refs": [
+        {
+          "program": "PAOC",
+          "section": "5.5",
+          "page": 12
+        },
+        {
+          "program": "PAOC",
+          "section": "6.5",
+          "page": 16
+        }
+      ],
+      "authority": "Responsable opérationnel habilité, sous contrôle de conformité; vérifier formulaires, directives et délégations avant le pilote.",
+      "levelName": "Pratique / outil",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PPPIC-01",
+      "programs": [
+        "PPPIC"
+      ],
+      "title": "Mobiliser les états financiers déjà transmis",
+      "current": "La section 7.1 prévoit expressément une exception pour les états financiers déjà transmis à la SHQ.",
+      "hypothesis": "Cette exception pourrait être peu visible dans les formulaires ou appliquée de manière variable.",
+      "proposal": "Ajouter une case de repérage des états déjà déposés, avec exercice et identifiant de dépôt; demander seulement les pièces manquantes ou non actuelles.",
+      "level": "A",
+      "lead": "SHQ",
+      "check": "Vérifier le formulaire et la capacité des équipes à retrouver les états.",
+      "guard": "Conserver les deux exercices requis et s’assurer que les documents concernent le bon organisme.",
+      "metric": "États redemandés; temps de préparation; demandes de compléments.",
+      "priority": "P1",
+      "effort": "Faible",
+      "refs": [
+        {
+          "program": "PPPIC",
+          "section": "7.1",
+          "page": 14
+        }
+      ],
+      "authority": "Responsable opérationnel habilité, sous contrôle de conformité; vérifier formulaires, directives et délégations avant le pilote.",
+      "levelName": "Pratique / outil",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PPPIC-02",
+      "programs": [
+        "PPPIC"
+      ],
+      "title": "Coordonner les actes de financement",
+      "current": "Convention d’aide, accord tripartite et convention de prêt remplissent des fonctions distinctes.",
+      "hypothesis": "Des validations ou signatures successives pourraient allonger le délai même lorsque les données sont identiques.",
+      "proposal": "Élaborer un calendrier commun et des annexes de données partagées entre les actes; préparer les documents en parallèle dès que possible, sans supprimer leurs conditions préalables.",
+      "level": "B",
+      "lead": "SHQ, organisme et prêteur agréé",
+      "check": "Mesurer les délais entre actes; identifier les contrôles indépendants du prêteur et les contraintes de signature.",
+      "guard": "Préserver chaque engagement, la décision de crédit et l’autorisation de financement.",
+      "metric": "Délai décision–prêt; versions contradictoires; nombre de reprises contractuelles.",
+      "priority": "P2",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "PPPIC",
+          "section": "8",
+          "page": 15
+        }
+      ],
+      "authority": "SHQ et parties concernées selon leurs pouvoirs de signature; les clauses modifiées doivent rester conformes au cadre.",
+      "levelName": "Entente / coordination",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PAMH-01",
+      "programs": [
+        "PAMH"
+      ],
+      "title": "Coordonner les preuves du réseau de la santé",
+      "current": "Une lettre d’appui du CISSS/CIUSSS et la vérification sur une liste fournie par Santé Québec sont prévues.",
+      "hypothesis": "Le demandeur pourrait devoir relancer plusieurs intervenants pour des renseignements complémentaires.",
+      "proposal": "Utiliser un gabarit d’appui commun et un point de contact identifié; coordonner la lettre et la vérification de liste avec un calendrier convenu.",
+      "level": "A",
+      "lead": "SHQ, Santé Québec, CISSS/CIUSSS",
+      "check": "Vérifier les circuits actuels et la durée de production des lettres.",
+      "guard": "Conserver les deux vérifications tant que le cadre les exige; protéger les renseignements sensibles.",
+      "metric": "Délai d’obtention de l’appui; relances; demandes bloquées pour pièces.",
+      "priority": "P1",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "PAMH",
+          "section": "10.1–10.2",
+          "page": 13
+        }
+      ],
+      "authority": "Responsable opérationnel habilité, sous contrôle de conformité; vérifier formulaires, directives et délégations avant le pilote.",
+      "levelName": "Pratique / outil",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PAMH-02",
+      "programs": [
+        "PAMH"
+      ],
+      "title": "Rapport final unique à usages multiples",
+      "current": "Le paiement dépend notamment de l’inspection finale, du rapport, des factures et de l’engagement; des données de résultats sont également exigées.",
+      "hypothesis": "Des renseignements identiques pourraient être reproduits dans le rapport technique et la reddition.",
+      "proposal": "Faire alimenter le dossier de paiement et la reddition par les mêmes champs validés, avec une liste finale des pièces et signatures requises.",
+      "level": "A",
+      "lead": "SHQ, partenaires et inspecteurs",
+      "check": "Inventorier formulaires, champs et signataires; distinguer les preuves techniques des données de résultats.",
+      "guard": "Maintenir inspection, conformité, factures et engagement de vocation.",
+      "metric": "Champs saisis plusieurs fois; temps entre inspection et paiement; rejets du dossier final.",
+      "priority": "P1",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "PAMH",
+          "section": "10.9",
+          "page": 15
+        },
+        {
+          "program": "PAMH",
+          "section": "11.1",
+          "page": 16
+        }
+      ],
+      "authority": "Responsable opérationnel habilité, sous contrôle de conformité; vérifier formulaires, directives et délégations avant le pilote.",
+      "levelName": "Pratique / outil",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PAD-01",
+      "programs": [
+        "PAD"
+      ],
+      "title": "Orientation initiale entre les parcours",
+      "current": "Les options accompagnée, autodéterminée et rétroactive, ainsi que remplacement et réparation, ont des procédures différentes.",
+      "hypothesis": "Un mauvais choix initial pourrait causer réorientation et collecte de pièces inadéquates.",
+      "proposal": "Créer un questionnaire d’orientation assisté, avec les mêmes explications au téléphone et sur papier, puis une liste de pièces propre à l’option choisie.",
+      "level": "A",
+      "lead": "SHQ, partenaires municipaux et intervenants en adaptation",
+      "check": "Analyser les réorientations et tester les questions avec des personnes handicapées et leurs accompagnateurs.",
+      "guard": "Ne pas transformer l’orientation en refus automatique; préserver les évaluations professionnelles et les priorités prescrites.",
+      "metric": "Réorientations; délai vers le bon parcours; demandes abandonnées.",
+      "priority": "P1",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "PAD",
+          "section": "6.3.3",
+          "page": 14
+        },
+        {
+          "program": "PAD",
+          "section": "6.4.3–6.4.4",
+          "page": 18
+        },
+        {
+          "program": "PAD",
+          "section": "7.4",
+          "page": 21
+        },
+        {
+          "program": "PAD",
+          "section": "8.4",
+          "page": 24
+        }
+      ],
+      "authority": "Responsable opérationnel habilité, sous contrôle de conformité; vérifier formulaires, directives et délégations avant le pilote.",
+      "levelName": "Pratique / outil",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PAD-02",
+      "programs": [
+        "PAD"
+      ],
+      "title": "Coordination des évaluations et du paiement",
+      "current": "L’option accompagnée mobilise ergothérapeute, inspecteur, propriétaire et entrepreneur; le paiement repose sur plusieurs pièces.",
+      "hypothesis": "Les attentes entre professionnels pourraient être plus importantes que le temps d’analyse proprement dit.",
+      "proposal": "Désigner un responsable de coordination et un suivi partagé de l’état des pièces; préparer les rendez-vous et le dossier final en respectant l’ordre clinique et les pouvoirs de chacun.",
+      "level": "B",
+      "lead": "SHQ, partenaire, ergothérapeute et inspecteur",
+      "check": "Mesurer séparément attente, travail actif et reprises; vérifier les ententes de gestion et les accès aux données.",
+      "guard": "Conserver évaluation clinique, certificat préalable hors voie rétroactive et contrôle final.",
+      "metric": "Temps entre évaluations; rendez-vous répétés; délai certificat–paiement.",
+      "priority": "P2",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "PAD",
+          "section": "6.3.3.2–6.3.3.4",
+          "page": 14
+        },
+        {
+          "program": "PAD",
+          "section": "13",
+          "page": 25
+        }
+      ],
+      "authority": "SHQ et parties concernées selon leurs pouvoirs de signature; les clauses modifiées doivent rester conformes au cadre.",
+      "levelName": "Entente / coordination",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PRR-01",
+      "programs": [
+        "PRR"
+      ],
+      "title": "Dossier complet avant l’analyse détaillée",
+      "current": "La demande comporte des pièces techniques et financières; les renseignements manquants peuvent suspendre l’étude.",
+      "hypothesis": "Des compléments successifs pourraient multiplier les échanges entre propriétaire et partenaire.",
+      "proposal": "Prévoir une revue initiale de complétude et un avis regroupé des manquants connus, avec modèles de devis, soumissions et preuves; ne pas interdire les demandes justifiées découvertes ensuite.",
+      "level": "A",
+      "lead": "SHQ et partenaires municipaux",
+      "check": "Relever les motifs des retours et les différences de pratique entre partenaires.",
+      "guard": "Maintenir analyse de l’admissibilité, coûts reconnus et certificat avant travaux.",
+      "metric": "Cycles de compléments; délai dossier complet–certificat; taux d’erreur.",
+      "priority": "P1",
+      "effort": "Faible",
+      "refs": [
+        {
+          "program": "PRR",
+          "section": "4.5",
+          "page": 13
+        },
+        {
+          "program": "PRR",
+          "section": "5",
+          "page": 17
+        }
+      ],
+      "authority": "Responsable opérationnel habilité, sous contrôle de conformité; vérifier formulaires, directives et délégations avant le pilote.",
+      "levelName": "Pratique / outil",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PRR-02",
+      "programs": [
+        "PRR"
+      ],
+      "title": "Étudier un mécanisme de prolongation ciblée",
+      "current": "Le certificat peut être révoqué si les travaux ne sont pas terminés dans les 12 mois.",
+      "hypothesis": "Des dossiers pourraient dépasser ce délai pour des causes externes sans que le projet perde sa pertinence.",
+      "proposal": "Examiner les dossiers concernés avant de proposer, si utile, une prolongation encadrée pour causes documentées, plutôt qu’un retour à une nouvelle demande.",
+      "level": "C",
+      "lead": "SHQ et partenaires municipaux",
+      "check": "Vérifier les pouvoirs déjà exercés et les directives; dénombrer les dépassements et leurs motifs.",
+      "guard": "Limiter durée, motifs et répétitions; vérifier budget, admissibilité et coûts actualisés.",
+      "metric": "Certificats révoqués; nouvelles demandes pour le même projet; délai de réalisation.",
+      "priority": "P3",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "PRR",
+          "section": "4.5.2",
+          "page": 13
+        }
+      ],
+      "authority": "SHQ et ministères concernés pour préparer la modification; circuit d’approbation à confirmer selon l’instrument en vigueur, notamment Conseil du trésor ou gouvernement.",
+      "levelName": "Cadre normatif",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PHT-01",
+      "programs": [
+        "PHTARL"
+      ],
+      "title": "Rapprocher réclamation et rapport annuel",
+      "current": "Le volet municipal exige une réclamation détaillée et une reddition annuelle des activités, revenus et dépenses.",
+      "hypothesis": "Les mêmes interventions pourraient être compilées deux fois.",
+      "proposal": "Définir un registre d’interventions dont les données alimentent réclamation et état annuel, avec distinction des pièces soumises et des pièces conservées.",
+      "level": "A",
+      "lead": "SHQ et municipalités",
+      "check": "Comparer les gabarits et les dates d’extraction; vérifier les droits d’accès aux données des ménages.",
+      "guard": "Maintenir approbation budgétaire, exclusions et audit lorsque le seuil est atteint.",
+      "metric": "Heures de compilation; divergences réclamation–rapport; corrections.",
+      "priority": "P1",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "PHTARL",
+          "section": "5.4.5–5.5",
+          "page": 9
+        }
+      ],
+      "authority": "Responsable opérationnel habilité, sous contrôle de conformité; vérifier formulaires, directives et délégations avant le pilote.",
+      "levelName": "Pratique / outil",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PHT-02",
+      "programs": [
+        "PHTARL"
+      ],
+      "title": "Clarifier le passage hébergement–SARL",
+      "current": "Le volet 1 soutient l’urgence municipale; le volet 2 finance les SARL des offices, avec une entente de participation municipale.",
+      "hypothesis": "Le ménage pourrait raconter à nouveau sa situation lors du passage d’un service à l’autre.",
+      "proposal": "Convenir d’une fiche d’orientation minimale, d’un responsable de suivi et de règles de transmission; conserver des comptes et décisions de financement distincts.",
+      "level": "B",
+      "lead": "Municipalité, office et SHQ",
+      "check": "Observer des parcours avec les intervenants et vérifier les ententes et les conditions de communication des renseignements.",
+      "guard": "Préserver accès à l’urgence, choix du ménage et limites propres à chaque volet.",
+      "metric": "Répétitions du récit; ménages perdus au transfert; délai jusqu’au premier accompagnement.",
+      "priority": "P2",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "PHTARL",
+          "section": "5.3",
+          "page": 7
+        },
+        {
+          "program": "PHTARL",
+          "section": "6.1",
+          "page": 9
+        },
+        {
+          "program": "PHTARL",
+          "section": "6.4.6",
+          "page": 12
+        }
+      ],
+      "authority": "SHQ et parties concernées selon leurs pouvoirs de signature; les clauses modifiées doivent rester conformes au cadre.",
+      "levelName": "Entente / coordination",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PHAQ-01",
+      "programs": [
+        "PHAQ"
+      ],
+      "title": "Une instruction coordonnée avec le PFH",
+      "current": "Le PHAQ comporte sélection puis acceptation finale; le PFH instruit séparément l’aide de financement au projet.",
+      "hypothesis": "Un même projet pourrait subir des demandes répétées de budgets ou d’informations sur le promoteur.",
+      "proposal": "Pour les projets admissibles aux deux programmes, partager une version de travail du montage au sein des équipes habilitées et coordonner les demandes de compléments, tout en gardant les décisions distinctes.",
+      "level": "A",
+      "lead": "SHQ — équipes PHAQ et PFH",
+      "check": "Comparer les pièces et dates de traitement sur des dossiers communs; identifier ce qui est déjà mutualisé.",
+      "guard": "Préserver analyses de viabilité, plafonds, exigences et signatures de chaque programme.",
+      "metric": "Pièces communes redemandées; versions budgétaires; délai jusqu’aux deux décisions.",
+      "priority": "P1",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "PHAQ",
+          "section": "6.3",
+          "page": 22
+        },
+        {
+          "program": "PFH",
+          "section": "5.2–5.3",
+          "page": 13
+        }
+      ],
+      "authority": "Responsable opérationnel habilité, sous contrôle de conformité; vérifier formulaires, directives et délégations avant le pilote.",
+      "levelName": "Pratique / outil",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PHAQ-02",
+      "programs": [
+        "PHAQ"
+      ],
+      "title": "Préparer les preuves de versement dès la convention",
+      "current": "Les jalons et justificatifs de versement varient selon le volet et le mode de réalisation.",
+      "hypothesis": "Les promoteurs pourraient découvrir tardivement une pièce nécessaire au prochain versement.",
+      "proposal": "Annexer un échéancier opérationnel de pièces par jalon, prérempli pour le montage retenu; prévoir un examen de complétude avant chaque réclamation.",
+      "level": "A",
+      "lead": "SHQ, promoteurs et professionnels",
+      "check": "Comparer les motifs de blocage de paiements et les listes déjà remises aux promoteurs.",
+      "guard": "Respecter intégralement les conditions de chaque tableau de versement.",
+      "metric": "Réclamations retournées; délai pièce complète–paiement; besoins de trésorerie non prévus.",
+      "priority": "P1",
+      "effort": "Faible",
+      "refs": [
+        {
+          "program": "PHAQ",
+          "section": "7.4",
+          "page": 28
+        },
+        {
+          "program": "PHAQ",
+          "section": "14.3.4",
+          "page": 52
+        },
+        {
+          "program": "PHAQ",
+          "section": "15.5.3",
+          "page": 70
+        }
+      ],
+      "authority": "Responsable opérationnel habilité, sous contrôle de conformité; vérifier formulaires, directives et délégations avant le pilote.",
+      "levelName": "Pratique / outil",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PFH-01",
+      "programs": [
+        "PFH"
+      ],
+      "title": "Dossier financier prérempli et actualisé",
+      "current": "Le dépôt exige notamment pièces constitutives, résolution, états financiers, prévisions et renseignements sur les prêts.",
+      "hypothesis": "Les promoteurs réguliers pourraient reconstituer des pièces stables à chaque projet.",
+      "proposal": "Préparer le dossier à partir des documents légalement disponibles, marquer leur date et faire confirmer les éléments actuels. Maintenir la transmission des pièces exigées pour chaque demande.",
+      "level": "A",
+      "lead": "SHQ et demandeurs",
+      "check": "Vérifier disponibilité, validité et droit d’accès; distinguer données de l’organisme et données propres au projet.",
+      "guard": "Maintenir décision de crédit, données financières à jour et résolution pertinente.",
+      "metric": "Temps de préparation; documents périmés; demandes de compléments.",
+      "priority": "P1",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "PFH",
+          "section": "5.2",
+          "page": 13
+        },
+        {
+          "program": "PFH",
+          "section": "8.1",
+          "page": 28
+        }
+      ],
+      "authority": "Responsable opérationnel habilité, sous contrôle de conformité; vérifier formulaires, directives et délégations avant le pilote.",
+      "levelName": "Pratique / outil",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PFH-02",
+      "programs": [
+        "PFH"
+      ],
+      "title": "Produire ensemble les redditions PHAQ et PFH",
+      "current": "Les deux cadres imposent des données d’exploitation et de contrôle, selon des critères différents : durée d’engagement ou taux d’aide notamment.",
+      "hypothesis": "Des projets financés par les deux programmes pourraient produire plusieurs états portant sur la même période.",
+      "proposal": "Créer une remise documentaire commune avec une table de correspondance vers chaque obligation; aligner les échéances contractuelles seulement là où les textes le permettent.",
+      "level": "B",
+      "lead": "SHQ et organismes signataires",
+      "check": "Comparer conventions, échéances et seuils; distinguer fusion de l’envoi et suppression d’une obligation.",
+      "guard": "Conserver audits et contrôles renforcés applicables; ne pas appliquer le seuil d’un programme à l’autre.",
+      "metric": "Envois annuels par projet; heures de reddition; obligations omises.",
+      "priority": "P2",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "PFH",
+          "section": "8.1–8.2",
+          "page": 28
+        },
+        {
+          "program": "PHAQ",
+          "section": "11",
+          "page": 37
+        },
+        {
+          "program": "PHAQ",
+          "section": "14.7",
+          "page": 60
+        },
+        {
+          "program": "PHAQ",
+          "section": "15.9",
+          "page": 78
+        }
+      ],
+      "authority": "SHQ et parties concernées selon leurs pouvoirs de signature; les clauses modifiées doivent rester conformes au cadre.",
+      "levelName": "Entente / coordination",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PRHLM-01",
+      "programs": [
+        "PRHLM"
+      ],
+      "title": "Réutiliser les données entre intention et engagement",
+      "current": "Les projets spéciaux et de reconstruction passent par intention puis engagement, via le Centre de services et BSI.",
+      "hypothesis": "La deuxième étape pourrait reproduire des données déjà validées à la première.",
+      "proposal": "Préremplir la demande d’engagement à partir de l’intention, faire apparaître uniquement les changements et joindre les pièces devenues exigibles.",
+      "level": "A",
+      "lead": "SHQ, Centres de services et responsable de BSI",
+      "check": "Vérifier les fonctions déjà offertes par BSI; comparer les champs des deux étapes.",
+      "guard": "Maintenir les deux décisions, l’analyse des écarts et les plans, devis et résultats d’appels d’offres requis.",
+      "metric": "Champs ressaisis; écarts inexpliqués; délai intention–engagement hors attente de chantier.",
+      "priority": "P1",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "PRHLM",
+          "section": "4.4.2",
+          "page": 18
+        },
+        {
+          "program": "PRHLM",
+          "section": "5.3",
+          "page": 27
+        },
+        {
+          "program": "PRHLM",
+          "section": "6.4.1",
+          "page": 42
+        }
+      ],
+      "authority": "Responsable opérationnel habilité, sous contrôle de conformité; vérifier formulaires, directives et délégations avant le pilote.",
+      "levelName": "Pratique / outil",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PRHLM-02",
+      "programs": [
+        "PRHLM"
+      ],
+      "title": "Examiner un circuit d’autorisation des changements gradué",
+      "current": "Le cadre prévoit des autorisations révisées pour des dépassements et encadre les modifications en chantier.",
+      "hypothesis": "Des changements de portée très différente pourraient mobiliser un circuit identique.",
+      "proposal": "Documenter les circuits actuels puis étudier des seuils transparents selon coût, sécurité et portée; distinguer délégation interne d’une décision et suppression d’une autorisation requise.",
+      "level": "C",
+      "lead": "SHQ, responsables de délégation et gestionnaires de travaux",
+      "check": "Lire délégations, directives et conventions; chiffrer le volume des changements par type.",
+      "guard": "Conserver traçabilité, limites budgétaires et autorisation des changements substantiels; ne pas modifier les marchés par ce seul circuit.",
+      "metric": "Temps d’autorisation; arrêts de chantier; dépassements cumulés; non-conformités.",
+      "priority": "P3",
+      "effort": "Élevé",
+      "refs": [
+        {
+          "program": "PRHLM",
+          "section": "4.4.2.4",
+          "page": 20
+        },
+        {
+          "program": "PRHLM",
+          "section": "5.3.4",
+          "page": 30
+        },
+        {
+          "program": "PRHLM",
+          "section": "8",
+          "page": 51
+        }
+      ],
+      "authority": "SHQ et ministères concernés pour préparer la modification; circuit d’approbation à confirmer selon l’instrument en vigueur, notamment Conseil du trésor ou gouvernement.",
+      "levelName": "Cadre normatif",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "KAT-01",
+      "programs": [
+        "KATIVIK"
+      ],
+      "title": "Demande annuelle d’occupation préremplie",
+      "current": "La demande relative aux taxes et à l’assurance doit être soumise avec justificatifs dans les 90 jours de la réception du compte ou renouvellement.",
+      "hypothesis": "Le calendrier et la préparation pourraient provoquer des retards évitables.",
+      "proposal": "Proposer rappels, formulaire prérempli et accompagnement local; maintenir la demande et les justificatifs, avec un mode accessible sans connexion continue.",
+      "level": "A",
+      "lead": "SHQ et gestionnaire local mandaté",
+      "check": "Vérifier les modalités de soutien, les langues et les retards selon les villages.",
+      "guard": "Conserver actualité des montants, conditions d’assurance et destinataire de paiement approprié.",
+      "metric": "Dépôts tardifs; temps de préparation; erreurs de montant ou de destinataire.",
+      "priority": "P1",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "KATIVIK",
+          "section": "8.3–8.4",
+          "page": 17
+        }
+      ],
+      "authority": "Responsable opérationnel habilité, sous contrôle de conformité; vérifier formulaires, directives et délégations avant le pilote.",
+      "levelName": "Pratique / outil",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "KAT-02",
+      "programs": [
+        "KATIVIK"
+      ],
+      "title": "Organiser une préparation intégrée avant la saison de travaux",
+      "current": "Le projet associe formation, accord sur le site, capacité financière, demande, engagement et versements sur preuves.",
+      "hypothesis": "Des démarches dispersées pourraient faire manquer une fenêtre logistique de réalisation.",
+      "proposal": "Convenir d’un calendrier de préparation avec les acteurs locaux, d’une liste de pièces commune et d’un accompagnateur de dossier, sans modifier les décisions requises.",
+      "level": "B",
+      "lead": "SHQ, villages nordiques, corporations foncières et gestionnaire",
+      "check": "Vérifier délais de transport, formation et obtention des accords; construire le calendrier avec les communautés.",
+      "guard": "Maintenir droits fonciers, sécurité du terrain, capacité financière et engagements; adapter l’accès linguistique.",
+      "metric": "Dossiers prêts avant transport; reports de saison; reprises de pièces.",
+      "priority": "P2",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "KATIVIK",
+          "section": "4.6–4.8",
+          "page": 9
+        },
+        {
+          "program": "KATIVIK",
+          "section": "5.2",
+          "page": 10
+        },
+        {
+          "program": "KATIVIK",
+          "section": "6.4",
+          "page": 13
+        },
+        {
+          "program": "KATIVIK",
+          "section": "11",
+          "page": 19
+        }
+      ],
+      "authority": "SHQ et parties concernées selon leurs pouvoirs de signature; les clauses modifiées doivent rester conformes au cadre.",
+      "levelName": "Entente / coordination",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PSLQ-01",
+      "programs": [
+        "PSLQ",
+        "HLM"
+      ],
+      "title": "Un accueil coordonné, des décisions propres à chaque volet",
+      "current": "Le PSLQ régulier renvoie au règlement d’attribution; les besoins exceptionnels et le préjumelage ont des dispositions particulières.",
+      "hypothesis": "Un accueil organisé par programme pourrait demander au ménage de choisir seul la bonne porte.",
+      "proposal": "Dans un même organisme gestionnaire, utiliser un entretien d’accueil et un dossier de pièces communs, puis orienter vers les volets possibles avec décisions et critères distincts.",
+      "level": "A",
+      "lead": "Organismes gestionnaires et SHQ",
+      "check": "Vérifier les pratiques déjà communes, les mandats et les règles de communication des renseignements.",
+      "guard": "Préserver priorités, classement et particularités des besoins exceptionnels; aucun refus automatisé par simple orientation.",
+      "metric": "Demandes répétées; réorientations; délai vers une évaluation adaptée.",
+      "priority": "P1",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "PSLQ",
+          "section": "4.1–4.3",
+          "page": 10
+        },
+        {
+          "program": "HLM",
+          "section": "6",
+          "page": 14
+        }
+      ],
+      "authority": "Responsable opérationnel habilité, sous contrôle de conformité; vérifier formulaires, directives et délégations avant le pilote.",
+      "levelName": "Pratique / outil",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "PSLQ-02",
+      "programs": [
+        "PSLQ"
+      ],
+      "title": "Rapprocher bail, entente et versement",
+      "current": "Une entente avec le locateur encadre les paiements; la gestion et la reddition font également l’objet d’exigences.",
+      "hypothesis": "Des différences entre les données du bail, de l’entente et du versement pourraient nécessiter des corrections manuelles.",
+      "proposal": "Utiliser une fiche logement–bail versionnée pour préparer l’entente, le calcul et le suivi mensuel; organiser les validations de changement et d’échéance.",
+      "level": "B",
+      "lead": "Organisme gestionnaire, locateur et SHQ",
+      "check": "Examiner les ententes, les outils et les causes des corrections de paiement.",
+      "guard": "Conserver calcul réglementaire, signatures requises, contribution municipale et approbation SHQ des exceptions.",
+      "metric": "Écarts bail–paiement; corrections; délais de mise en paiement.",
+      "priority": "P2",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "PSLQ",
+          "section": "5.3–5.8",
+          "page": 12
+        },
+        {
+          "program": "PSLQ",
+          "section": "6–7",
+          "page": 13
+        }
+      ],
+      "authority": "SHQ et parties concernées selon leurs pouvoirs de signature; les clauses modifiées doivent rester conformes au cadre.",
+      "levelName": "Entente / coordination",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "TRANS-01",
+      "programs": [
+        "PHAQ",
+        "PFH",
+        "PPPIC",
+        "PRHLM"
+      ],
+      "title": "Dictionnaire commun des pièces et données",
+      "current": "Plusieurs cadres exigent des documents financiers ou techniques; leur finalité n’est pas toujours identique.",
+      "hypothesis": "Des formats différents pourraient masquer des données communes et imposer des ressaisies.",
+      "proposal": "Définir noms, dates de validité, périmètre et propriétaire de chaque donnée; commencer par budget de projet, états financiers et identification des immeubles.",
+      "level": "A",
+      "lead": "SHQ — directions de programmes et gestion de l’information",
+      "check": "Comparer formulaires réels et usages; ne pas déduire un doublon du seul nom d’une pièce.",
+      "guard": "Conserver les preuves distinctes lorsqu’elles répondent à des risques ou dates différents.",
+      "metric": "Champs harmonisés; ressaisies; erreurs de version.",
+      "priority": "P1",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "PFH",
+          "section": "5.2",
+          "page": 13
+        },
+        {
+          "program": "PPPIC",
+          "section": "7.1",
+          "page": 14
+        },
+        {
+          "program": "PRHLM",
+          "section": "5.3.3",
+          "page": 29
+        }
+      ],
+      "authority": "Responsable opérationnel habilité, sous contrôle de conformité; vérifier formulaires, directives et délégations avant le pilote.",
+      "levelName": "Pratique / outil",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "TRANS-02",
+      "programs": [
+        "PAD",
+        "PRR",
+        "PAMH"
+      ],
+      "title": "Un protocole commun des compléments",
+      "current": "Les trois programmes comportent demande, vérification, autorisation et preuves de réalisation, avec des règles différentes.",
+      "hypothesis": "Les demandes de compléments pourraient être fragmentées selon l’intervenant.",
+      "proposal": "Tester un avis structuré : pièce manquante, fondement, responsable, moyen accessible de réponse et état d’avancement. Regrouper les manquants connus à chaque phase.",
+      "level": "A",
+      "lead": "SHQ et partenaires",
+      "check": "Échantillonner les correspondances et distinguer erreurs d’entrée des découvertes techniques ultérieures.",
+      "guard": "Préserver demandes supplémentaires justifiées et accessibilité de l’accompagnement.",
+      "metric": "Nombre d’échanges par dossier; temps en attente de pièces; abandons.",
+      "priority": "P1",
+      "effort": "Faible",
+      "refs": [
+        {
+          "program": "PAD",
+          "section": "6.3.3",
+          "page": 14
+        },
+        {
+          "program": "PRR",
+          "section": "4.5",
+          "page": 13
+        },
+        {
+          "program": "PAMH",
+          "section": "10.10",
+          "page": 15
+        }
+      ],
+      "authority": "Responsable opérationnel habilité, sous contrôle de conformité; vérifier formulaires, directives et délégations avant le pilote.",
+      "levelName": "Pratique / outil",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "TRANS-03",
+      "programs": [
+        "PAOC",
+        "PHTARL",
+        "HLM",
+        "PFH"
+      ],
+      "title": "Calendrier de reddition coordonné",
+      "current": "Reddition et audit sont prévus selon des périodes, seuils et objets propres aux programmes.",
+      "hypothesis": "Un organisme cumulant plusieurs aides pourrait subir des échéances et extractions difficiles à coordonner.",
+      "proposal": "Inventorier les obligations par organisme et proposer un calendrier commun de préparation. Harmoniser seulement les dates laissées aux conventions; proposer séparément les modifications des dates prescrites.",
+      "level": "B",
+      "lead": "SHQ et organismes signataires",
+      "check": "Reconstituer une année réelle de demandes de rapports pour des organismes multi-programmes.",
+      "guard": "Maintenir chaque seuil d’audit, donnée et date imposée tant qu’elle n’est pas modifiée.",
+      "metric": "Échéances simultanées; heures de préparation; retards de rapports.",
+      "priority": "P2",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "PAOC",
+          "section": "5.5",
+          "page": 12
+        },
+        {
+          "program": "PHTARL",
+          "section": "6.5",
+          "page": 12
+        },
+        {
+          "program": "HLM",
+          "section": "7",
+          "page": 15
+        },
+        {
+          "program": "PFH",
+          "section": "8.2",
+          "page": 29
+        }
+      ],
+      "authority": "SHQ et parties concernées selon leurs pouvoirs de signature; les clauses modifiées doivent rester conformes au cadre.",
+      "levelName": "Entente / coordination",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "TRANS-04",
+      "programs": [
+        "PHAQ",
+        "PFH",
+        "PRHLM",
+        "PAD",
+        "PRR"
+      ],
+      "title": "Tableau de bord des attentes et décisions",
+      "current": "Les cadres décrivent des jalons; ils ne renseignent pas sur les délais réellement subis à chaque transfert.",
+      "hypothesis": "Le principal frein pourrait venir de la capacité, du financement, des pièces ou des tiers plutôt que du nombre de normes.",
+      "proposal": "Enregistrer les dates de dépôt, complétude, demandes de pièces, décisions et paiements, avec motif d’attente et acteur responsable; exploiter des données agrégées.",
+      "level": "A",
+      "lead": "SHQ et partenaires",
+      "check": "Vérifier la disponibilité des horodatages et uniformiser les définitions des délais.",
+      "guard": "Ne pas confondre attente du demandeur, file administrative, budget et délai de chantier.",
+      "metric": "Médiane et dispersion des délais; reprises; temps actif et temps d’attente.",
+      "priority": "P1",
+      "effort": "Modéré",
+      "refs": [
+        {
+          "program": "PHAQ",
+          "section": "6.3",
+          "page": 22
+        },
+        {
+          "program": "PFH",
+          "section": "5.3",
+          "page": 14
+        },
+        {
+          "program": "PRHLM",
+          "section": "5.3",
+          "page": 27
+        },
+        {
+          "program": "PAD",
+          "section": "6.3.3",
+          "page": 14
+        },
+        {
+          "program": "PRR",
+          "section": "4.5",
+          "page": 13
+        }
+      ],
+      "authority": "Responsable opérationnel habilité, sous contrôle de conformité; vérifier formulaires, directives et délégations avant le pilote.",
+      "levelName": "Pratique / outil",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    },
+    {
+      "id": "TRANS-05",
+      "programs": [
+        "PAL",
+        "PSLQ",
+        "HLM",
+        "PAD",
+        "PRR",
+        "PAMH",
+        "PAOC",
+        "PHTARL",
+        "PPPIC",
+        "PFH",
+        "PHAQ",
+        "PRHLM",
+        "KATIVIK",
+        "DEFICIT-HLM"
+      ],
+      "title": "Rationaliser par familles avant de fusionner",
+      "current": "Les programmes financent des objets différents : aide au ménage, déficit, travaux, prêts ou services; certains cadres se renvoient déjà des modalités.",
+      "hypothesis": "Réduire le nombre de programmes pourrait déplacer la complexité dans des volets sans réduire la charge réelle.",
+      "proposal": "Comparer les formulaires, données et contrôles au sein de chaque famille; tester leur mutualisation avant d’envisager des regroupements normatifs ou budgétaires.",
+      "level": "C",
+      "lead": "SHQ, ministères concernés et autorités d’approbation",
+      "check": "Établir une analyse d’impacts : clientèle, budgets, ententes fédérales, partenaires, droits et transition.",
+      "guard": "Conserver finalités, accès des clientèles et responsabilités financières; aucune fusion recommandée sans cette analyse.",
+      "metric": "Étapes réellement supprimées; charge globale; pertes d’accès; coût de transition.",
+      "priority": "P3",
+      "effort": "Élevé",
+      "refs": [
+        {
+          "program": "DEFICIT-HLM",
+          "section": "4.4 et 6",
+          "page": 6
+        },
+        {
+          "program": "PFH",
+          "section": "3 et 6.1",
+          "page": 9
+        },
+        {
+          "program": "PSLQ",
+          "section": "4",
+          "page": 10
+        },
+        {
+          "program": "PAOC",
+          "section": "5–6",
+          "page": 6
+        }
+      ],
+      "authority": "SHQ et ministères concernés pour préparer la modification; circuit d’approbation à confirmer selon l’instrument en vigueur, notamment Conseil du trésor ou gouvernement.",
+      "levelName": "Cadre normatif",
+      "evidence": "Exigence documentée; effet opérationnel non mesuré.",
+      "legal": []
+    }
+  ],
+  "targets": [
+    {
+      "title": "Travaux résidentiels — coordination proposée",
+      "programs": "PAD · PRR · PAMH",
+      "ids": "PAD-01, PAD-02, PRR-01, PAMH-02, TRANS-02",
+      "note": "Scénario de coordination pour les travaux à autoriser; la voie rétroactive PAD reste distincte. Chaque programme conserve ses conditions, professionnels, délais et pièces. Aucun certificat ni contrôle technique n’est supprimé.",
+      "actors": [
+        "Demandeur / accompagnateur",
+        "Gestionnaire habilité",
+        "Professionnels / entrepreneur"
+      ],
+      "phases": [
+        "Orienter",
+        "Compléter",
+        "Évaluer / autoriser",
+        "Réaliser",
+        "Vérifier / payer"
+      ],
+      "nodes": [
+        [
+          0,
+          0,
+          "Décrire le besoin une fois"
+        ],
+        [
+          1,
+          0,
+          "Orienter vers le bon parcours"
+        ],
+        [
+          1,
+          1,
+          "Regrouper les pièces manquantes connues"
+        ],
+        [
+          0,
+          1,
+          "Compléter avec accompagnement"
+        ],
+        [
+          2,
+          2,
+          "Effectuer les évaluations requises"
+        ],
+        [
+          1,
+          2,
+          "Décider et délivrer le certificat"
+        ],
+        [
+          2,
+          3,
+          "Réaliser les travaux autorisés"
+        ],
+        [
+          2,
+          4,
+          "Produire le contrôle final requis"
+        ],
+        [
+          1,
+          4,
+          "Vérifier les preuves et payer"
+        ]
+      ]
+    },
+    {
+      "title": "PHAQ + PFH — instruction coordonnée proposée",
+      "programs": "Projets admissibles aux deux programmes",
+      "ids": "PHAQ-01, PFH-01, PFH-02, TRANS-01",
+      "note": "Un montage de référence alimente les deux analyses. Les critères, décisions, conventions et conditions de financement de chaque programme subsistent. La décision de crédit du prêteur reste distincte.",
+      "actors": [
+        "Promoteur / organisme",
+        "Coordination SHQ",
+        "Équipes PHAQ et PFH / prêteur"
+      ],
+      "phases": [
+        "Préparer",
+        "Compléter",
+        "Analyser",
+        "Décider / conclure",
+        "Suivre"
+      ],
+      "nodes": [
+        [
+          0,
+          0,
+          "Préparer le montage de référence"
+        ],
+        [
+          1,
+          1,
+          "Coordonner les demandes de pièces"
+        ],
+        [
+          0,
+          1,
+          "Confirmer les données à jour"
+        ],
+        [
+          2,
+          2,
+          "Mener les analyses propres à chaque aide"
+        ],
+        [
+          2,
+          3,
+          "Rendre les décisions et conclure les actes"
+        ],
+        [
+          1,
+          4,
+          "Organiser une remise commune de reddition"
+        ],
+        [
+          2,
+          4,
+          "Vérifier les obligations de chaque programme"
+        ]
+      ]
+    },
+    {
+      "title": "Reddition d’un organisme — préparation commune proposée",
+      "programs": "Organismes recevant plusieurs aides",
+      "ids": "HLM-01, PAOC-02, PHT-01, PFH-02, TRANS-03",
+      "note": "Le scénario harmonise la préparation et les envois lorsque permis. Les pièces par ensemble, seuils d’audit, échéances obligatoires et décisions de paiement restent propres aux programmes. Les conventions doivent être examinées avant application.",
+      "actors": [
+        "Organisme / municipalité",
+        "Professionnel comptable, si requis",
+        "SHQ"
+      ],
+      "phases": [
+        "Planifier",
+        "Préparer",
+        "Vérifier",
+        "Transmettre",
+        "Décider"
+      ],
+      "nodes": [
+        [
+          2,
+          0,
+          "Établir la liste des obligations applicables"
+        ],
+        [
+          0,
+          1,
+          "Produire les données de référence"
+        ],
+        [
+          1,
+          2,
+          "Réaliser la mission comptable prescrite"
+        ],
+        [
+          0,
+          3,
+          "Transmettre l’envoi structuré"
+        ],
+        [
+          2,
+          3,
+          "Contrôler chaque obligation"
+        ],
+        [
+          2,
+          4,
+          "Notifier écarts et décisions de paiement"
+        ]
+      ]
+    }
+  ]
+}
