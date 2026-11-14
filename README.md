@@ -61,3 +61,7 @@ L'approche s'inspire de Clark, A. M. (2013), « What are the components of compl
 Document de travail personnel : analyse préliminaire, non validée. La liste des acteurs principaux, le parcours du projet privé, les liens et les leviers sont des propositions à valider. Il ne représente la position d'aucun ministère ni du gouvernement du Québec.
 
 La source des données est le classeur `Ecosysteme_Habitation_fonctions.xlsx`. Après une modification, régénérer la page avec `python outils/generer_ecosysteme.py` (requiert `openpyxl`).
+
+## Navigation entre les pages
+
+Une même barre en haut de chaque page mène à l'infographie, aux parties prenantes, à l'écosystème et à la révision des programmes. Pour l'ajouter à une nouvelle page statique ou la modifier : `python outils/ajouter_nav.py` (le script explique où reporter la barre dans les pages générées).
