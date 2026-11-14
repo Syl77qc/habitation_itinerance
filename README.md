@@ -43,3 +43,21 @@ Cartographies de processus des 14 programmes actifs de la SHQ (qui agit, à quel
 Les liens « PDF » renvoient aux documents officiels de la SHQ; la version consultée le 7 novembre 2026 et son empreinte figurent dans `sources-et-perimetre-shq.json`. La SHQ peut avoir remplacé un document depuis.
 
 Document de travail personnel : analyse documentaire préliminaire, non validée. Ce n'est pas une publication de la SHQ et il ne représente la position d'aucun ministère ni du gouvernement du Québec.
+
+## Écosystème de l'Habitation
+
+Page : [`ecosysteme-habitation.html`](https://syl77qc.github.io/habitation_itinerance/ecosysteme-habitation.html) · retour à l'[infographie](https://syl77qc.github.io/habitation_itinerance/).
+
+Comment fonctionne le système qui produit, finance, détient et règle le logement au Québec. On part de huit fonctions (orienter et régler, financer, rendre le sol disponible, bâtir, détenir et exploiter, habiter, accompagner et protéger, savoir); chacune tient une condition sans laquelle un logement n'existe pas, ou ne reste pas accessible. Six vues :
+
+- **Vue d'ensemble** : les fonctions et les liens entre elles, dont les retours qui font évoluer le système. Chaque lien renvoie à une étape de parcours ou à une source; un lien pâle reste à documenter.
+- **Carte par fonctions** : les 91 acteurs principaux de chaque fonction, et ceux qui manquent à la cartographie des parties prenantes.
+- **Par fonction** : pour chaque fonction, qui tient les portes et le chemin critique dans deux projets, avec un levier de déblocage par étape (existant ou piste).
+- **Parcours d'un projet** : un projet d'OSBL financé par le PHAQ et un immeuble locatif privé neuf, étape par étape, avec qui décide, qui fixe les conditions, qui donne un avis et qui livre.
+- **Familles × fonctions** et **organisations** : les 238 organisations de la cartographie des parties prenantes, reclassées par fonction.
+
+L'approche s'inspire de Clark, A. M. (2013), « What are the components of complex interventions in healthcare? », *Social Science & Medicine*, 93, 185-193, et de Böhm, K. et collab. (2013), « Five types of OECD healthcare systems », *Health Policy*, 113, 258-269. Sources : Stratégie québécoise en habitation (2024), cadre normatif du PHAQ (version du 7 mai 2025), documentation de la SCHL (APH Sélect), pages publiques des municipalités.
+
+Document de travail personnel : analyse préliminaire, non validée. La liste des acteurs principaux, le parcours du projet privé, les liens et les leviers sont des propositions à valider. Il ne représente la position d'aucun ministère ni du gouvernement du Québec.
+
+La source des données est le classeur `Ecosysteme_Habitation_fonctions.xlsx`. Après une modification, régénérer la page avec `python outils/generer_ecosysteme.py` (requiert `openpyxl`).
