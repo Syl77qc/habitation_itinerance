@@ -54,7 +54,7 @@ Comment fonctionne le système qui produit, finance, détient et règle le logem
 - **Carte par fonctions** : les 91 acteurs principaux de chaque fonction, et ceux qui manquent à la cartographie des parties prenantes.
 - **Par fonction** : pour chaque fonction, qui tient les portes et le chemin critique dans deux projets, avec un levier de déblocage par étape (existant ou piste).
 - **Parcours d'un projet** : un projet d'OSBL financé par le PHAQ et un immeuble locatif privé neuf, étape par étape, avec qui décide, qui fixe les conditions, qui donne un avis et qui livre.
-- **Familles × fonctions** et **organisations** : les 238 organisations de la cartographie des parties prenantes, reclassées par fonction.
+- **Familles × fonctions** et **organisations** : les 298 organisations de la cartographie des parties prenantes, reclassées par fonction.
 
 L'approche s'inspire de Clark, A. M. (2013), « What are the components of complex interventions in healthcare? », *Social Science & Medicine*, 93, 185-193, et de Böhm, K. et collab. (2013), « Five types of OECD healthcare systems », *Health Policy*, 113, 258-269. Sources : Stratégie québécoise en habitation (2024), cadre normatif du PHAQ (version du 7 mai 2025), documentation de la SCHL (APH Sélect), pages publiques des municipalités.
 
