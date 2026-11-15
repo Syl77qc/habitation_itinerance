@@ -51,7 +51,7 @@ Page : [`ecosysteme-habitation.html`](https://syl77qc.github.io/habitation_itine
 Comment fonctionne le système qui produit, finance, détient et règle le logement au Québec. On part de huit fonctions (orienter et régler, financer, rendre le sol disponible, bâtir, détenir et exploiter, habiter, accompagner et protéger, savoir); chacune tient une condition sans laquelle un logement n'existe pas, ou ne reste pas accessible. Six vues :
 
 - **Vue d'ensemble** : les fonctions et les liens entre elles, dont les retours qui font évoluer le système. Chaque lien renvoie à une étape de parcours ou à une source; un lien pâle reste à documenter.
-- **Carte par fonctions** : les 91 acteurs principaux de chaque fonction, et ceux qui manquent à la cartographie des parties prenantes.
+- **Carte par fonctions** : les 92 acteurs principaux de chaque fonction, et ceux qui manquent à la cartographie des parties prenantes.
 - **Par fonction** : pour chaque fonction, qui tient les portes et le chemin critique dans deux projets, avec un levier de déblocage par étape (existant ou piste).
 - **Parcours d'un projet** : un projet d'OSBL financé par le PHAQ et un immeuble locatif privé neuf, étape par étape, avec qui décide, qui fixe les conditions, qui donne un avis et qui livre.
 - **Familles × fonctions** et **organisations** : les 298 organisations de la cartographie des parties prenantes, reclassées par fonction.
