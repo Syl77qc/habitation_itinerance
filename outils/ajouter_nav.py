@@ -3,7 +3,9 @@
 
 Usage, à la racine du dépôt : python outils/ajouter_nav.py
 
-Pages statiques traitées ici : index.html et revision-programmes/*.html.
+Pages statiques traitées ici : index.html, tableau-de-bord.html et revision-programmes/*.html.
+(tableau-de-bord.html est la version publique du tableau de bord, produite par le dossier
+« Tableau de bord » : copier Tableau_de_bord_habitation_public.html sous ce nom, puis relancer ce script.)
 Les pages générées ont la barre dans leur source :
 - parties-prenantes.html : outils/gabarit_parties_prenantes.html
 - ecosysteme-habitation.html : outils/generer_ecosysteme.py
@@ -23,6 +25,7 @@ PAGES = [
     ("parties", "Parties prenantes", BASE + "parties-prenantes.html"),
     ("ecosysteme", "Écosystème", BASE + "ecosysteme-habitation.html"),
     ("revision", "Révision des programmes", BASE + "revision-programmes/index-programmes-shq.html"),
+    ("tableau", "Tableau de bord", BASE + "tableau-de-bord.html"),
 ]
 
 STYLE = (
@@ -64,7 +67,7 @@ def poser(texte, courant):
 
 def main():
     racine = Path(__file__).resolve().parent.parent
-    cibles = [(racine / "index.html", "infographie")]
+    cibles = [(racine / "index.html", "infographie"), (racine / "tableau-de-bord.html", "tableau")]
     cibles += [(p, "revision") for p in sorted((racine / "revision-programmes").glob("*.html"))]
     for chemin, courant in cibles:
         avant = chemin.read_text(encoding="utf-8")

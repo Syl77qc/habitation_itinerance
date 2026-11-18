@@ -24,6 +24,16 @@ Ouvrir `index.html` dans un navigateur. Aucune dépendance locale (police Google
 
 Sources : études publiées (citées dans chaque fiche) et données publiques (SCHL, ISQ, MSSS, Statistique Canada, SHQ, APCIQ).
 
+## Tableau de bord
+
+Page : [`tableau-de-bord.html`](https://syl77qc.github.io/habitation_itinerance/tableau-de-bord.html) · retour à l'[infographie](https://syl77qc.github.io/habitation_itinerance/).
+
+Données publiques sur l'habitation et l'itinérance au Québec, par RMR et par région administrative : marché locatif, construction, régions, besoins et itinérance, tendances et corrélations, contexte. L'onglet **Vue 360** présente les 12 indicateurs clés dans l'ordre de la chaîne des causes et des séries téléchargées automatiquement (Statistique Canada, Banque du Canada, SCHL, recensement de 2021). L'onglet **Les 120 indicateurs** donne, pour chaque variable ou ratio, sa dernière valeur, sa source et une fiche (définition, lecture, appui dans la littérature); les données non publiques y sont indiquées « À obtenir ».
+
+Cette page est la version publique du tableau de bord : elle ne contient pas l'onglet de suivi des engagements de la version de travail. Elle est produite par `maj_donnees.py` (fichier `Tableau_de_bord_habitation_public.html`), puis copiée ici sous le nom `tableau-de-bord.html`; relancer ensuite `python outils/ajouter_nav.py` pour remettre la barre de navigation.
+
+Document de travail personnel. Il ne représente la position d'aucun ministère ni du gouvernement du Québec.
+
 ## Cartographie des parties prenantes
 
 Page : [`parties-prenantes.html`](https://syl77qc.github.io/habitation_itinerance/parties-prenantes.html) · retour à l'[infographie](https://syl77qc.github.io/habitation_itinerance/).
